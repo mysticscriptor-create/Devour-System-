@@ -1,0 +1,229 @@
+/* ╔══════════════════════════════════════════════════════════════════════╗
+   ║  DEVOUR SYSTEM — Market Module                                      ║
+   ║  _MKT_market.css  —  Faction slabs, cards, controls, notices        ║
+   ║  Load order: 4th (depends on _MKT_components.css)                   ║
+   ╚══════════════════════════════════════════════════════════════════════╝ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MARKET INNER TABS — Faction Slab Style
+   ═══════════════════════════════════════════════════════════════════════ */
+.market-tabs {
+  display:          flex;
+  gap:              2px;
+  padding:          8px 12px 0;
+  border-bottom:    1px solid var(--dv-border2);
+  background:       var(--dv-surface);
+  overflow-x:       auto;
+  scrollbar-width:  none;
+  scroll-behavior:  smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.market-tabs::-webkit-scrollbar { display: none; }
+
+.market-tab {
+  font-family:    var(--dv-font-head);
+  font-size:      9px;
+  font-weight:    600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding:        5px 12px 6px;
+  border:         1px solid var(--dv-border);
+  border-bottom:  none;
+  border-radius:  2px 2px 0 0;
+  background:     linear-gradient(180deg, #0d1018 0%, #0a0c12 100%);
+  color:          var(--dv-muted);
+  cursor:         pointer;
+  white-space:    nowrap;
+  transition:     all var(--dv-transition);
+  flex-shrink:    0;
+  position:       relative;
+}
+.market-tab:hover {
+  color:      var(--dv-text2);
+  background: linear-gradient(180deg, #111620 0%, #0d1018 100%);
+}
+
+/* Active faction tabs — each with distinct identity */
+.market-tab.tab-active {
+  position:     relative;
+  bottom:       -1px;
+  border-bottom-color: var(--dv-bg);
+}
+
+/* LEGAL — cold authority blue */
+.market-tab.tab-active.tab-legal {
+  color:        #5aaeff;
+  background:   linear-gradient(180deg, #0a1422 0%, var(--dv-bg) 100%);
+  border-color: rgba(90,174,255,0.25);
+  border-bottom-color: var(--dv-bg);
+  text-shadow:  0 0 12px rgba(90,174,255,0.7);
+  box-shadow:   0 -1px 10px rgba(90,174,255,0.12);
+}
+/* GRAY — faded slate */
+.market-tab.tab-active.tab-gray {
+  color:        #a0aabc;
+  background:   linear-gradient(180deg, #121418 0%, var(--dv-bg) 100%);
+  border-color: rgba(160,170,188,0.2);
+  border-bottom-color: var(--dv-bg);
+  text-shadow:  0 0 10px rgba(160,170,188,0.5);
+  box-shadow:   0 -1px 8px rgba(160,170,188,0.08);
+}
+/* BLACK — ember orange */
+.market-tab.tab-active.tab-black {
+  color:        #e08020;
+  background:   linear-gradient(180deg, #180e04 0%, var(--dv-bg) 100%);
+  border-color: rgba(224,128,32,0.25);
+  border-bottom-color: var(--dv-bg);
+  text-shadow:  0 0 12px rgba(224,128,32,0.7);
+  box-shadow:   0 -1px 10px rgba(224,128,32,0.12);
+}
+/* COMMISSION — contract amber */
+.market-tab.tab-active.tab-commission {
+  color:        var(--dv-amber);
+  background:   linear-gradient(180deg, #140f02 0%, var(--dv-bg) 100%);
+  border-color: var(--dv-amber-dim);
+  border-bottom-color: var(--dv-bg);
+  text-shadow:  0 0 12px rgba(212,168,67,0.7);
+  box-shadow:   0 -1px 10px var(--dv-amber-glow);
+}
+/* REGIONAL — teal cartography */
+.market-tab.tab-active.tab-regional {
+  color:        var(--dv-teal);
+  background:   linear-gradient(180deg, #031410 0%, var(--dv-bg) 100%);
+  border-color: rgba(0,200,170,0.2);
+  border-bottom-color: var(--dv-bg);
+  text-shadow:  0 0 12px rgba(0,200,170,0.6);
+  box-shadow:   0 -1px 10px var(--dv-teal-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CONTROLS BAR
+   ═══════════════════════════════════════════════════════════════════════ */
+.ctrl-wrap {
+  padding:       6px 10px 5px;
+  border-bottom: 1px solid var(--dv-border);
+  background:    linear-gradient(180deg, var(--dv-surface) 0%, var(--dv-bg) 100%);
+}
+.ctrl-row {
+  display:     flex;
+  flex-wrap:   wrap;
+  align-items: center;
+  gap:         4px;
+  margin-bottom: 4px;
+}
+.ctrl-row:last-child { margin-bottom: 0; }
+.ctrl-dropdowns {
+  display:        flex;
+  flex-wrap:      wrap;
+  gap:            3px;
+  align-items:    center;
+  flex-direction: row;
+}
+.ctrl-search-row { gap: 4px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MARKET PANEL
+   ═══════════════════════════════════════════════════════════════════════ */
+.market-panel          { display: none; padding: 0; }
+.market-panel.active   { display: block; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   STATS BAR
+   ═══════════════════════════════════════════════════════════════════════ */
+.market-stats {
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           0;
+  padding:       5px 12px;
+  border-bottom: 1px solid var(--dv-border);
+  background:    var(--dv-surface);
+}
+.stat-item {
+  display:      flex;
+  gap:          5px;
+  align-items:  center;
+  margin-right: 14px;
+  padding:      2px 0;
+}
+.sl {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  color:          var(--dv-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.sv {
+  font-family: var(--dv-font-mono);
+  font-size:   11px;
+  color:       var(--dv-text);
+}
+.sv.hi { color: var(--dv-teal); text-shadow: 0 0 8px var(--dv-teal-glow); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WORLD NOTICE
+   ═══════════════════════════════════════════════════════════════════════ */
+.world-notice {
+  display:       flex;
+  align-items:   center;
+  gap:           10px;
+  padding:       7px 14px;
+  border-left:   3px solid;
+  margin:        8px 12px;
+  background:    rgba(255,255,255,0.02);
+  border-radius: 2px;
+  clip-path:     var(--dv-clip);
+}
+.wn-label {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  letter-spacing: 0.14em;
+  font-weight:    bold;
+  text-transform: uppercase;
+  flex-shrink:    0;
+}
+.wn-desc {
+  font-family: var(--dv-font-body);
+  font-size:   12px;
+  color:       var(--dv-text2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION TITLE
+   ═══════════════════════════════════════════════════════════════════════ */
+.market-section-title {
+  font-family:    var(--dv-font-head);
+  font-size:      9px;
+  font-weight:    600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding:        7px 14px 5px;
+  border-left:    2px solid currentColor;
+  margin:         10px 12px 0;
+  color:          var(--dv-muted);
+  position:       relative;
+}
+.market-section-title::after {
+  content:    '';
+  position:   absolute;
+  bottom:     0;
+  left:       14px;
+  right:      12px;
+  height:     1px;
+  background: linear-gradient(90deg, currentColor, transparent);
+  opacity:    0.15;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PANEL-SPECIFIC CARD ACCENTS
+   Overrides base .item-card border-left via panel parent
+   ═══════════════════════════════════════════════════════════════════════ */
+#mpanel-legal   .item-card { border-left-color: rgba(90,174,255,0.35); }
+#mpanel-legal   .item-card:hover { border-color: rgba(90,174,255,0.3); border-left-color: #5aaeff; }
+#mpanel-gray    .item-card { border-left-color: rgba(160,170,188,0.25); }
+#mpanel-gray    .item-card:hover { border-color: rgba(160,170,188,0.25); border-left-color: #a0aabc; }
+#mpanel-black   .item-card { border-left-color: rgba(224,128,32,0.3); }
+#mpanel-black   .item-card:hover { border-color: rgba(224,128,32,0.25); border-left-color: #e08020; box-shadow: 0 0 12px rgba(224,128,32,0.08); }
+#mpanel-commission .item-card { border-left-color: rgba(212,168,67,0.3); background: linear-gradient(135deg, #100e06 0%, #0a0906 100%); }
+#mpanel-commission .item-card:hover { border-left-color: var(--dv-amber); box-shadow: 0 0 12px var(--dv-amber-glow); }
+#mpanel-regional .item-card { border-left-color: rgba(0,200,170,0.25); }
+#mpanel-regional .item-card:hover { border-color: rgba(0,200,170,0.2); border-left-color: var(--dv-teal); }

@@ -1,0 +1,786 @@
+/* ================================================================
+   ◈  ARCANE CODEX — ILLUMINATED EDITION  ◈  (Light Mode)
+   File: arcane-codex-light.css
+   Place in: VaultRoot/.obsidian/snippets/
+   Enable:   Settings → Appearance → CSS Snippets → toggle ON
+
+   Design philosophy: Illuminated manuscript meets precision field
+   journal. Warm vellum base, deep ink typography, jewel-toned
+   category accents — no glows, real shadow depth instead.
+   ================================================================
+
+   COLOR SYSTEM BY CATEGORY:
+   ─────────────────────────────────────────────────────────────
+   🟠 IDENTITY     name, age, gender, origin, status, ica_status, current_location, appearance, sys_name
+   🔵 SYSTEM       rank, core_reach, core_potential, coremark_*, core_rank, awakening_status, awakened_at, retired_at, breakthrough_target, kills, kill_log, assimilation_registry
+   🟢 VITALS       vitals, energy_units, current_energy_units, power, speed, perception, vitality, energy, stat_*, boost_*, *_boost, rank_value
+   🟣 ABILITY      ability_name, ability_type, type, subcategory, form, layer, awakened_ability_desc, ability_limitations, load, activation, scaling, authorities
+   🔴 NARRATIVE    role, affiliation, primary, secondary, personality_archetype, motivation, combat_style, devoured_in
+   🟡 RELATIONS    known_relations, synergy, conflicts
+   ⚪ META         tags, chapter, source_creature, species, description, profile_image*
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Exo+2:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* ── LIGHT MODE TOKENS ── */
+.theme-light {
+  /* Backgrounds — warm vellum spectrum */
+  --ac-bg-deep:    #f5efe4;
+  --ac-bg-panel:   #faf6ef;
+  --ac-bg-row:     #fdf9f4;
+  --ac-bg-hover:   #f0e8d8;
+
+  /* Pentagon geometry — subtle sepia ink lines */
+  --ac-pent-stroke: rgba(100,70,40,0.07);
+  --ac-pent-fill:   rgba(120,90,55,0.03);
+
+  /* Borders & dividers */
+  --ac-border:     #d9cbb8;
+  --ac-divider:    rgba(150,120,90,0.22);
+
+  /* Typography */
+  --ac-text-bright: #1a1208;
+  --ac-text-body:   #3d2e1e;
+  --ac-text-muted:  #9a8068;
+  --ac-label:       #7a6050;
+
+  /* Category accent colors — saturated jewel tones for light bg */
+  --cat-identity:  #c05a10;   /* burnt sienna-orange         */
+  --cat-system:    #1470a8;   /* deep cerulean               */
+  --cat-vitals:    #0f7a4a;   /* forest emerald              */
+  --cat-ability:   #6e28c8;   /* deep violet                 */
+  --cat-narrative: #b81840;   /* crimson rose                */
+  --cat-relations: #a07000;   /* antique gold                */
+  --cat-meta:      #3a5878;   /* slate teal                  */
+
+  /* Category row tints — paper-stain feel */
+  --cat-identity-bg:  rgba(192,90,16,0.06);
+  --cat-system-bg:    rgba(20,112,168,0.06);
+  --cat-vitals-bg:    rgba(15,122,74,0.06);
+  --cat-ability-bg:   rgba(110,40,200,0.06);
+  --cat-narrative-bg: rgba(184,24,64,0.06);
+  --cat-relations-bg: rgba(160,112,0,0.06);
+  --cat-meta-bg:      rgba(58,88,120,0.04);
+
+  /* Fonts */
+  --f-title: 'Cinzel', serif;
+  --f-label: 'Exo 2', sans-serif;
+  --f-value: 'JetBrains Mono', monospace;
+}
+
+/* ════════════════════════════════════════════════════════════
+   PANEL SHELL + PENTAGON BACKGROUND
+   ════════════════════════════════════════════════════════════ */
+.theme-light .metadata-container {
+  position: relative;
+  background: var(--ac-bg-panel);
+  border: 1px solid var(--ac-border);
+  border-top: 2px solid var(--cat-identity);
+  border-radius: 3px;
+  padding: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  /* Ink-press shadow instead of glow */
+  box-shadow:
+    0 0 0 1px rgba(192,90,16,0.08),
+    0 2px 8px rgba(80,50,20,0.12),
+    0 6px 24px rgba(80,50,20,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  font-family: var(--f-label);
+}
+
+/* Pentagon SVG — sepia ink lines on vellum */
+.theme-light .metadata-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='152'%3E%3Cpolygon points='80,8 148,56 124,136 36,136 12,56' fill='none' stroke='rgba(100,70,40,0.07)' stroke-width='1'/%3E%3Cpolygon points='80,28 132,64 112,120 48,120 28,64' fill='none' stroke='rgba(100,70,40,0.05)' stroke-width='1'/%3E%3Cpolygon points='80,48 116,72 100,104 60,104 44,72' fill='rgba(120,90,55,0.025)' stroke='rgba(100,70,40,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 160px 152px;
+  background-position: center top;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* Top accent bar — warm gradient rule */
+.theme-light .metadata-container::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent, var(--cat-identity) 30%, var(--cat-system) 70%, transparent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* All children above the bg */
+.theme-light .metadata-container > * { position: relative; z-index: 1; }
+
+/* ── PANEL HEADER ── */
+.theme-light .metadata-container .metadata-properties-title {
+  font-family: var(--f-title) !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.5em !important;
+  color: var(--cat-identity) !important;
+  text-align: center !important;
+  padding: 10px 16px 9px !important;
+  margin: 0 !important;
+  border-bottom: 1px solid var(--ac-border) !important;
+  background: rgba(192,90,16,0.04) !important;
+  /* Ink impression instead of text-shadow glow */
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8), 0 -1px 0 rgba(192,90,16,0.15) !important;
+  text-transform: uppercase !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   PROPERTY ROWS — base
+   ════════════════════════════════════════════════════════════ */
+.theme-light .metadata-property {
+  display: flex !important;
+  align-items: center !important;
+  padding: 5px 14px !important;
+  gap: 10px !important;
+  border-bottom: 1px solid var(--ac-divider) !important;
+  background: transparent !important;
+  transition: background 0.12s !important;
+  min-height: 30px !important;
+}
+.theme-light .metadata-property:last-child { border-bottom: none !important; }
+.theme-light .metadata-property:hover { background: var(--ac-bg-hover) !important; }
+
+/* Focus accent bar */
+.theme-light .metadata-property:focus-within {
+  background: rgba(192,90,16,0.05) !important;
+  box-shadow: inset 2px 0 0 var(--cat-identity) !important;
+}
+
+/* ── LABEL ── */
+.theme-light .metadata-property-key,
+.theme-light .metadata-property-key input,
+.theme-light .metadata-property-key .metadata-property-key-input {
+  font-family: var(--f-label) !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  color: var(--ac-label) !important;
+  text-transform: uppercase !important;
+  min-width: 130px !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ── VALUE ── */
+.theme-light .metadata-property-value,
+.theme-light .metadata-property-value input,
+.theme-light .metadata-property-value .metadata-property-value-input {
+  font-family: var(--f-value) !important;
+  font-size: 12.5px !important;
+  font-weight: 400 !important;
+  color: var(--ac-text-body) !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 1px 0 !important;
+  flex: 1 !important;
+  width: 100% !important;
+}
+.theme-light .metadata-property-value input:focus {
+  color: var(--ac-text-bright) !important;
+  border-bottom-color: var(--cat-identity) !important;
+}
+
+/* Property type icon */
+.theme-light .metadata-property-icon {
+  color: var(--ac-text-muted) !important;
+  opacity: 0.45 !important;
+  flex-shrink: 0 !important;
+}
+.theme-light .metadata-property:hover .metadata-property-icon { opacity: 0.75 !important; }
+
+/* ════════════════════════════════════════════════════════════
+   CATEGORY COLOR CODING — per data-property-key
+   ════════════════════════════════════════════════════════════ */
+
+/* ── 🟠 IDENTITY ── */
+.theme-light .metadata-property[data-property-key="name"],
+.theme-light .metadata-property[data-property-key="sys_name"],
+.theme-light .metadata-property[data-property-key="age"],
+.theme-light .metadata-property[data-property-key="gender"],
+.theme-light .metadata-property[data-property-key="origin"],
+.theme-light .metadata-property[data-property-key="status"],
+.theme-light .metadata-property[data-property-key="ica_status"],
+.theme-light .metadata-property[data-property-key="appearance"],
+.theme-light .metadata-property[data-property-key="current_location"] {
+  background: var(--cat-identity-bg) !important;
+  border-bottom-color: rgba(192,90,16,0.18) !important;
+  box-shadow: inset 3px 0 0 var(--cat-identity) !important;
+}
+
+.theme-light .metadata-property[data-property-key="name"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="name"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="sys_name"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="sys_name"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="age"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="age"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="gender"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="gender"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="origin"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="origin"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="status"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="status"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="ica_status"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="ica_status"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="appearance"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="appearance"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="current_location"] .metadata-property-key,
+.theme-light .metadata-property[data-property-key="current_location"] .metadata-property-key input {
+  color: var(--cat-identity) !important;
+}
+
+.theme-light .metadata-property[data-property-key="name"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="sys_name"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="age"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="gender"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="origin"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="status"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="ica_status"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="appearance"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="current_location"] .metadata-property-value input {
+  color: var(--ac-text-bright) !important;
+  font-weight: 600 !important;
+  /* Ink depth instead of text glow */
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+/* NAME / SYS_NAME — headline prominence */
+.theme-light .metadata-property[data-property-key="name"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="sys_name"] .metadata-property-value input {
+  font-size: 15px !important;
+  color: var(--cat-identity) !important;
+  font-family: var(--f-title) !important;
+  letter-spacing: 0.08em !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 rgba(192,90,16,0.12) !important;
+}
+
+
+/* ── 🔵 SYSTEM ── */
+.theme-light .metadata-property[data-property-key="rank"],
+.theme-light .metadata-property[data-property-key="core_reach"],
+.theme-light .metadata-property[data-property-key="core_potential"],
+.theme-light .metadata-property[data-property-key="coremark_location"],
+.theme-light .metadata-property[data-property-key="coremark_description"],
+.theme-light .metadata-property[data-property-key="core_rank"],
+.theme-light .metadata-property[data-property-key="awakening_status"],
+.theme-light .metadata-property[data-property-key="awakened_at"],
+.theme-light .metadata-property[data-property-key="retired_at"],
+.theme-light .metadata-property[data-property-key="breakthrough_target"],
+.theme-light .metadata-property[data-property-key="kills"],
+.theme-light .metadata-property[data-property-key="kill_log"],
+.theme-light .metadata-property[data-property-key="assimilation_registry"] {
+  background: var(--cat-system-bg) !important;
+  border-bottom-color: rgba(20,112,168,0.18) !important;
+  box-shadow: inset 3px 0 0 var(--cat-system) !important;
+}
+
+.theme-light .metadata-property[data-property-key="rank"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="core_reach"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="core_potential"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="coremark_location"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="coremark_description"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="core_rank"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="awakening_status"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="awakened_at"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="retired_at"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="breakthrough_target"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="kills"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="kill_log"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="assimilation_registry"] .metadata-property-key input {
+  color: var(--cat-system) !important;
+}
+
+.theme-light .metadata-property[data-property-key="rank"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="core_reach"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="core_potential"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="coremark_location"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="coremark_description"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="core_rank"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="awakening_status"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="awakened_at"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="retired_at"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="breakthrough_target"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="kills"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="kill_log"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="assimilation_registry"] .metadata-property-value input {
+  color: var(--cat-system) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+/* RANK — large bold ink */
+.theme-light .metadata-property[data-property-key="rank"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="core_rank"] .metadata-property-value input {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 rgba(20,112,168,0.15) !important;
+}
+
+
+/* ── 🟢 VITALS ── */
+.theme-light .metadata-property[data-property-key="vitals"],
+.theme-light .metadata-property[data-property-key="energy_units"],
+.theme-light .metadata-property[data-property-key="current_energy_units"],
+.theme-light .metadata-property[data-property-key="power"],
+.theme-light .metadata-property[data-property-key="speed"],
+.theme-light .metadata-property[data-property-key="perception"],
+.theme-light .metadata-property[data-property-key="vitality"],
+.theme-light .metadata-property[data-property-key="energy"],
+.theme-light .metadata-property[data-property-key="stat_power"],
+.theme-light .metadata-property[data-property-key="stat_speed"],
+.theme-light .metadata-property[data-property-key="stat_vitality"],
+.theme-light .metadata-property[data-property-key="stat_perception"],
+.theme-light .metadata-property[data-property-key="stat_energy"],
+.theme-light .metadata-property[data-property-key="boost_power"],
+.theme-light .metadata-property[data-property-key="boost_speed"],
+.theme-light .metadata-property[data-property-key="boost_vitality"],
+.theme-light .metadata-property[data-property-key="boost_perception"],
+.theme-light .metadata-property[data-property-key="boost_energy"],
+.theme-light .metadata-property[data-property-key="pwr_boost"],
+.theme-light .metadata-property[data-property-key="spd_boost"],
+.theme-light .metadata-property[data-property-key="vit_boost"],
+.theme-light .metadata-property[data-property-key="eng_boost"],
+.theme-light .metadata-property[data-property-key="rank_value"] {
+  background: var(--cat-vitals-bg) !important;
+  border-bottom-color: rgba(15,122,74,0.18) !important;
+  box-shadow: inset 3px 0 0 var(--cat-vitals) !important;
+}
+
+.theme-light .metadata-property[data-property-key="vitals"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="energy_units"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="current_energy_units"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="power"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="speed"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="perception"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="vitality"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="energy"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="stat_power"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="stat_speed"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="stat_vitality"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="stat_perception"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="stat_energy"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="boost_power"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="boost_speed"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="boost_vitality"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="boost_perception"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="boost_energy"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="pwr_boost"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="spd_boost"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="vit_boost"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="eng_boost"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="rank_value"] .metadata-property-key input {
+  color: var(--cat-vitals) !important;
+}
+
+.theme-light .metadata-property[data-property-key="vitals"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="energy_units"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="current_energy_units"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="power"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="speed"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="perception"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="vitality"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="energy"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="stat_power"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="stat_speed"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="stat_vitality"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="stat_perception"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="stat_energy"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="boost_power"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="boost_speed"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="boost_vitality"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="boost_perception"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="boost_energy"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="pwr_boost"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="spd_boost"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="vit_boost"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="eng_boost"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="rank_value"] .metadata-property-value input {
+  color: var(--cat-vitals) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+
+/* ── 🟣 ABILITY ── */
+.theme-light .metadata-property[data-property-key="ability_name"],
+.theme-light .metadata-property[data-property-key="ability_type"],
+.theme-light .metadata-property[data-property-key="awakened_ability_desc"],
+.theme-light .metadata-property[data-property-key="ability_limitations"],
+.theme-light .metadata-property[data-property-key="type"],
+.theme-light .metadata-property[data-property-key="form"],
+.theme-light .metadata-property[data-property-key="layer"],
+.theme-light .metadata-property[data-property-key="subcategory"],
+.theme-light .metadata-property[data-property-key="load"],
+.theme-light .metadata-property[data-property-key="activation"],
+.theme-light .metadata-property[data-property-key="scaling"],
+.theme-light .metadata-property[data-property-key="authorities"] {
+  background: var(--cat-ability-bg) !important;
+  border-bottom-color: rgba(110,40,200,0.18) !important;
+  box-shadow: inset 3px 0 0 var(--cat-ability) !important;
+}
+
+.theme-light .metadata-property[data-property-key="ability_name"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="ability_type"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="awakened_ability_desc"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="ability_limitations"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="type"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="form"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="layer"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="subcategory"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="load"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="activation"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="scaling"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="authorities"] .metadata-property-key input {
+  color: var(--cat-ability) !important;
+}
+
+.theme-light .metadata-property[data-property-key="ability_name"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="ability_type"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="awakened_ability_desc"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="ability_limitations"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="type"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="form"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="layer"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="subcategory"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="load"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="activation"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="scaling"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="authorities"] .metadata-property-value input {
+  color: var(--cat-ability) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+
+/* ── 🔴 NARRATIVE ── */
+.theme-light .metadata-property[data-property-key="role"],
+.theme-light .metadata-property[data-property-key="affiliation"],
+.theme-light .metadata-property[data-property-key="primary"],
+.theme-light .metadata-property[data-property-key="secondary"],
+.theme-light .metadata-property[data-property-key="personality_archetype"],
+.theme-light .metadata-property[data-property-key="motivation"],
+.theme-light .metadata-property[data-property-key="combat_style"],
+.theme-light .metadata-property[data-property-key="story_arc"],
+.theme-light .metadata-property[data-property-key="story_function"],
+.theme-light .metadata-property[data-property-key="dimensional_exposure"],
+.theme-light .metadata-property[data-property-key="bloodline_status"],
+.theme-light .metadata-property[data-property-key="relation_to_marc"],
+.theme-light .metadata-property[data-property-key="devoured_in"] {
+  background: var(--cat-narrative-bg) !important;
+  border-bottom-color: rgba(184,24,64,0.18) !important;
+  box-shadow: inset 3px 0 0 var(--cat-narrative) !important;
+}
+
+.theme-light .metadata-property[data-property-key="role"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="affiliation"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="primary"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="secondary"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="personality_archetype"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="motivation"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="combat_style"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="story_arc"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="story_function"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="dimensional_exposure"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="bloodline_status"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="relation_to_marc"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="devoured_in"] .metadata-property-key input {
+  color: var(--cat-narrative) !important;
+}
+
+.theme-light .metadata-property[data-property-key="role"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="affiliation"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="primary"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="secondary"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="personality_archetype"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="motivation"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="combat_style"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="story_arc"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="story_function"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="dimensional_exposure"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="bloodline_status"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="relation_to_marc"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="devoured_in"] .metadata-property-value input {
+  color: var(--cat-narrative) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+
+/* ── 🟡 RELATIONS ── */
+.theme-light .metadata-property[data-property-key="known_relations"],
+.theme-light .metadata-property[data-property-key="synergy"],
+.theme-light .metadata-property[data-property-key="conflicts"],
+.theme-light .metadata-property[data-property-key="open_threads"] {
+  background: var(--cat-relations-bg) !important;
+  border-bottom-color: rgba(160,112,0,0.18) !important;
+  box-shadow: inset 3px 0 0 var(--cat-relations) !important;
+}
+
+.theme-light .metadata-property[data-property-key="known_relations"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="synergy"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="conflicts"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="open_threads"] .metadata-property-key input {
+  color: var(--cat-relations) !important;
+}
+
+.theme-light .metadata-property[data-property-key="known_relations"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="synergy"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="conflicts"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="open_threads"] .metadata-property-value input {
+  color: var(--cat-relations) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+
+/* ── ⚪ META ── */
+.theme-light .metadata-property[data-property-key="tags"],
+.theme-light .metadata-property[data-property-key="chapter"],
+.theme-light .metadata-property[data-property-key="source_creature"],
+.theme-light .metadata-property[data-property-key="species"],
+.theme-light .metadata-property[data-property-key="description"],
+.theme-light .metadata-property[data-property-key="profile_images"],
+.theme-light .metadata-property[data-property-key="profile_image_index"],
+.theme-light .metadata-property[data-property-key="profile_image"] {
+  background: var(--cat-meta-bg) !important;
+  border-bottom-color: rgba(58,88,120,0.14) !important;
+  box-shadow: inset 3px 0 0 var(--cat-meta) !important;
+}
+
+.theme-light .metadata-property[data-property-key="tags"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="chapter"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="source_creature"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="species"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="description"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="profile_images"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="profile_image_index"] .metadata-property-key input,
+.theme-light .metadata-property[data-property-key="profile_image"] .metadata-property-key input {
+  color: var(--cat-meta) !important;
+}
+
+.theme-light .metadata-property[data-property-key="tags"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="chapter"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="source_creature"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="species"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="description"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="profile_images"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="profile_image_index"] .metadata-property-value input,
+.theme-light .metadata-property[data-property-key="profile_image"] .metadata-property-value input {
+  color: var(--cat-meta) !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CHIPS / TAGS (multi-select pills)
+   ════════════════════════════════════════════════════════════ */
+.theme-light .multi-select-pill {
+  font-family: var(--f-label) !important;
+  font-size: 8.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  border-radius: 2px !important;
+  padding: 2px 7px !important;
+  /* Default: slate blue chips on vellum */
+  background: rgba(58,88,120,0.09) !important;
+  border: 1px solid rgba(58,88,120,0.28) !important;
+  color: var(--cat-meta) !important;
+}
+
+/* Colour chips by tag content */
+.theme-light .multi-select-pill[data-value="Body"],
+.theme-light .multi-select-pill[data-value="Cognition"] {
+  background: rgba(15,122,74,0.09) !important;
+  border-color: rgba(15,122,74,0.32) !important;
+  color: var(--cat-vitals) !important;
+}
+.theme-light .multi-select-pill[data-value="Offense"],
+.theme-light .multi-select-pill[data-value="Defense"] {
+  background: rgba(184,24,64,0.09) !important;
+  border-color: rgba(184,24,64,0.32) !important;
+  color: var(--cat-narrative) !important;
+}
+.theme-light .multi-select-pill[data-value="FormBound"],
+.theme-light .multi-select-pill[data-value="FormFree"] {
+  background: rgba(110,40,200,0.09) !important;
+  border-color: rgba(110,40,200,0.32) !important;
+  color: var(--cat-ability) !important;
+}
+.theme-light .multi-select-pill[data-value="Mobility"],
+.theme-light .multi-select-pill[data-value="Detection"] {
+  background: rgba(20,112,168,0.09) !important;
+  border-color: rgba(20,112,168,0.32) !important;
+  color: var(--cat-system) !important;
+}
+.theme-light .multi-select-pill[data-value="Utility"],
+.theme-light .multi-select-pill[data-value="Sustain"],
+.theme-light .multi-select-pill[data-value="Control"] {
+  background: rgba(160,112,0,0.09) !important;
+  border-color: rgba(160,112,0,0.32) !important;
+  color: var(--cat-relations) !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   EMPTY FIELD HIDING
+   ════════════════════════════════════════════════════════════ */
+.theme-light .metadata-property:has(input[type="text"][value=""]) {
+  display: none !important;
+}
+.theme-light .metadata-property:has(.metadata-property-value input:placeholder-shown):not(:focus-within) {
+  display: none !important;
+}
+.theme-light .metadata-property:has(.metadata-property-value:empty):not(:focus-within) {
+  display: none !important;
+}
+
+/* ────────────────────────────────────────────────────────────
+   COLLAPSED SECTION TOGGLE AREA
+   ─────────────────────────────────────────────────────────── */
+.theme-light .metadata-properties-section-collapsed,
+.theme-light .metadata-properties-heading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 7px 14px !important;
+  cursor: pointer !important;
+  font-family: var(--f-label) !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--ac-text-muted) !important;
+  border-top: 1px dashed rgba(150,120,90,0.35) !important;
+  border-bottom: 1px dashed rgba(150,120,90,0.35) !important;
+  /* Warm vellum tint */
+  background: rgba(245,239,228,0.7) !important;
+  margin: 2px 0 !important;
+  transition: all 0.15s !important;
+  position: relative !important;
+}
+
+.theme-light .metadata-properties-section-collapsed::before {
+  content: '⬠' !important;
+  font-size: 10px !important;
+  opacity: 0.45 !important;
+}
+
+.theme-light .metadata-properties-section-collapsed .metadata-properties-heading-title,
+.theme-light .metadata-properties-heading-title {
+  position: relative !important;
+  color: var(--ac-text-muted) !important;
+}
+.theme-light .metadata-properties-section-collapsed .metadata-properties-heading-title::before,
+.theme-light .metadata-properties-section-collapsed .metadata-properties-heading-title::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  width: 30px !important;
+  height: 1px !important;
+  background: var(--ac-text-muted) !important;
+  opacity: 0.35 !important;
+}
+.theme-light .metadata-properties-section-collapsed .metadata-properties-heading-title::before { right: calc(100% + 6px) !important; }
+.theme-light .metadata-properties-section-collapsed .metadata-properties-heading-title::after  { left:  calc(100% + 6px) !important; }
+
+.theme-light .metadata-properties-section-collapsed:hover {
+  color: var(--cat-identity) !important;
+  background: rgba(192,90,16,0.05) !important;
+  border-color: rgba(192,90,16,0.22) !important;
+}
+
+.theme-light .metadata-properties-section-collapsed::after {
+  content: '⬠' !important;
+  font-size: 10px !important;
+  opacity: 0.45 !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SECTION CATEGORY HEADERS
+   ════════════════════════════════════════════════════════════ */
+.theme-light .metadata-property[data-property-type="heading"] {
+  background: rgba(245,239,228,0.85) !important;
+  border-bottom: 1px solid var(--ac-border) !important;
+  box-shadow: none !important;
+  padding: 8px 14px 6px !important;
+}
+.theme-light .metadata-property[data-property-type="heading"] .metadata-property-key input {
+  font-family: var(--f-title) !important;
+  font-size: 8px !important;
+  letter-spacing: 0.4em !important;
+  color: var(--cat-identity) !important;
+  /* Ink-pressed heading */
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8), 0 -1px 0 rgba(192,90,16,0.1) !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   ADD PROPERTY BUTTON
+   ════════════════════════════════════════════════════════════ */
+.theme-light .metadata-add-button {
+  font-family: var(--f-label) !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--ac-text-muted) !important;
+  padding: 6px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  transition: color 0.12s !important;
+}
+.theme-light .metadata-add-button:hover { color: var(--cat-identity) !important; }
+
+/* ════════════════════════════════════════════════════════════
+   NOTE TITLE STYLING
+   ════════════════════════════════════════════════════════════ */
+.theme-light .inline-title {
+  font-family: var(--f-title) !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.2em !important;
+  color: var(--cat-identity) !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  /* Engraved ink effect */
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.85),
+    0 -1px 0 rgba(192,90,16,0.12),
+    0 2px 4px rgba(192,90,16,0.08) !important;
+  border-bottom: 1px solid var(--ac-border) !important;
+  padding-bottom: 12px !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SCROLLBAR
+   ════════════════════════════════════════════════════════════ */
+.theme-light .metadata-container ::-webkit-scrollbar { width: 3px !important; }
+.theme-light .metadata-container ::-webkit-scrollbar-track { background: transparent !important; }
+.theme-light .metadata-container ::-webkit-scrollbar-thumb {
+  background: var(--ac-border) !important;
+  border-radius: 2px !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   READING VIEW overrides (rendered mode)
+   ════════════════════════════════════════════════════════════ */
+.theme-light .markdown-reading-view .metadata-property-value {
+  font-family: var(--f-value) !important;
+  font-size: 12.5px !important;
+  color: var(--ac-text-body) !important;
+}
+.theme-light .markdown-reading-view .metadata-container {
+  font-size: 13px !important;
+}

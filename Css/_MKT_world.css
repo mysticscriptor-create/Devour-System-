@@ -1,0 +1,470 @@
+/* ╔══════════════════════════════════════════════════════════════════════╗
+   ║  DEVOUR SYSTEM — World Shell Additions                              ║
+   ║  _MKT_world.css  —  _WORLD.md overrides, custom dropdowns,          ║
+   ║                     Obsidian button-reset defeats                   ║
+   ║  Load order: 7th (overrides base + components)                      ║
+   ╚══════════════════════════════════════════════════════════════════════╝ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WORLD HEADER — centered column
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-world-header {
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  text-align:      center;
+  padding:         20px 16px 14px;
+  gap:             5px;
+}
+
+.dv-world-boot {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  color:          var(--dv-teal);
+  letter-spacing: 0.22em;
+  opacity:        0.7;
+  text-transform: uppercase;
+  animation:      dvBlink 1.8s step-end infinite;
+}
+
+.dv-world-title {
+  font-size:   clamp(18px, 5vw, 26px);
+  line-height: 1.1;
+}
+
+.dv-world-ws-line {
+  font-family:    var(--dv-font-mono);
+  font-size:      10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity:        0.9;
+}
+.dv-world-ws-line .dv-wsl-label { color: var(--dv-muted); }
+.dv-world-ws-line .dv-wsl-val   { font-weight: 700; }
+
+.dv-world-stat-line {
+  font-family:    var(--dv-font-mono);
+  font-size:      10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity:        0.85;
+}
+.dv-world-stat-line .dv-wsl-label { color: var(--dv-muted); }
+.dv-world-stat-line .dv-wsl-val   { font-weight: 700; }
+
+.dv-world-indexed {
+  font-family:    var(--dv-font-mono);
+  font-size:      10px;
+  color:          var(--dv-muted);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+.dv-world-indexed strong { color: var(--dv-text); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TAP-LINE
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-world-tapline {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           100%;
+  margin:          4px 0 2px;
+  cursor:          pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.dv-world-tapline::before,
+.dv-world-tapline::after {
+  content:    '';
+  flex:       1;
+  height:     1px;
+  background: linear-gradient(90deg, transparent 0%, var(--dv-teal) 50%, transparent 100%);
+  opacity:    0.45;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+}
+.dv-world-tapline.open::before,
+.dv-world-tapline.open::after {
+  opacity:    1;
+  box-shadow: 0 0 8px var(--dv-teal);
+}
+.dv-world-tapline-text {
+  font-family:    var(--dv-font-mono);
+  font-size:      8px;
+  letter-spacing: 0.18em;
+  color:          var(--dv-teal);
+  padding:        0 10px;
+  text-transform: uppercase;
+  text-shadow:    0 0 10px rgba(0,200,170,0.6);
+  white-space:    nowrap;
+  transition:     text-shadow 0.2s ease;
+}
+.dv-world-tapline:hover .dv-world-tapline-text,
+.dv-world-tapline.open  .dv-world-tapline-text {
+  text-shadow: 0 0 18px rgba(0,200,170,0.9), 0 0 30px rgba(0,200,170,0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CONTROL PANEL
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-world-controls {
+  display:        flex;
+  flex-direction: column;
+  gap:            8px;
+  width:          100%;
+  padding:        10px 14px 6px;
+  border-top:     1px solid var(--dv-border);
+  overflow:       hidden;
+  max-height:     420px;
+  transition:     max-height 0.3s ease, padding 0.3s ease, opacity 0.25s ease;
+  opacity:        1;
+}
+.dv-world-controls.hidden {
+  max-height:     0;
+  padding-top:    0;
+  padding-bottom: 0;
+  opacity:        0;
+  pointer-events: none;
+}
+.dv-world-ctrl-row {
+  display:     flex;
+  align-items: center;
+  flex-wrap:   wrap;
+  gap:         6px;
+}
+.dv-world-ctrl-label {
+  font-family:    var(--dv-font-mono);
+  font-size:      8px;
+  letter-spacing: 0.16em;
+  color:          var(--dv-muted);
+  text-transform: uppercase;
+  min-width:      80px;
+}
+.dv-world-pill-group {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       5px;
+}
+.dv-world-badge-row { margin-top: 2px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TAB GRID — 3-per-row (overrides base .dv-tabs horizontal scroll)
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-tabs {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   3px;
+  padding:               8px 8px 0;
+  border-bottom:         1px solid var(--dv-border2);
+  background:            var(--dv-surface);
+  overflow-x:            unset;
+}
+
+.dv-root button.dv-tab {
+  all:             unset;
+  box-sizing:      border-box;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           100%;
+  font-family:     var(--dv-font-head);
+  font-size:       9px;
+  font-weight:     600;
+  letter-spacing:  0.10em;
+  text-transform:  uppercase;
+  padding:         7px 6px;
+  border:          1px solid var(--dv-border2);
+  border-bottom:   none;
+  border-radius:   2px 2px 0 0;
+  background:      linear-gradient(180deg, #0e1219 0%, #0a0d12 100%);
+  color:           var(--dv-muted);
+  cursor:          pointer;
+  white-space:     nowrap;
+  transition:      color 0.14s ease, background 0.14s ease, border-color 0.14s ease;
+  position:        relative;
+  line-height:     1;
+  text-align:      center;
+}
+.dv-root button.dv-tab:hover {
+  color:        var(--dv-text2);
+  background:   linear-gradient(180deg, #12161e 0%, #0d1018 100%);
+  border-color: var(--dv-border3);
+}
+.dv-root button.dv-tab.active {
+  color:              var(--dv-amber);
+  background:         linear-gradient(180deg, #16120a 0%, var(--dv-bg) 100%);
+  border-color:       var(--dv-amber-dim);
+  border-bottom-color: var(--dv-bg);
+  text-shadow:        0 0 10px rgba(212,168,67,0.6);
+  bottom:             -1px;
+  box-shadow:         0 -2px 8px rgba(212,168,67,0.12);
+}
+.dv-root button.dv-tab .tab-icon {
+  margin-right: 4px;
+  font-style:   normal;
+  font-size:    10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PILL (defeats Obsidian button reset)
+   Overrides base .dv-pill in _MKT_components.css
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-root button.dv-pill,
+.dv-root .dv-pill {
+  all:               unset;
+  display:           inline-block;
+  box-sizing:        border-box;
+  font-family:       var(--dv-font-mono);
+  font-size:         10px;
+  padding:           3px 10px;
+  border:            1px solid currentColor;
+  border-radius:     2px;
+  background:        rgba(0,0,0,0.5);
+  cursor:            pointer;
+  letter-spacing:    0.08em;
+  text-transform:    uppercase;
+  transition:        background 0.14s ease, box-shadow 0.14s ease;
+  text-shadow:       0 0 8px currentColor;
+  clip-path:         polygon(6px 0%,100% 0%,100% calc(100% - 6px),calc(100% - 6px) 100%,0% 100%,0% 6px);
+  -webkit-clip-path: polygon(6px 0%,100% 0%,100% calc(100% - 6px),calc(100% - 6px) 100%,0% 100%,0% 6px);
+  line-height:       1.4;
+}
+.dv-root button.dv-pill:hover,
+.dv-root .dv-pill:hover {
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 12px currentColor;
+}
+.dv-root button.dv-pill.active {
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 0 14px currentColor;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MODAL BUTTON FIX
+   Overrides base .dv-modal-close / .dv-modal-opt in _MKT_components.css
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-root button.dv-modal-close,
+.dv-root button.dv-modal-dismiss {
+  all:            unset;
+  box-sizing:     border-box;
+  display:        block;
+  width:          100%;
+  font-family:    var(--dv-font-mono);
+  font-size:      10px;
+  letter-spacing: 0.08em;
+  margin-top:     14px;
+  padding:        6px 14px;
+  border:         1px solid var(--dv-border2);
+  border-radius:  var(--dv-radius);
+  background:     transparent;
+  color:          var(--dv-muted);
+  cursor:         pointer;
+  text-align:     center;
+}
+.dv-root button.dv-modal-close:hover,
+.dv-root button.dv-modal-dismiss:hover { background: rgba(255,255,255,0.04); }
+
+.dv-root button.dv-modal-opt {
+  all:            unset;
+  box-sizing:     border-box;
+  display:        block;
+  width:          100%;
+  font-family:    var(--dv-font-ui);
+  font-size:      13px;
+  font-weight:    500;
+  padding:        6px 12px;
+  border:         1px solid var(--dv-border);
+  border-radius:  var(--dv-radius);
+  background:     transparent;
+  color:          var(--dv-text);
+  cursor:         pointer;
+  text-align:     left;
+  letter-spacing: 0.04em;
+}
+.dv-root button.dv-modal-opt:hover  { background: rgba(255,255,255,0.04); border-color: var(--dv-border3); }
+.dv-root button.dv-modal-opt.active { border-color: var(--dv-amber-dim);  color: var(--dv-amber); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DATE ROW (v3.3)
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-date-row { align-items: center; }
+.dv-date-field {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+  flex:        1;
+}
+.dv-root .dv-date-input {
+  -webkit-appearance: none;
+  appearance:         none;
+  flex:               1;
+  min-width:          0;
+  background:         var(--dv-surface2);
+  border:             1px solid var(--dv-border2);
+  border-radius:      var(--dv-radius);
+  color:              var(--dv-text);
+  font-family:        var(--dv-font-mono);
+  font-size:          10px;
+  letter-spacing:     0.06em;
+  padding:            5px 8px;
+  outline:            none;
+  transition:         border-color var(--dv-transition), box-shadow var(--dv-transition);
+}
+.dv-root .dv-date-input::placeholder { color: var(--dv-muted); }
+.dv-root .dv-date-input:focus {
+  border-color: var(--dv-accent);
+  box-shadow:   0 0 0 2px var(--dv-accent-glow);
+}
+.dv-root button.dv-date-save {
+  all:            unset;
+  box-sizing:     border-box;
+  flex-shrink:    0;
+  background:     var(--dv-surface2);
+  border:         1px solid var(--dv-border2);
+  border-radius:  var(--dv-radius);
+  color:          var(--dv-text2);
+  font-family:    var(--dv-font-mono);
+  font-size:      11px;
+  padding:        4px 10px;
+  cursor:         pointer;
+  transition:     border-color var(--dv-transition), color var(--dv-transition);
+}
+.dv-root button.dv-date-save:hover {
+  border-color: var(--dv-accent);
+  color:        var(--dv-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DEV TOOLS ROW (v3.3)
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-devtools-row { align-items: center; }
+.dv-devtools-group {
+  display:   flex;
+  gap:       6px;
+  flex-wrap: wrap;
+  flex:      1;
+}
+.dv-root button.dv-dev-btn-full {
+  all:            unset;
+  box-sizing:     border-box;
+  -webkit-appearance: none;
+  appearance:     none;
+  background:     var(--dv-surface2);
+  border:         1px solid var(--dv-border2);
+  border-radius:  var(--dv-radius);
+  color:          var(--dv-text2);
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  letter-spacing: 0.05em;
+  padding:        5px 11px;
+  cursor:         pointer;
+  transition:     border-color var(--dv-transition), color var(--dv-transition);
+}
+.dv-root button.dv-dev-btn-full:hover {
+  border-color: var(--dv-amber);
+  color:        var(--dv-amber);
+}
+.dv-root button.dv-dev-btn-full:disabled {
+  opacity: 0.35;
+  cursor:  default;
+}
+.dv-root button.dv-dev-btn-full.dv-dev-btn-active {
+  border-color: #f0a500;
+  color:        #f0a500;
+  background:   rgba(240, 165, 0, 0.10);
+}
+.dv-root button.dv-dev-btn-full.dv-dev-btn-active:hover {
+  background:   rgba(240, 165, 0, 0.18);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ERROR PANELS (v3.3)
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-error-detail {
+  font-family: var(--dv-font-mono);
+  font-size:   10px;
+  color:       var(--dv-muted);
+  word-break:  break-all;
+}
+.dv-retry-btn { margin-top: 4px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BOOT LOADING SCREEN (v3.3)
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-boot-screen {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: flex-start;
+  padding:         32px 20px 24px;
+  min-height:      220px;
+  font-family:     var(--dv-font-mono);
+  background:      var(--dv-bg);
+}
+.dv-boot-title {
+  font-size:      11px;
+  letter-spacing: 0.25em;
+  color:          var(--dv-amber);
+  text-transform: uppercase;
+  margin-bottom:  4px;
+}
+.dv-boot-sub {
+  font-size:      9px;
+  letter-spacing: 0.18em;
+  color:          var(--dv-muted);
+  margin-bottom:  24px;
+}
+.dv-boot-bar-wrap {
+  width:         100%;
+  max-width:     340px;
+  height:        2px;
+  background:    var(--dv-border);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  overflow:      hidden;
+}
+.dv-boot-bar {
+  height:        100%;
+  width:         0%;
+  background:    var(--dv-teal);
+  border-radius: 2px;
+  transition:    width 0.25s ease;
+}
+.dv-boot-steps {
+  width:          100%;
+  max-width:      340px;
+  display:        flex;
+  flex-direction: column;
+  gap:            5px;
+}
+.dv-boot-step {
+  display:        flex;
+  align-items:    center;
+  gap:            8px;
+  font-size:      10px;
+  letter-spacing: 0.06em;
+  color:          var(--dv-muted);
+  transition:     color 0.2s;
+}
+.dv-boot-step.active { color: var(--dv-text2); }
+.dv-boot-step.done   { color: var(--dv-text);  }
+.dv-boot-step.error  { color: var(--dv-danger); }
+.dv-boot-step-icon {
+  width:      14px;
+  text-align: center;
+  font-size:  10px;
+  flex-shrink: 0;
+}
+.dv-boot-step-label { flex: 1; }
+.dv-boot-step-ms {
+  font-size:  9px;
+  color:      var(--dv-muted);
+  min-width:  38px;
+  text-align: right;
+}
+.dv-boot-step.done  .dv-boot-step-ms { color: var(--dv-teal); }
+.dv-boot-step.error .dv-boot-step-ms { color: var(--dv-danger); }
+@keyframes dv-pulse {
+  0%,100% { opacity: 0.35; }
+  50%      { opacity: 1;    }
+}
+.dv-boot-step.active .dv-boot-step-icon { animation: dv-pulse 0.9s ease-in-out infinite; }

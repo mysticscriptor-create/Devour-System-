@@ -1,0 +1,937 @@
+/* ================================================================
+   LORD MARKHAM COREBEARER ACADEMY — LMCA.css v2.1
+   THEMED — Inherits from Dimensional Overseer theme variables.
+   Place alongside LMCA.js at Meta/Scripts/LMCA.css
+
+   HOW IT WORKS:
+   .lm-root lives inside .ov-root, so all --var definitions
+   declared on .ov-root are naturally inherited here.
+   This file maps those vars to local --lm-* tokens, then
+   uses only --lm-* tokens throughout. Swap themes in
+   Overseer → LMCA automatically repaints.
+   ================================================================ */
+
+/* ── VARIABLE BRIDGE ─────────────────────────────────────────── */
+/* Maps Overseer theme tokens → local LMCA tokens.
+   Fallbacks are the original LMCA dark-blue defaults so the
+   component still looks correct if loaded outside Overseer. */
+.lm-root {
+    --lm-bg-base:       var(--bg-base,        #0b0e17);
+    --lm-bg-panel:      var(--bg-panel,       #0f1420);
+    --lm-bg-lift:       var(--bg-lift,        #141c2e);
+    --lm-border:        var(--border-arcane,  #1e2535);
+    --lm-border-glow:   var(--border-glow,    #2e4060);
+    --lm-text-main:     var(--text-main,      #c8d8f0);
+    --lm-text-dim:      var(--text-dim,       #5e7a96);
+    --lm-text-ghost:    var(--text-ghost,     #1e2a3a);
+    --lm-accent:        var(--accent-cyan,    #4a6fa5);
+    --lm-accent-bright: var(--accent-void,    #6b90c0);
+    --lm-gold:          var(--accent-gold,    #e3ab2b);
+    --lm-danger:        var(--accent-blood,   #c03030);
+    --lm-success:       #3a9960;
+    --lm-warn:          #a08030;
+    --lm-font-ui:       var(--font-ui,        'Share Tech Mono', monospace);
+    --lm-font-body:     var(--font-body,      'Barlow', sans-serif);
+    --lm-font-rune:     var(--font-rune,      'Barlow Condensed', sans-serif);
+}
+
+/* ── ROOT & FONTS ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500&display=swap');
+
+.lm-root {
+    font-family: var(--lm-font-body);
+    background: var(--lm-bg-base);
+    color: var(--lm-text-main);
+    min-height: 80vh;
+    position: relative;
+    border: 1px solid var(--lm-border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* ── HEADER ───────────────────────────────────────────────────── */
+.lm-header {
+    background: linear-gradient(180deg, var(--lm-bg-panel) 0%, var(--lm-bg-base) 100%);
+    border-bottom: 1px solid var(--lm-border);
+    padding: 16px 20px 0;
+    position: relative;
+}
+.lm-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--lm-border-glow), var(--lm-accent), var(--lm-border-glow), transparent);
+}
+.lm-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.lm-header-title {
+    font-family: var(--lm-font-rune);
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--lm-text-main);
+    text-transform: uppercase;
+    line-height: 1;
+}
+.lm-header-sub {
+    font-family: var(--lm-font-ui);
+    font-size: 0.7em;
+    color: var(--lm-accent);
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+.lm-header-meta {
+    text-align: right;
+    font-family: var(--lm-font-ui);
+    font-size: 0.7em;
+    color: var(--lm-text-dim);
+    line-height: 1.8;
+}
+.lm-header-meta span { color: var(--lm-accent-bright); }
+
+/* ── MAIN TABS ────────────────────────────────────────────────── */
+.lm-tabs {
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 0;
+}
+.lm-tabs::-webkit-scrollbar { display: none; }
+.lm-tab {
+    font-family: var(--lm-font-rune);
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-top: 2px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    color: var(--lm-text-dim);
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    position: relative;
+    top: 1px;
+    background: transparent;
+    flex-shrink: 0;
+}
+.lm-tab:hover { color: var(--lm-accent-bright); }
+.lm-tab.active {
+    color: var(--lm-text-main);
+    border-top-color: var(--lm-accent);
+    border-left-color: var(--lm-border);
+    border-right-color: var(--lm-border);
+    background: var(--lm-bg-base);
+}
+.lm-tab.shell { color: var(--lm-text-ghost); }
+.lm-tab.shell.active {
+    color: var(--lm-border-glow);
+    border-top-color: var(--lm-border-glow);
+}
+
+/* ── BODY / PANEL ─────────────────────────────────────────────── */
+.lm-body { padding: 0; }
+.lm-panel { display: none; padding: 20px; }
+.lm-panel.active { display: block; }
+
+/* ── SECTION HEADERS ──────────────────────────────────────────── */
+.lm-section-title {
+    font-family: var(--lm-font-ui);
+    font-size: 0.72em;
+    letter-spacing: 3px;
+    color: var(--lm-accent);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--lm-border);
+}
+.lm-section-title span { color: var(--lm-accent-bright); }
+
+/* ── DIVIDER ──────────────────────────────────────────────────── */
+.lm-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--lm-border), transparent);
+    margin: 20px 0;
+}
+
+/* ── DROPDOWN ─────────────────────────────────────────────────── */
+/* Reuses Overseer's .ov-dd system; these selectors cover the
+   .lm-* variant class names used inside .lm-root only. */
+.lm-root .ov-dd-trigger {
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border);
+    color: var(--lm-accent-bright);
+    font-family: var(--lm-font-rune);
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.lm-root .ov-dd-trigger:hover { border-color: var(--lm-border-glow); }
+.lm-root .ov-dd-option {
+    font-family: var(--lm-font-rune);
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    color: var(--lm-accent-bright);
+}
+.lm-root .ov-dd-option:hover { background: var(--lm-bg-lift); }
+.lm-root .ov-dd-option.selected {
+    color: var(--lm-text-main);
+    background: color-mix(in srgb, var(--lm-accent) 12%, transparent);
+}
+
+/* Legacy .lm-dd classes (kept for backward compat) */
+.lm-dd { position: relative; display: inline-block; width: 100%; }
+.lm-dd-trigger {
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border);
+    color: var(--lm-accent-bright);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: var(--lm-font-rune);
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s;
+    user-select: none;
+}
+.lm-dd-trigger::after { content: '▾'; color: var(--lm-accent); margin-left: 8px; flex-shrink: 0; }
+.lm-dd-trigger.open::after { content: '▴'; }
+.lm-dd-trigger:hover { border-color: var(--lm-border-glow); }
+.lm-dd-backdrop { position: fixed; inset: 0; z-index: 9998; }
+.lm-dd-menu {
+    position: fixed;
+    z-index: 9999;
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border-glow);
+    border-radius: 2px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    max-height: 260px;
+    overflow-y: auto;
+}
+.lm-dd-option {
+    padding: 8px 14px;
+    cursor: pointer;
+    font-family: var(--lm-font-rune);
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    color: var(--lm-accent-bright);
+    transition: background 0.15s;
+}
+.lm-dd-option:hover { background: var(--lm-bg-lift); }
+.lm-dd-option.selected {
+    color: var(--lm-text-main);
+    background: color-mix(in srgb, var(--lm-accent) 12%, transparent);
+}
+
+/* ── BUTTONS ──────────────────────────────────────────────────── */
+.lm-btn {
+    background: var(--lm-bg-lift);
+    border: 1px solid var(--lm-border-glow);
+    color: var(--lm-accent-bright);
+    padding: 9px 18px;
+    font-family: var(--lm-font-rune);
+    font-size: 0.82em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+}
+.lm-btn:hover {
+    background: color-mix(in srgb, var(--lm-accent) 18%, var(--lm-bg-base));
+    border-color: var(--lm-accent);
+    color: var(--lm-text-main);
+}
+.lm-btn.accent {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--lm-accent) 30%, var(--lm-bg-base)),
+        color-mix(in srgb, var(--lm-accent) 45%, var(--lm-bg-base))
+    );
+    border-color: var(--lm-accent);
+    color: var(--lm-text-main);
+}
+.lm-btn.accent:hover {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--lm-accent) 45%, var(--lm-bg-base)),
+        color-mix(in srgb, var(--lm-accent) 60%, var(--lm-bg-base))
+    );
+}
+.lm-btn.danger { border-color: color-mix(in srgb, var(--lm-danger) 60%, transparent); color: color-mix(in srgb, var(--lm-danger) 80%, #fff); }
+.lm-btn.danger:hover {
+    background: color-mix(in srgb, var(--lm-danger) 10%, var(--lm-bg-base));
+    border-color: var(--lm-danger);
+    color: color-mix(in srgb, var(--lm-danger) 90%, #fff);
+}
+.lm-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── INPUT ────────────────────────────────────────────────────── */
+.lm-input {
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border);
+    color: var(--lm-text-main);
+    padding: 8px 12px;
+    font-family: var(--lm-font-body);
+    font-size: 0.85em;
+    border-radius: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+.lm-input:focus { outline: none; border-color: var(--lm-accent); }
+.lm-input::placeholder { color: var(--lm-text-ghost); }
+
+/* ── REGISTRY TAB ─────────────────────────────────────────────── */
+.lm-reg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+@media (max-width: 500px) { .lm-reg-grid { grid-template-columns: 1fr; } }
+
+.lm-char-list { display: flex; flex-direction: column; gap: 6px; }
+.lm-char-item {
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border);
+    border-left: 3px solid var(--lm-border-glow);
+    border-radius: 2px;
+    padding: 12px 14px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.15s, border-color 0.15s;
+}
+.lm-char-item:hover {
+    background: var(--lm-bg-lift);
+    border-left-color: var(--lm-accent);
+}
+.lm-char-item.registered  { border-left-color: var(--lm-success); }
+.lm-char-item.unregistered { border-left-color: var(--lm-warn); }
+.lm-char-name {
+    font-family: var(--lm-font-rune);
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--lm-text-main);
+    letter-spacing: 1px;
+}
+.lm-char-meta {
+    font-family: var(--lm-font-ui);
+    font-size: 0.68em;
+    color: var(--lm-text-dim);
+    margin-top: 3px;
+    letter-spacing: 1px;
+}
+.lm-char-status-badge {
+    font-family: var(--lm-font-ui);
+    font-size: 0.62em;
+    padding: 3px 7px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.lm-char-status-badge.registered {
+    background: color-mix(in srgb, var(--lm-success) 12%, transparent);
+    color: var(--lm-success);
+    border: 1px solid color-mix(in srgb, var(--lm-success) 35%, transparent);
+}
+.lm-char-status-badge.unregistered {
+    background: color-mix(in srgb, var(--lm-warn) 12%, transparent);
+    color: var(--lm-warn);
+    border: 1px solid color-mix(in srgb, var(--lm-warn) 35%, transparent);
+}
+
+/* ── WIZARD / REGISTRATION FORM ───────────────────────────────── */
+.lm-wizard {
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border-glow);
+    border-radius: 3px;
+    margin-top: 16px;
+    overflow: hidden;
+}
+.lm-wizard-header {
+    background: linear-gradient(90deg, var(--lm-bg-lift), var(--lm-bg-panel));
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--lm-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lm-wizard-title {
+    font-family: var(--lm-font-ui);
+    font-size: 0.72em;
+    letter-spacing: 3px;
+    color: var(--lm-accent);
+    text-transform: uppercase;
+}
+.lm-wizard-subject {
+    font-family: var(--lm-font-rune);
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--lm-text-main);
+    letter-spacing: 2px;
+}
+.lm-wizard-body { padding: 18px; }
+.lm-wizard-field { margin-bottom: 14px; }
+.lm-wizard-label {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    letter-spacing: 2px;
+    color: var(--lm-accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: block;
+}
+.lm-wizard-actions {
+    display: flex;
+    gap: 10px;
+    padding: 14px 18px;
+    border-top: 1px solid var(--lm-border);
+    background: var(--lm-bg-base);
+    flex-wrap: wrap;
+}
+.lm-wizard-msg {
+    font-family: var(--lm-font-ui);
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    border-radius: 2px;
+    margin-top: 8px;
+}
+.lm-wizard-msg.success {
+    color: var(--lm-success);
+    background: color-mix(in srgb, var(--lm-success) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--lm-success) 30%, transparent);
+}
+.lm-wizard-msg.error {
+    color: var(--lm-danger);
+    background: color-mix(in srgb, var(--lm-danger) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--lm-danger) 30%, transparent);
+}
+
+/* ── TRACKS TAB ───────────────────────────────────────────────── */
+.lm-track-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.lm-track-card {
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.lm-track-card:hover { border-color: var(--lm-border-glow); }
+.lm-track-card.active { border-color: var(--lm-track-color); }
+.lm-track-card-header {
+    padding: 14px 16px 10px;
+    border-left: 4px solid var(--lm-track-color);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--lm-track-color) 8%, transparent), transparent);
+}
+.lm-track-card-name {
+    font-family: var(--lm-font-rune);
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lm-track-color);
+}
+.lm-track-card-nick {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    color: var(--lm-text-dim);
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+.lm-track-card-body {
+    padding: 10px 16px 14px;
+    font-size: 0.8em;
+    color: var(--lm-text-dim);
+    line-height: 1.5;
+}
+.lm-track-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 16px 12px;
+}
+.lm-track-card-row {
+    font-family: var(--lm-font-ui);
+    font-size: 0.62em;
+    color: var(--lm-text-ghost);
+    letter-spacing: 1px;
+}
+.lm-track-card-row span { color: var(--lm-text-dim); }
+.lm-track-count-badge {
+    display: inline-block;
+    background: color-mix(in srgb, var(--lm-track-color) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--lm-track-color) 40%, transparent);
+    color: var(--lm-track-color);
+    font-family: var(--lm-font-ui);
+    font-size: 0.6em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-top: 6px;
+    letter-spacing: 1px;
+}
+
+/* ── TRACK STUDENT LIST ───────────────────────────────────────── */
+.lm-track-detail { display: none; }
+.lm-track-detail.active { display: block; }
+.lm-track-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--lm-border);
+    flex-wrap: wrap;
+}
+.lm-track-detail-name {
+    font-family: var(--lm-font-rune);
+    font-size: 1.3em;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.lm-back-link {
+    font-family: var(--lm-font-ui);
+    font-size: 0.7em;
+    color: var(--lm-accent);
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+.lm-back-link:hover { color: var(--lm-accent-bright); }
+
+/* Stripe indicator */
+.lm-stripes { display: flex; gap: 2px; align-items: center; }
+.lm-stripe {
+    width: 4px;
+    height: 14px;
+    background: var(--lm-border);
+    border-radius: 1px;
+}
+.lm-stripe.filled { background: var(--lm-stripe-color, var(--lm-accent)); }
+
+/* ── DEPARTMENTS TAB ──────────────────────────────────────────── */
+.lm-dept-type-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.lm-dept-type-tab {
+    font-family: var(--lm-font-rune);
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--lm-border);
+    border-radius: 2px;
+    cursor: pointer;
+    color: var(--lm-text-dim);
+    transition: all 0.2s;
+    background: transparent;
+}
+.lm-dept-type-tab.active {
+    background: var(--lm-bg-lift);
+    border-color: var(--lm-border-glow);
+    color: var(--lm-accent-bright);
+}
+
+.lm-dept-list { display: flex; flex-direction: column; gap: 8px; }
+.lm-dept-row {
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.lm-dept-row:hover { border-color: var(--lm-border-glow); }
+.lm-dept-row.open { border-color: var(--lm-dept-color); }
+.lm-dept-row-header {
+    padding: 13px 16px;
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+.lm-dept-num {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    color: var(--lm-text-ghost);
+    letter-spacing: 1px;
+}
+.lm-dept-name {
+    font-family: var(--lm-font-rune);
+    font-size: 0.95em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--lm-text-main);
+}
+.lm-dept-head-line {
+    font-family: var(--lm-font-ui);
+    font-size: 0.62em;
+    color: var(--lm-text-dim);
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+.lm-dept-chevron {
+    font-size: 0.65em;
+    color: var(--lm-text-ghost);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+.lm-dept-row.open .lm-dept-chevron { transform: rotate(180deg); }
+
+.lm-dept-body { display: none; border-top: 1px solid var(--lm-border); }
+.lm-dept-row.open .lm-dept-body { display: block; }
+
+/* Dept sub-tabs */
+.lm-dept-subtabs {
+    display: flex;
+    border-bottom: 1px solid var(--lm-border);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.lm-dept-subtabs::-webkit-scrollbar { display: none; }
+.lm-dept-subtab {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    cursor: pointer;
+    color: var(--lm-text-ghost);
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+.lm-dept-subtab:hover { color: var(--lm-text-dim); }
+.lm-dept-subtab.active {
+    color: var(--lm-accent-bright);
+    border-bottom-color: var(--lm-accent);
+}
+
+.lm-dept-subpanel { display: none; padding: 16px; }
+.lm-dept-subpanel.active { display: block; }
+
+/* Position list */
+.lm-position-list { display: flex; flex-direction: column; gap: 6px; }
+.lm-position-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: start;
+    padding: 10px 12px;
+    background: var(--lm-bg-base);
+    border: 1px solid var(--lm-border);
+    border-radius: 2px;
+    border-left: 2px solid var(--lm-dept-color, var(--lm-border-glow));
+}
+.lm-position-item.level-1 {
+    margin-left: 18px;
+    border-left-color: color-mix(in srgb, var(--lm-dept-color, var(--lm-border-glow)) 50%, var(--lm-border));
+}
+.lm-position-item.level-2 { margin-left: 36px; }
+.lm-position-title {
+    font-family: var(--lm-font-rune);
+    font-size: 0.88em;
+    font-weight: 600;
+    color: var(--lm-accent-bright);
+    letter-spacing: 1px;
+}
+.lm-position-current {
+    font-family: var(--lm-font-ui);
+    font-size: 0.62em;
+    color: var(--lm-accent);
+    letter-spacing: 1px;
+    margin-top: 3px;
+}
+.lm-position-rank {
+    font-family: var(--lm-font-ui);
+    font-size: 0.62em;
+    color: var(--lm-text-ghost);
+    letter-spacing: 1px;
+    text-align: right;
+    white-space: nowrap;
+}
+.lm-position-occupied { color: var(--lm-success); }
+.lm-position-vacant   { color: color-mix(in srgb, var(--lm-danger) 60%, var(--lm-bg-base)); }
+
+/* ── RANKINGS TAB ─────────────────────────────────────────────── */
+.lm-rank-tiers { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.lm-rank-tier {
+    background: var(--lm-bg-panel);
+    border: 1px solid var(--lm-border);
+    border-left: 3px solid var(--lm-tier-color);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.lm-rank-tier-header {
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+}
+.lm-rank-tier-name {
+    font-family: var(--lm-font-rune);
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lm-tier-color);
+}
+.lm-rank-tier-range {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    color: var(--lm-text-dim);
+    letter-spacing: 1px;
+}
+.lm-rank-tier-count {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    color: var(--lm-text-ghost);
+    letter-spacing: 1px;
+}
+.lm-rank-board { display: none; padding: 0 16px 12px; }
+.lm-rank-tier.open .lm-rank-board { display: block; }
+.lm-rank-entry {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--lm-bg-base);
+    font-size: 0.85em;
+}
+.lm-rank-pos {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    color: var(--lm-tier-color);
+    text-align: center;
+}
+.lm-rank-name {
+    font-family: var(--lm-font-rune);
+    font-weight: 600;
+    color: var(--lm-text-main);
+    letter-spacing: 1px;
+}
+.lm-rank-track-tag {
+    font-family: var(--lm-font-ui);
+    font-size: 0.6em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+}
+
+/* Rankings — student strip entries */
+.lm-rank-student-list { display: flex; flex-direction: column; gap: 4px; padding: 4px 0 8px; }
+.lm-rank-student {
+    padding: 8px 12px;
+    background: var(--lm-bg-base);
+    border-radius: 2px;
+    border-left: 2px solid var(--lm-tier-color);
+}
+.lm-rank-num {
+    font-family: var(--lm-font-ui);
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-right: 8px;
+}
+.lm-rank-student-name {
+    font-family: var(--lm-font-rune);
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--lm-text-main);
+    letter-spacing: 1px;
+}
+.lm-rank-tier-title {
+    font-family: var(--lm-font-rune);
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ── SHELL TABS ───────────────────────────────────────────────── */
+.lm-shell-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    gap: 12px;
+    padding: 40px 20px;
+}
+.lm-shell-icon { font-size: 2em; opacity: 0.2; }
+.lm-shell-label {
+    font-family: var(--lm-font-ui);
+    font-size: 0.7em;
+    letter-spacing: 3px;
+    color: var(--lm-text-ghost);
+    text-align: center;
+    text-transform: uppercase;
+}
+.lm-shell-sublabel {
+    font-family: var(--lm-font-body);
+    font-size: 0.75em;
+    color: var(--lm-text-ghost);
+    text-align: center;
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+/* ── EMPTY STATE ──────────────────────────────────────────────── */
+.lm-empty {
+    font-family: var(--lm-font-ui);
+    font-size: 0.7em;
+    color: var(--lm-text-ghost);
+    text-align: center;
+    letter-spacing: 2px;
+    padding: 24px;
+    text-transform: uppercase;
+}
+
+/* ── MOTTO ────────────────────────────────────────────────────── */
+.lm-motto {
+    font-family: var(--lm-font-body);
+    font-style: italic;
+    font-size: 0.78em;
+    color: var(--lm-text-dim);
+    padding: 10px 16px;
+    border-left: 2px solid var(--lm-border);
+    margin-bottom: 16px;
+}
+
+/* ── FACULTY ENTRY ────────────────────────────────────────────── */
+.lm-faculty-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: start;
+    padding: 10px 12px;
+    background: var(--lm-bg-base);
+    border: 1px solid var(--lm-border);
+    border-radius: 2px;
+    margin-bottom: 6px;
+}
+.lm-faculty-name {
+    font-family: var(--lm-font-rune);
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--lm-text-main);
+    letter-spacing: 1px;
+}
+.lm-faculty-pos {
+    font-family: var(--lm-font-ui);
+    font-size: 0.62em;
+    color: var(--lm-accent);
+    letter-spacing: 1px;
+    margin-top: 3px;
+}
+.lm-faculty-rank {
+    font-family: var(--lm-font-ui);
+    font-size: 0.62em;
+    color: var(--lm-text-dim);
+    text-align: right;
+}
+
+/* ── STUDENT ENTRY ────────────────────────────────────────────── */
+.lm-student-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    background: var(--lm-bg-base);
+    border: 1px solid var(--lm-border);
+    border-radius: 2px;
+    margin-bottom: 6px;
+}
+.lm-student-name {
+    font-family: var(--lm-font-rune);
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--lm-text-main);
+    letter-spacing: 1px;
+}
+.lm-student-meta-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 3px;
+    align-items: center;
+}
+.lm-cohort-badge {
+    font-family: var(--lm-font-ui);
+    font-size: 0.6em;
+    padding: 2px 6px;
+    background: var(--lm-bg-lift);
+    border: 1px solid var(--lm-border);
+    color: var(--lm-text-dim);
+    border-radius: 2px;
+    letter-spacing: 1px;
+}
+
+/* ── INLINE STYLE OVERRIDES ───────────────────────────────────── */
+/* These selectors override the hardcoded hex colors written as
+   inline styles directly in LMCA.js. They are lower priority
+   so they only fire when no inline style overrides them.
+   Where LMCA.js sets specific semantic colors (rank colors,
+   track colors) those are intentional and should NOT be touched. */
+
+/* Wizard header dim text */
+.lm-wizard-header > div:last-child {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    color: var(--lm-text-ghost);
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+/* Dept overview grid values */
+.lm-dept-subpanel[data-subpanel="overview"] .lm-wizard-label + div {
+    color: var(--lm-text-main);
+}
+
+/* Track detail student count line */
+.lm-track-detail-header > div:last-child {
+    font-family: var(--lm-font-ui);
+    font-size: 0.65em;
+    color: var(--lm-text-dim);
+    letter-spacing: 1px;
+}
+
+/* Rankings unranked student list items */
+.lm-rank-tiers ~ div > div {
+    color: var(--lm-text-dim);
+    background: var(--lm-bg-panel);
+}
+.lm-rank-tiers ~ div > div > span:first-child {
+    color: var(--lm-text-main);
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────────── */
+.lm-root ::-webkit-scrollbar { width: 4px; height: 4px; }
+.lm-root ::-webkit-scrollbar-track { background: var(--lm-bg-base); }
+.lm-root ::-webkit-scrollbar-thumb { background: var(--lm-border); border-radius: 2px; }

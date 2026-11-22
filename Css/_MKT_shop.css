@@ -1,0 +1,536 @@
+/* ╔══════════════════════════════════════════════════════════════════════╗
+   ║  DEVOUR SYSTEM — Shop Module                                        ║
+   ║  _MKT_shop.css  —  Landmark cards, detail view, forms               ║
+   ║  Load order: 6th (depends on _MKT_components.css)                   ║
+   ╚══════════════════════════════════════════════════════════════════════╝ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SHOP ROOT
+   ═══════════════════════════════════════════════════════════════════════ */
+.shop-root { padding: 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SHOP LIST VIEW
+   ═══════════════════════════════════════════════════════════════════════ */
+.shop-list-header {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         12px 14px 10px;
+  border-bottom:   1px solid var(--dv-border2);
+  flex-wrap:       wrap;
+  gap:             8px;
+  background:      linear-gradient(180deg, #0a0d10 0%, var(--dv-bg) 100%);
+}
+.shop-list-title {
+  font-family:    var(--dv-font-head);
+  font-size:      10px;
+  font-weight:    700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color:          var(--dv-amber);
+  text-shadow:    0 0 8px var(--dv-amber-glow);
+}
+
+/* ── Shop Cards Grid ── */
+.shop-cards {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap:                   8px;
+  padding:               12px;
+}
+
+/* ── Individual Shop Card ──
+   Background image sits behind content at low opacity.
+   The card's own gradient shows through, tinted by the image. */
+.shop-card {
+  position:      relative;
+  border:        1px solid var(--dv-border2);
+  border-bottom: 2px solid var(--dv-border2);
+  border-radius: var(--dv-radius-lg);
+  overflow:      hidden;
+  transition:    border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height:    120px;
+  cursor:        pointer;
+  background:    linear-gradient(160deg, #0d100a 0%, #0a0c09 100%);
+}
+.shop-card:hover {
+  border-color:        rgba(212,168,67,0.3);
+  border-bottom-color: var(--dv-amber-dim);
+  box-shadow:          0 4px 24px rgba(212,168,67,0.10), var(--dv-shadow);
+}
+
+/* Background image layer — ABSOLUTE, behind everything */
+.shop-card-bg {
+  position:            absolute;
+  inset:               0;
+  z-index:             0;
+  background-size:     cover;
+  background-position: center;
+  opacity:             0.18;
+  transition:          opacity 0.3s ease, transform 0.3s ease;
+  pointer-events:      none;
+}
+.shop-card:hover .shop-card-bg {
+  opacity:    0.28;
+  transform:  scale(1.03);
+}
+
+/* Content layer — ABOVE the background */
+.shop-card-inner {
+  position: relative;
+  z-index:  1;
+  padding:  10px 12px;
+}
+
+/* Decorative corner ticks */
+.shop-card::before {
+  content:       '';
+  position:      absolute;
+  top:           4px;
+  left:          4px;
+  width:         10px;
+  height:        10px;
+  border-top:    1px solid rgba(212,168,67,0.25);
+  border-left:   1px solid rgba(212,168,67,0.25);
+  border-radius: 1px 0 0 0;
+  z-index:       2;
+  transition:    border-color 0.2s ease;
+  pointer-events: none;
+}
+.shop-card::after {
+  content:        '';
+  position:       absolute;
+  bottom:         4px;
+  right:          4px;
+  width:          10px;
+  height:         10px;
+  border-bottom:  1px solid rgba(212,168,67,0.25);
+  border-right:   1px solid rgba(212,168,67,0.25);
+  border-radius:  0 0 1px 0;
+  z-index:        2;
+  transition:     border-color 0.2s ease;
+  pointer-events: none;
+}
+.shop-card:hover::before,
+.shop-card:hover::after { border-color: rgba(212,168,67,0.55); }
+
+/* Card inner layout */
+.shop-card-top {
+  display:       flex;
+  align-items:   center;
+  gap:           8px;
+  margin-bottom: 6px;
+}
+.shop-card-icon {
+  flex-shrink:     0;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           34px;
+  height:          34px;
+  background:      radial-gradient(circle, rgba(212,168,67,0.12) 0%, rgba(10,12,8,0.8) 100%);
+  border:          1px solid rgba(212,168,67,0.2);
+  border-radius:   50%;
+  transition:      border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.shop-card:hover .shop-card-icon {
+  border-color: rgba(212,168,67,0.45);
+  box-shadow:   0 0 12px rgba(212,168,67,0.15);
+}
+.shop-icon-placeholder { font-size: 16px; line-height: 1; }
+
+.shop-card-name {
+  font-family:    var(--dv-font-head);
+  font-size:      12px;
+  font-weight:    700;
+  flex:           1;
+  min-width:      0;
+  overflow:       hidden;
+  text-overflow:  ellipsis;
+  white-space:    nowrap;
+  color:          var(--dv-text);
+  letter-spacing: 0.05em;
+  transition:     color 0.2s ease;
+}
+.shop-card:hover .shop-card-name { color: var(--dv-amber); }
+
+.shop-card-meta {
+  display:       flex;
+  gap:           4px;
+  flex-wrap:     wrap;
+  margin-bottom: 6px;
+}
+.shop-region-tag {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  padding:        1px 7px;
+  border:         1px solid var(--dv-border2);
+  border-radius:  20px;
+  color:          var(--dv-muted);
+  letter-spacing: 0.04em;
+}
+.shop-city-tag {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  padding:        1px 7px;
+  border:         1px solid rgba(0,200,170,0.2);
+  border-radius:  20px;
+  color:          var(--dv-teal);
+}
+
+.shop-card-cats {
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           3px;
+  margin-bottom: 7px;
+}
+.shop-cat-pill {
+  font-family:    var(--dv-font-mono);
+  font-size:      8px;
+  padding:        1px 6px;
+  border:         1px solid var(--dv-border);
+  border-radius:  2px;
+  color:          var(--dv-muted);
+  letter-spacing: 0.04em;
+  background:     rgba(0,0,0,0.3);
+}
+.shop-cat-pill.muted { color: var(--dv-muted2); border-style: dashed; }
+
+.shop-card-actions { display: flex; gap: 4px; }
+
+/* Modifier badges */
+.shop-mod-badge {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  padding:        1px 7px;
+  border-radius:  20px;
+  border:         1px solid;
+  letter-spacing: 0.05em;
+}
+.mod-pos { border-color: rgba(224,80,0,0.4);   color: #ff6622; }
+.mod-neg { border-color: rgba(40,140,60,0.35);  color: #44cc66; }
+.mod-lg  { font-size: 10px; padding: 2px 10px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SHOP DETAIL VIEW
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Must be position:relative so the absolute bg anchors to it.
+   min-height ensures the bg has room even with few items. */
+.shop-detail {
+  position:   relative;
+  min-height: 500px;
+  overflow:   hidden;
+}
+
+/* ── Full-bleed background layer ── */
+.shop-detail-fullbg {
+  position:            absolute;
+  inset:               0;
+  z-index:             0;
+  background-size:     cover;
+  background-position: center top;
+  background-repeat:   no-repeat;
+}
+
+/* Scrim overlay — darkens the image so text remains readable.
+   Top is semi-transparent so the image actually shows through.
+   Bottom fades to near-solid to ground the content. */
+.shop-detail-fullbg-scrim {
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(
+    180deg,
+    rgba(7,9,13,0.35)   0%,
+    rgba(7,9,13,0.60)   25%,
+    rgba(7,9,13,0.82)   55%,
+    rgba(7,9,13,0.96)   100%
+  );
+}
+
+/* ── Content layer — ABOVE the bg ── */
+.shop-detail-content {
+  position:   relative;
+  z-index:    1;
+}
+
+/* ── Centered header: icon → name → location ── */
+.shop-detail-header {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  text-align:      center;
+  padding:         36px 20px 28px;
+  gap:             10px;
+}
+
+/* Icon container — sits ABOVE the name */
+.shop-detail-icon {
+  width:           60px;
+  height:          60px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  border:          1px solid rgba(212,168,67,0.25);
+  border-radius:   4px;
+  background:      rgba(8,10,14,0.65);
+  backdrop-filter: blur(4px);
+  box-shadow:      0 0 20px rgba(0,0,0,0.5), 0 0 8px rgba(212,168,67,0.08);
+  overflow:        hidden;
+  flex-shrink:     0;
+  margin-bottom:   4px;
+}
+.shop-detail-icon img,
+.shop-detail-icon svg { width:100%; height:100%; object-fit:cover; }
+.shop-detail-icon .shop-icon-svg { width: 70%; height: 70%; }
+.shop-detail-icon .shop-icon-placeholder { font-size: 28px; }
+
+/* Shop name — centered below icon */
+.shop-detail-name {
+  font-family:    var(--dv-font-head);
+  font-size:      22px;
+  font-weight:    800;
+  letter-spacing: 0.06em;
+  color:          var(--dv-amber);
+  text-shadow:    0 0 20px rgba(212,168,67,0.5), 0 2px 8px rgba(0,0,0,0.8);
+  text-transform: uppercase;
+  line-height:    1.1;
+}
+
+/* Location line — centered below name */
+.shop-detail-location {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+  flex-wrap:   wrap;
+  justify-content: center;
+}
+.shop-loc-region {
+  font-family:    var(--dv-font-mono);
+  font-size:      10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          var(--dv-teal);
+  text-shadow:    0 0 10px rgba(0,200,170,0.4);
+}
+.shop-loc-sep { color: var(--dv-muted); font-size: 10px; }
+.shop-loc-city {
+  font-family:    var(--dv-font-mono);
+  font-size:      10px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color:          var(--dv-text2);
+}
+
+/* ── Nav + stats bar ── */
+.shop-detail-bar {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         8px 12px;
+  border-top:      1px solid rgba(212,168,67,0.1);
+  border-bottom:   1px solid var(--dv-border);
+  background:      rgba(7,9,13,0.45);
+  backdrop-filter: blur(4px);
+  gap:             10px;
+  flex-wrap:       wrap;
+}
+.shop-detail-stats {
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  flex-wrap:   wrap;
+}
+.shop-stat {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color:          var(--dv-muted);
+}
+.shop-stat:not(:last-child)::after { content: ' \00b7'; margin-left: 10px; opacity: 0.4; }
+
+/* ── Item cards inside detail view ──
+   Slightly lifted over the dark scrim so they're readable
+   but still let the bg atmosphere show through. */
+.shop-detail-content .card-grid { padding: 10px 10px 20px; }
+.shop-detail-content .item-card {
+  background:      rgba(10,13,18,0.78);
+  backdrop-filter: blur(6px);
+  border-color:    rgba(255,255,255,0.06);
+}
+.shop-detail-content .item-card:hover {
+  border-color: var(--dv-border3);
+  background:   rgba(14,18,26,0.88);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SHOP FORM
+   ═══════════════════════════════════════════════════════════════════════ */
+.shop-form        { padding: 14px 12px 24px; max-width: 600px; }
+.shop-form-title  {
+  font-family:    var(--dv-font-head);
+  font-size:      13px;
+  font-weight:    700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          var(--dv-amber);
+  margin-bottom:  14px;
+  padding-bottom: 8px;
+  border-bottom:  1px solid var(--dv-border);
+  text-shadow:    0 0 8px var(--dv-amber-glow);
+}
+
+.sf-label {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color:          var(--dv-muted);
+  min-width:      110px;
+  flex-shrink:    0;
+}
+
+.sf-hint          { font-family: var(--dv-font-mono); font-size: 8px; color: var(--dv-muted); flex:1; }
+.sf-modifier-wrap { display: flex; align-items: center; gap: 6px; }
+.sf-modifier      { max-width: 80px; }
+.sf-modifier-unit { font-family: var(--dv-font-mono); font-size: 11px; color: var(--dv-muted); }
+.sf-modifier-hint { font-family: var(--dv-font-mono); font-size: 8px;  color: var(--dv-muted); }
+
+.sf-checks { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+.sf-check-all-row { margin-bottom: 4px; }
+
+/* File upload */
+.sf-file-row    { align-items: flex-start; }
+.sf-file-wrap   { display: flex; flex-direction: column; gap: 5px; flex: 1; }
+.sf-file-label  { display: inline-block; cursor: pointer; }
+.sf-file-btn {
+  font-family:    var(--dv-font-mono);
+  font-size:      9px;
+  letter-spacing: 0.08em;
+  padding:        4px 10px;
+  border:         1px solid var(--dv-border2);
+  border-radius:  2px;
+  background:     var(--dv-surface2);
+  color:          var(--dv-text2);
+  cursor:         pointer;
+  transition:     border-color 0.14s ease, color 0.14s ease;
+  display:        inline-block;
+}
+.sf-file-btn:hover { border-color: var(--dv-border3); color: var(--dv-text); }
+.sf-file-hint   { font-family: var(--dv-font-mono); font-size: 8px; color: var(--dv-muted); }
+.sf-file-preview {
+  min-height:  20px;
+  font-family: var(--dv-font-mono);
+  font-size:   8px;
+}
+.sf-file-preview img { border-radius: 3px; border: 1px solid var(--dv-border); }
+.sf-file-none   { color: var(--dv-muted); font-style: italic; }
+.sf-file-cached { color: var(--dv-teal); }
+.sf-asset-note  {
+  font-family:    var(--dv-font-mono);
+  font-size:      8px;
+  letter-spacing: 0.06em;
+  color:          var(--dv-muted);
+  margin:         10px 0 6px;
+  padding-top:    8px;
+  border-top:     1px solid var(--dv-border);
+}
+
+.sf-actions {
+  display:     flex;
+  gap:         10px;
+  margin-top:  20px;
+  padding-top: 14px;
+  border-top:  1px solid var(--dv-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SHOP BUTTONS  (defeat Obsidian reset + module-specific styling)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Base — defeats Obsidian's button reset */
+.dv-root .mkt-btn,
+.dv-root .mkt-btn-sm {
+  all:             unset;
+  box-sizing:      border-box;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  font-family:     var(--dv-font-mono);
+  font-size:       10px;
+  font-weight:     600;
+  letter-spacing:  0.10em;
+  text-transform:  uppercase;
+  padding:         5px 12px;
+  border:          1px solid var(--dv-border2);
+  border-radius:   2px;
+  background:      var(--dv-surface2);
+  color:           var(--dv-text2);
+  cursor:          pointer;
+  white-space:     nowrap;
+  transition:      color 0.14s ease, border-color 0.14s ease,
+                   background 0.14s ease, box-shadow 0.14s ease;
+  clip-path:       polygon(5px 0%,100% 0%,100% calc(100% - 5px),calc(100% - 5px) 100%,0% 100%,0% 5px);
+  -webkit-clip-path: polygon(5px 0%,100% 0%,100% calc(100% - 5px),calc(100% - 5px) 100%,0% 100%,0% 5px);
+}
+.dv-root .mkt-btn:hover,
+.dv-root .mkt-btn-sm:hover {
+  color:        var(--dv-text);
+  border-color: var(--dv-border3);
+  background:   rgba(255,255,255,0.05);
+  box-shadow:   0 0 10px rgba(200,200,200,0.06);
+}
+
+/* Active / primary */
+.dv-root .mkt-btn.mkt-btn-active {
+  color:        var(--dv-amber);
+  border-color: var(--dv-amber-dim);
+  background:   rgba(212,168,67,0.07);
+  text-shadow:  0 0 8px rgba(212,168,67,0.5);
+}
+.dv-root .mkt-btn.mkt-btn-active:hover {
+  background:  rgba(212,168,67,0.13);
+  box-shadow:  0 0 14px rgba(212,168,67,0.15);
+}
+
+/* Create shop button (top-right) */
+.dv-root .shop-create-btn {
+  color:        var(--dv-teal);
+  border-color: rgba(0,200,170,0.35);
+  background:   rgba(0,200,170,0.06);
+  text-shadow:  0 0 8px rgba(0,200,170,0.4);
+}
+.dv-root .shop-create-btn:hover {
+  background:  rgba(0,200,170,0.12);
+  box-shadow:  0 0 14px rgba(0,200,170,0.12);
+}
+
+/* Small action buttons (View / Edit) */
+.dv-root .mkt-btn-sm {
+  font-size: 9px;
+  padding:   4px 9px;
+  clip-path: polygon(4px 0%,100% 0%,100% calc(100% - 4px),calc(100% - 4px) 100%,0% 100%,0% 4px);
+  -webkit-clip-path: polygon(4px 0%,100% 0%,100% calc(100% - 4px),calc(100% - 4px) 100%,0% 100%,0% 4px);
+}
+
+/* Danger / delete */
+.dv-root .mkt-btn-sm.danger {
+  color:        #cc3322;
+  border-color: rgba(204,51,34,0.35);
+  background:   rgba(204,51,34,0.05);
+}
+.dv-root .mkt-btn-sm.danger:hover {
+  background:  rgba(204,51,34,0.12);
+  box-shadow:  0 0 10px rgba(204,51,34,0.12);
+}
+
+/* Back button in detail view */
+.dv-root .shop-back-btn {
+  font-size: 9px;
+  padding:   4px 10px;
+  color:     var(--dv-muted);
+}
+.dv-root .shop-back-btn:hover { color: var(--dv-text2); }

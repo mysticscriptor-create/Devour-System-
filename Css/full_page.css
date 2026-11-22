@@ -1,0 +1,297 @@
+/* =====================================================
+   FULL-PAGE DATAVIEWJS — Mobile (v11.2)
+   Trigger: cssclasses: full-page-db
+   Key insight: position:fixed fills the true viewport
+   AND width:100vw on preview-view hides the right gutter.
+   Both must be active together (as in the original dual-file).
+   pointer-events fixed to auto directly on block.
+   ===================================================== */
+
+/* -----------------------------------------------------
+   1. Note containers: strip padding, fill height
+      width:100vw overflows past the leaf right edge,
+      hiding the workspace gutter/divider line
+   ----------------------------------------------------- */
+.full-page-db.markdown-preview-view {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  background: var(--background-primary) !important;
+  overflow: hidden !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.full-page-db .markdown-reading-view,
+.full-page-db .markdown-source-view {
+  height: 100% !important;
+  min-height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
+  overflow: hidden !important;
+}
+
+.full-page-db .markdown-preview-sizer,
+.full-page-db .markdown-preview-section {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Hide frontmatter */
+.full-page-db .metadata-container,
+.full-page-db .mod-header {
+  display: none !important;
+}
+
+/* -----------------------------------------------------
+   2. Hide every note block except the dataviewjs wrapper
+   ----------------------------------------------------- */
+.full-page-db .markdown-preview-section > *:not(.block-language-dataviewjs):not(:has(.block-language-dataviewjs)) {
+  display: none !important;
+}
+
+.full-page-db .markdown-preview-section > .block-language-dataviewjs,
+.full-page-db .markdown-preview-section > div:has(.block-language-dataviewjs) {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+/* -----------------------------------------------------
+   3. THE OVERLAY
+   position:fixed + inset:0 = true fullscreen to viewport,
+   not constrained by the leaf width at all.
+   This is what made the original work edge-to-edge.
+   The view-content min-height:100vh below prevents the
+   "disappearing" that happens when fixed has no anchor.
+   ----------------------------------------------------- */
+.full-page-db .block-language-dataviewjs {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999 !important;
+  background: var(--background-primary) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+  border: none !important;
+  outline: none !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  pointer-events: auto !important;
+}
+
+.full-page-db .block-language-dataviewjs::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  background: transparent !important;
+}
+
+.full-page-db .block-language-dataviewjs .dataview {
+  width: 100% !important;
+  min-height: 100% !important;
+  pointer-events: auto !important;
+}
+
+.full-page-db .block-language-dataviewjs table.dataview,
+.full-page-db .block-language-dataviewjs .dataview.table-view-table,
+.full-page-db .block-language-dataviewjs table,
+.full-page-db .block-language-dataviewjs td,
+.full-page-db .block-language-dataviewjs th,
+.full-page-db .block-language-dataviewjs tr,
+.full-page-db .block-language-dataviewjs tbody,
+.full-page-db .block-language-dataviewjs thead {
+  width: 100% !important;
+  table-layout: auto !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* -----------------------------------------------------
+   4. LEAF-LEVEL: force view-content to have real height
+   so position:fixed has a non-zero stacking context
+   and doesn't disappear on mobile WebView
+   ----------------------------------------------------- */
+.workspace-leaf:has(.full-page-db) {
+  --header-height: 0px !important;
+  --mobile-navbar-height: 0px !important;
+  --status-bar-height: 0px !important;
+  --safe-area-inset-top: 0px !important;
+  --safe-area-inset-bottom: 0px !important;
+  --safe-area-inset-bottom-override: 0px !important;
+}
+
+.workspace-leaf:has(.full-page-db) .view-content {
+  min-height: 100vh !important;
+  height: 100vh !important;
+}
+
+/* Hide the entire header bar */
+.workspace-leaf:has(.full-page-db) .view-header,
+.workspace-leaf:has(.full-page-db) .view-header-title-container,
+.workspace-leaf:has(.full-page-db) .view-header-title-container::after,
+.workspace-leaf:has(.full-page-db) .view-header-title-container::before {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+  border: none !important;
+}
+
+.workspace-leaf:has(.full-page-db) .view-header-title-container.mod-at-start::before,
+.workspace-leaf:has(.full-page-db) .view-header-title-container.mod-at-end::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+}
+
+.workspace-leaf:has(.full-page-db) .view-actions,
+.workspace-leaf:has(.full-page-db) .view-action {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.workspace-leaf:has(.full-page-db) .cm-scroller,
+.workspace-leaf:has(.full-page-db) .markdown-preview-view,
+.workspace-leaf:has(.full-page-db) .markdown-rendered,
+.workspace-leaf:has(.full-page-db) .view-content,
+.workspace-leaf:has(.full-page-db) .workspace-leaf-content {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.workspace-leaf:has(.full-page-db) .cm-scroller::before,
+.workspace-leaf:has(.full-page-db) .cm-scroller::after,
+.workspace-leaf:has(.full-page-db) .markdown-preview-view::before,
+.workspace-leaf:has(.full-page-db) .markdown-preview-view::after,
+.workspace-leaf:has(.full-page-db) .markdown-rendered::before,
+.workspace-leaf:has(.full-page-db) .markdown-rendered::after,
+.workspace-leaf:has(.full-page-db) .view-content::before,
+.workspace-leaf:has(.full-page-db) .view-content::after,
+.workspace-leaf:has(.full-page-db) .workspace-leaf-content::before,
+.workspace-leaf:has(.full-page-db) .workspace-leaf-content::after,
+.workspace-leaf:has(.full-page-db) .mod-at-end::after,
+.workspace-leaf:has(.full-page-db) .mod-at-start::before {
+  display: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+}
+
+.workspace-leaf:has(.full-page-db) .workspace-leaf,
+.workspace-leaf:has(.full-page-db) .workspace-split {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.workspace-leaf:has(.full-page-db) .cm-scroller,
+.workspace-leaf:has(.full-page-db) .markdown-preview-view,
+.workspace-leaf:has(.full-page-db) .view-content {
+  overscroll-behavior: none !important;
+  transition: none !important;
+}
+
+.workspace-leaf:has(.full-page-db) * {
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  text-shadow: none !important;
+}
+
+/* =====================================================
+   5. GLOBAL UI — only when full-page-db note is active
+   ===================================================== */
+
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mobile-navbar,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mobile-navbar-container,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .status-bar,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mobile-fab,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mobile-floating-button,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) [class*="action-bar"],
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .view-actions,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mobile-fab-container,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mobile-toolbar {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+  border: none !important;
+}
+
+.app-container:has(.workspace-leaf.mod-active .full-page-db),
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .workspace,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .workspace-split,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .workspace-tabs,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mod-root,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mod-vertical {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mobile-navbar::after,
+.app-container:has(.workspace-leaf.mod-active .full-page-db) .mobile-navbar::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+}
+
+/* -----------------------------------------------------
+   6. Safe areas — notch & Android gesture bar
+   ----------------------------------------------------- */
+@supports (padding: max(0px)) {
+  .full-page-db .block-language-dataviewjs {
+    padding-top: env(safe-area-inset-top) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    padding-left: env(safe-area-inset-left) !important;
+    padding-right: env(safe-area-inset-right) !important;
+  }
+}
+
+/* -----------------------------------------------------
+   7. Fallback for old Android WebViews
+   ----------------------------------------------------- */
+@supports not (height: 100dvh) {
+  .workspace-leaf:has(.full-page-db) .view-content {
+    height: 100vh !important;
+    height: -webkit-fill-available !important;
+  }
+}

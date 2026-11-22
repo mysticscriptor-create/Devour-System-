@@ -1,0 +1,267 @@
+/* --- Header & Layout --- */
+.system-group { margin-bottom: 10px; }
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(139, 148, 158, 0.3);
+  margin-bottom: 12px;
+}
+
+.header-left { display: flex; align-items: center; gap: 8px; }
+.group-title { font-size: 15px; margin: 0; font-weight: 800; color: #58a6ff; }
+.group-count { font-size: 11px; color: #8b949e; margin-left: 2px;}
+
+.header-right { display: flex; gap: 5px; }
+.sys-btn {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.sys-btn:hover { background: #30363d; }
+
+/* --- Category Rows (Float Layout to allow wrapping under title) --- */
+.category-row {
+  display: block; 
+  margin-bottom: 12px;
+}
+/* Clearfix to ensure row height encapsulates floating children */
+.category-row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cat-pill-title {
+  float: left; /* Allows pills to wrap beneath it naturally */
+  background: var(--c-dark);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-width: 85px;
+  text-align: center;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  user-select: none;
+}
+.cat-pill-title:hover { opacity: 0.8; }
+
+/* Hide pills when collapsed */
+.category-row.collapsed .trait-pill,
+.category-row.collapsed .empty-pill { 
+  display: none; 
+}
+
+/* --- Trait Pills (Current Style) --- */
+.trait-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-base);
+  border-radius: 20px;
+  padding: 2px 8px 2px 3px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  vertical-align: top; /* Aligns neatly in block flow */
+}
+
+.empty-pill {
+  padding: 2px 12px;
+}
+
+.pill-num {
+  background: #000;
+  color: #fff !important;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.pill-content {
+  display: flex;
+  align-items: center; /* Wide mode default */
+  gap: 8px;
+}
+
+.pill-name {
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pill-details {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- Toggle: Compact Mode Logic --- */
+.compact-mode .trait-pill {
+  align-items: flex-start; /* Keeps the number dot near the top */
+  padding: 4px 10px 4px 4px;
+}
+
+.compact-mode .pill-num {
+  margin-top: 1px; /* Optical alignment with the top-wrapped text */
+}
+
+.compact-mode .pill-content {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 2px !important;
+}
+
+.compact-mode .pill-details {
+  display: flex;
+  font-size: 9px;
+  margin-top: 0;
+}
+
+.compact-mode .pill-name {
+  font-size: 11px;
+}
+
+/* --- Colors & Details --- */
+.pill-rank { color: var(--c-base); font-weight: 800; font-size: 10px; }
+.pill-layer { font-size: 9px; opacity: 0.6; }
+.pill-source {
+  background: var(--c-base);
+  color: white;
+  font-size: 8px;
+  font-weight: 900;
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+.cat-theme-Body { --c-base: #ff5f5f; --c-bg: rgba(255, 95, 95, 0.05); --c-dark: #cc0000; }
+.cat-theme-Cognition { --c-base: #a277ff; --c-bg: rgba(162, 119, 255, 0.05); --c-dark: #6a00ff; }
+.cat-theme-Flow { --c-base: #61b1ff; --c-bg: rgba(97, 177, 255, 0.05); --c-dark: #0077ff; }
+.cat-theme-Origin { --c-base: #ffb354; --c-bg: rgba(255, 179, 84, 0.05); --c-dark: #e67e00; }
+.cat-theme-Expression { --c-base: #49e359; --c-bg: rgba(73, 227, 89, 0.05); --c-dark: #22a62d; }
+
+/* --- System Overview Bar Fix --- */
+.global-stats-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #21262d 0%, #161b22 100%);
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.stats-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #8b949e;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.stats-values {
+  font-size: 14px;
+  color: #c9d1d9;
+}
+
+.stat-sep {
+  margin: 0 12px;
+  color: #30363d;
+}
+
+/* --- Beautified Buttons --- */
+.sys-btn {
+  background: #21262d;
+  border: 1px solid #444c56;
+  color: #c9d1d9;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sys-btn:hover {
+  background: #30363d;
+  border-color: #768390;
+  transform: translateY(-1px);
+}
+
+.sys-btn:active {
+  transform: translateY(0);
+}
+
+/* Specific Style for Compact Button Toggle */
+.sys-btn.is-compact {
+  background: #1f6feb; /* Blue accent when active */
+  border-color: #388bfd;
+  color: white;
+}
+
+/* --- The Chevron Arrow Button --- */
+.toggle-all-btn {
+  width: 28px;
+  height: 24px;
+  padding: 0;
+}
+
+.chevron-icon {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #c9d1d9;
+  border-bottom: 2px solid #c9d1d9;
+  transform: rotate(45deg); /* Default pointing down */
+  transition: transform 0.3s ease;
+  margin-top: -3px;
+}
+
+.toggle-all-btn.is-active .chevron-icon {
+  transform: rotate(-135deg); /* Pointing up */
+  margin-top: 3px;
+}
+
+/* --- Group Header Alignment --- */
+.group-header {
+  border-bottom: 2px solid #30363d;
+  padding-bottom: 10px;
+}
+
+.group-count {
+  background: rgba(139, 148, 158, 0.15);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  color: #8b949e;
+  margin-left: 5px;
+}
+
+/* --- Footer --- */
+.group-footer {
+    border-top: 1px solid rgba(48, 54, 61, 0.5);
+    padding-top: 8px;
+    font-weight: bold;
+}

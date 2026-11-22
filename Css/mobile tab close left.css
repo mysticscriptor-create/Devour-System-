@@ -1,0 +1,80 @@
+/* 1. Container: Control the spacing between cards */
+.mobile-tabs-container {
+    display: grid !important; /* CRITICAL: Enables CSS ordering */
+    grid-template-columns: 1fr !important; /* Single column list */
+    gap: 6px !important; 
+    padding: 8px !important;
+}
+
+/* 2. The Card: Row layout with dynamic height */
+.mobile-tab {
+    display: flex !important;
+    flex-direction: row !important; 
+    align-items: center !important; 
+    justify-content: flex-start !important;
+    
+    height: auto !important;        
+    min-height: 44px !important;    
+    padding: 6px 10px !important;
+    
+    background-color: var(--background-primary) !important;
+    border-radius: 6px !important;
+    border: 1px solid var(--background-modifier-border) !important;
+    border-left: 4px solid var(--interactive-accent) !important; 
+    overflow: hidden;               
+    
+    /* Base order for all tabs */
+    order: 1 !important;            
+}
+
+/* 3. The Close Button (Left Side) */
+.mobile-tab-preview {
+    order: -1 !important;           
+    flex-shrink: 0 !important;      
+    
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 8px 0 0 !important;   
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative !important;  
+}
+
+/* 4. The Title: Wrapped text */
+.mobile-tab-header {
+    flex: 1 !important;
+    padding: 0 !important;
+}
+
+.mobile-tab-title {
+    text-align: left !important;
+    white-space: pre-wrap !important; 
+    word-break: break-word !important; 
+    
+    font-size: 0.9em;
+    line-height: 1.3;
+    color: var(--text-normal);
+    margin: 0 !important;
+}
+
+/* 5. Cleanup: Hide unwanted elements */
+.mobile-tab-preview-content,
+.mobile-tab-pin {
+    display: none !important;
+}
+
+/* 6. Active Tab Styling */
+.mobile-tab.is-active {
+    border-color: var(--interactive-accent) !important;
+    background-color: var(--background-modifier-hover) !important;
+}
+
+.mobile-tab.is-active .mobile-tab-title {
+    font-weight: bold;
+}

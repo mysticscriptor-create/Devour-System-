@@ -1,0 +1,590 @@
+/* ============================================================
+   APEX PREDATOR — HUD REDESIGN (DEVOUR SYSTEM)
+   Masterfully refined. Every detail considered.
+   Drop this into your Obsidian snippets folder and enable it.
+   Disable the old apex-predator snippet if you had one.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap');
+
+/* ── ROOT TOKENS ── */
+:root {
+    --ap-void:        #040305;
+    --ap-dark:        #0b0608;
+    --ap-surface:     #110a0c;
+    --ap-panel:       #160c0e;
+    --ap-deep:        #1a0e10;
+    --ap-blood:       #cc1a1a;
+    --ap-blood-hi:    #ff2222;
+    --ap-blood-dim:   #8b0f0f;
+    --ap-bone:        #e2d4bc;
+    --ap-bone-dim:    #c4b298;
+    --ap-amber:       #c8893a;
+    --ap-ember:       #ff6020;
+    --ap-muted:       #6a4a4a;
+    --ap-dim:         #2e1818;
+    --ap-divider:     rgba(204, 26, 26, 0.18);
+    --ap-text:        #ddd0c8;
+    --ap-text-dim:    #9a8080;
+    --ap-font-head:   'Bebas Neue', sans-serif;
+    --ap-font-mono:   'Share Tech Mono', monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTAINER
+   ═══════════════════════════════════════════════════════════ */
+.hud-container {
+    background: var(--ap-dark);
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(204, 26, 26, 0.025) 3px,
+            rgba(204, 26, 26, 0.025) 4px
+        ),
+        radial-gradient(ellipse at 50% 0%, rgba(180, 10, 10, 0.12) 0%, transparent 70%);
+    border: 1px solid rgba(204, 26, 26, 0.25);
+    border-top: none;
+    border-radius: 0;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow:
+        0 0 0 1px rgba(204, 26, 26, 0.06),
+        0 0 50px rgba(160, 8, 8, 0.22),
+        0 4px 30px rgba(0, 0, 0, 0.7),
+        inset 0 0 80px rgba(0, 0, 0, 0.5);
+    color: var(--ap-text);
+    font-family: var(--ap-font-mono);
+    overflow: hidden;
+}
+
+/* Top accent bar (3-stripe claw effect) */
+.hud-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        var(--ap-blood-hi) 0%,
+        var(--ap-blood) 35%,
+        rgba(180,10,10,0.4) 65%,
+        transparent 100%
+    );
+    box-shadow: 0 0 14px rgba(255, 34, 34, 0.7), 0 0 30px rgba(204, 26, 26, 0.3);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Corner notch top-right */
+.hud-container::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 0 28px 28px 0;
+    border-color: transparent var(--ap-void) transparent transparent;
+    pointer-events: none;
+    z-index: 6;
+}
+
+.hud-glass { width: 100%; }
+
+/* ═══════════════════════════════════════════════════════════
+   TOP BAR
+   ═══════════════════════════════════════════════════════════ */
+.hud-top {
+    background: linear-gradient(90deg, rgba(30,10,10,1) 0%, rgba(18,8,8,1) 100%);
+    border-bottom: 1px solid rgba(204, 26, 26, 0.4);
+    padding: 10px 16px 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Left accent glow line */
+.hud-top::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--ap-blood-hi), var(--ap-blood-dim));
+    box-shadow: 0 0 10px var(--ap-blood), 0 0 20px rgba(204, 26, 26, 0.4);
+}
+
+/* Right corner tag */
+.hud-top::after {
+    content: "";
+    position: absolute;
+    right: 0; bottom: 0;
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,34,34,0.35));
+}
+
+.hud-label {
+    font-family: var(--ap-font-head);
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: var(--ap-blood-hi);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 10px rgba(255, 50, 50, 0.7),
+        0 0 30px rgba(204, 26, 26, 0.3);
+    position: relative;
+    left: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COPY BUTTON
+   ═══════════════════════════════════════════════════════════ */
+.hud-copy-btn {
+    background: linear-gradient(135deg, var(--ap-blood), var(--ap-blood-dim));
+    border: 1px solid rgba(255, 34, 34, 0.3);
+    color: #fff;
+    font-family: var(--ap-font-head);
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding: 5px 14px;
+    cursor: pointer;
+    clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
+    transition: background 0.2s, box-shadow 0.2s, letter-spacing 0.2s;
+    box-shadow: 0 0 8px rgba(204, 26, 26, 0.3);
+}
+.hud-copy-btn:hover {
+    background: linear-gradient(135deg, var(--ap-blood-hi), var(--ap-blood));
+    box-shadow: 0 0 16px var(--ap-blood), 0 0 30px rgba(204, 26, 26, 0.3);
+    letter-spacing: 4px;
+}
+.hud-copy-btn:active {
+    transform: scaleX(0.97);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTENT WRAPPER
+   ═══════════════════════════════════════════════════════════ */
+.hud-content {
+    padding: 16px 16px 22px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HEADER SECTION
+   ═══════════════════════════════════════════════════════════ */
+.hud-header-section {
+    margin-bottom: 16px;
+    border-left: 3px solid var(--ap-blood);
+    padding-left: 14px;
+    position: relative;
+}
+
+.hud-header-section::before {
+    content: "";
+    position: absolute;
+    left: -3px; top: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--ap-blood-hi), var(--ap-blood-dim) 60%, transparent);
+    box-shadow: 0 0 8px rgba(255, 34, 34, 0.5);
+}
+
+.hud-title {
+    font-family: var(--ap-font-head) !important;
+    font-size: 24px !important;
+    font-weight: 400;
+    letter-spacing: 7px;
+    color: var(--ap-bone);
+    text-shadow:
+        0 0 18px rgba(204, 34, 34, 0.45),
+        0 1px 0 rgba(0,0,0,0.8);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.hud-sub {
+    font-size: 11px !important;
+    color: var(--ap-text-dim);
+    margin-top: 5px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+.cyan { color: var(--ap-amber) !important; }
+.red  {
+    color: var(--ap-blood-hi) !important;
+    text-shadow: 0 0 8px rgba(255, 34, 34, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EU PROGRESS BAR
+   ═══════════════════════════════════════════════════════════ */
+#eu-progress-container {
+    background: var(--ap-panel) !important;
+    border: 1px solid rgba(204, 26, 26, 0.2) !important;
+    border-radius: 0 !important;
+    padding: 7px 10px !important;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+#eu-progress-container:hover {
+    border-color: rgba(204, 26, 26, 0.45) !important;
+    box-shadow: 0 0 12px rgba(204, 26, 26, 0.12);
+}
+#eu-progress-container::before {
+    content: "▼ TAP TO OPEN ESSENCE CALCULATOR";
+    position: absolute;
+    top: 50%; right: 10px;
+    transform: translateY(-50%);
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: rgba(204, 26, 26, 0.35);
+    font-family: var(--ap-font-head);
+}
+
+#eu-progress-container > div:last-child {
+    height: 5px !important;
+    background: var(--ap-dim) !important;
+    border-radius: 0 !important;
+    overflow: hidden;
+}
+#eu-progress-container > div:last-child > div {
+    background: linear-gradient(90deg, #6b0c0c, var(--ap-blood), var(--ap-blood-hi)) !important;
+    box-shadow: 0 0 8px var(--ap-blood), 0 0 16px rgba(204, 26, 26, 0.4);
+    border-radius: 0 !important;
+    position: relative;
+}
+#eu-progress-container > div:last-child > div::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 3px; height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 4px rgba(255,255,255,0.8);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CALCULATOR PANEL
+   ═══════════════════════════════════════════════════════════ */
+#eu-calculator-panel {
+    background: var(--ap-panel) !important;
+    border-left: 2px solid var(--ap-blood) !important;
+    border-radius: 0 !important;
+    padding: 12px !important;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+}
+
+#eu-calculator-panel select,
+#eu-calculator-panel input[type="number"] {
+    background: var(--ap-surface) !important;
+    color: var(--ap-text) !important;
+    border: 1px solid rgba(204, 26, 26, 0.3) !important;
+    border-radius: 0 !important;
+    font-family: var(--ap-font-mono);
+    font-size: 11px !important;
+    padding: 5px 8px !important;
+    transition: border-color 0.2s;
+}
+#eu-calculator-panel select:focus,
+#eu-calculator-panel input[type="number"]:focus {
+    border-color: var(--ap-blood) !important;
+    outline: none;
+    box-shadow: 0 0 6px rgba(204, 26, 26, 0.25);
+}
+
+#calc-done-btn {
+    background: linear-gradient(135deg, var(--ap-blood), var(--ap-blood-dim)) !important;
+    border: 1px solid rgba(255, 34, 34, 0.25) !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+    font-family: var(--ap-font-head) !important;
+    font-size: 12px !important;
+    letter-spacing: 2px;
+    padding: 5px 16px !important;
+    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+#calc-done-btn:hover {
+    background: linear-gradient(135deg, var(--ap-blood-hi), var(--ap-blood)) !important;
+    box-shadow: 0 0 12px rgba(204, 26, 26, 0.5) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HUD GRID
+   ═══════════════════════════════════════════════════════════ */
+.hud-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION BOXES
+   ═══════════════════════════════════════════════════════════ */
+.hud-box {
+    background: linear-gradient(160deg, var(--ap-panel), var(--ap-deep)) !important;
+    border: 1px solid rgba(204, 26, 26, 0.14) !important;
+    border-left: 2px solid rgba(204, 26, 26, 0.4) !important;
+    border-radius: 0 !important;
+    padding: 12px !important;
+    position: relative;
+    overflow: hidden;
+}
+.hud-box::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(204, 26, 26, 0.2));
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION LABELS
+   ═══════════════════════════════════════════════════════════ */
+.hud-section-label {
+    font-family: var(--ap-font-head) !important;
+    font-size: 11px !important;
+    color: var(--ap-blood-hi) !important;
+    letter-spacing: 5px;
+    margin-bottom: 12px !important;
+    opacity: 1 !important;
+    border-bottom: 1px solid var(--ap-divider);
+    padding-bottom: 6px;
+    text-shadow: 0 0 10px rgba(255, 34, 34, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.hud-section-label::before {
+    content: "";
+    display: inline-block;
+    width: 5px; height: 5px;
+    background: var(--ap-blood-hi);
+    box-shadow: 0 0 6px var(--ap-blood);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VITAL CARDS
+   ═══════════════════════════════════════════════════════════ */
+.hud-vital-card {
+    margin-bottom: 6px !important;
+    border-left: 2px solid rgba(100, 30, 30, 0.5) !important;
+    padding: 6px 10px !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-radius: 0 !important;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+.hud-vital-card::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 0;
+    border-color: transparent rgba(204, 26, 26, 0.08) transparent transparent;
+}
+.hud-vital-card:hover {
+    border-left-color: var(--ap-blood) !important;
+    background: rgba(204, 26, 26, 0.06) !important;
+    box-shadow: inset 2px 0 8px rgba(204, 26, 26, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   V-ROW (stats inside vital cards)
+   ═══════════════════════════════════════════════════════════ */
+.v-row {
+    font-size: 12px;
+    margin-bottom: 3px;
+    font-family: var(--ap-font-mono);
+    color: var(--ap-text);
+    line-height: 1.5;
+}
+.v-row span { color: var(--ap-blood-hi); }
+
+/* ═══════════════════════════════════════════════════════════
+   STATUS / PROGRESS BARS
+   ═══════════════════════════════════════════════════════════ */
+.status-bar {
+    height: 4px;
+    background: var(--ap-dim);
+    border-radius: 0;
+    overflow: hidden;
+    margin-bottom: 6px;
+    position: relative;
+}
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ap-blood-dim), var(--ap-blood-hi));
+    box-shadow: 0 0 8px var(--ap-blood);
+    position: relative;
+}
+.bar-fill::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 2px; height: 100%;
+    background: rgba(255,255,255,0.7);
+    box-shadow: 0 0 3px rgba(255,255,255,0.9);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TREE BOX (Status & Traits)
+   ═══════════════════════════════════════════════════════════ */
+.hud-tree-box {
+    background: rgba(0,0,0,0.2) !important;
+    border: 1px solid rgba(204, 26, 26, 0.12) !important;
+    border-left: 2px solid rgba(204, 26, 26, 0.35) !important;
+    border-radius: 0 !important;
+    padding: 10px !important;
+    font-family: var(--ap-font-mono) !important;
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    overflow-x: hidden;
+    word-break: break-word;
+}
+
+.hud-tree-content {
+    overflow-x: hidden;
+    word-break: break-word;
+}
+
+.t-row {
+    min-height: 14px;
+    white-space: pre-wrap !important;
+    word-break: break-word;
+    color: var(--ap-text);
+    line-height: 1.55;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LINKS
+   ═══════════════════════════════════════════════════════════ */
+.hud-link {
+    color: var(--ap-amber) !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(200, 137, 58, 0.3) !important;
+    transition: color 0.15s, border-color 0.15s, text-shadow 0.15s;
+}
+.hud-link:hover {
+    color: #f0aa60 !important;
+    border-color: var(--ap-amber) !important;
+    text-shadow: 0 0 8px rgba(200, 137, 58, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROWESS TOGGLE STRIP
+   ═══════════════════════════════════════════════════════════ */
+.hud-prowess-toggle {
+    height: 3px;
+    width: 85%;
+    margin: 18px auto 14px auto;
+    border-radius: 0;
+    background: linear-gradient(90deg, transparent, var(--ap-blood), var(--ap-blood-hi), var(--ap-blood), transparent);
+    box-shadow: 0 0 10px rgba(204, 26, 26, 0.6), 0 0 20px rgba(204, 26, 26, 0.2);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.25s ease;
+    position: relative;
+}
+.hud-prowess-toggle::before {
+    content: "◈  COMBAT PROWESS METRICS  ◈";
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--ap-font-head);
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: rgba(204, 26, 26, 0.55);
+    white-space: nowrap;
+    pointer-events: none;
+}
+.hud-prowess-toggle:hover {
+    opacity: 1;
+    box-shadow: 0 0 16px rgba(255, 34, 34, 0.8), 0 0 30px rgba(204, 26, 26, 0.4);
+}
+.hud-prowess-toggle:active {
+    transform: scaleY(2.5);
+    box-shadow: 0 0 24px rgba(255, 34, 34, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROWESS CONTAINER
+   ═══════════════════════════════════════════════════════════ */
+.hud-prowess-container {
+    display: none;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(204, 26, 26, 0.15);
+    border-left: 2px solid rgba(80, 8, 18, 0.8);
+    margin-top: 4px;
+    font-size: 0.88em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROWESS ITEM ROWS (inside engine output)
+   ═══════════════════════════════════════════════════════════ */
+.hud-prowess-item {
+    margin-bottom: 14px;
+}
+.hud-prowess-item:last-child { margin-bottom: 0; }
+
+.hud-prowess-title {
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 0;
+    font-size: 0.82em;
+    display: inline-block;
+    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid currentColor;
+    clip-path: polygon(3px 0%, 100% 0%, calc(100% - 3px) 100%, 0% 100%);
+    letter-spacing: 1px;
+}
+
+.hud-prowess-desc {
+    color: #e8d8c8;
+    line-height: 1.5;
+    padding-left: 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.95em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   AUTHORITY SECTION SPECIFIC
+   ═══════════════════════════════════════════════════════════ */
+.hud-section-label[style*="color: #ff4444"],
+.hud-section-label[style*="color:#ff4444"] {
+    color: var(--ap-blood-hi) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLLBAR (webkit)
+   ═══════════════════════════════════════════════════════════ */
+.hud-container ::-webkit-scrollbar {
+    width: 3px;
+    background: var(--ap-dark);
+}
+.hud-container ::-webkit-scrollbar-thumb {
+    background: var(--ap-blood-dim);
+    border-radius: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE TUNING
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+    .hud-grid { grid-template-columns: 1fr; }
+    .hud-tree-box { font-size: 11px !important; }
+    .hud-content { padding: 10px 10px 16px; }
+    .hud-title { font-size: 20px !important; }
+    .t-row { font-size: 11px; }
+    .hud-prowess-toggle::before { font-size: 8px; letter-spacing: 3px; }
+}

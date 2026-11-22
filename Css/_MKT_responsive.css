@@ -1,0 +1,81 @@
+/* ╔══════════════════════════════════════════════════════════════════════╗
+   ║  DEVOUR SYSTEM — Responsive Overrides                               ║
+   ║  _MKT_responsive.css  —  All @media blocks, mobile Obsidian         ║
+   ║  Load order: 8th (must be LAST to win specificity)                  ║
+   ╚══════════════════════════════════════════════════════════════════════╝ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOBILE BREAKPOINT — Obsidian mobile (<= 480px)
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* ── Grids collapse to single column ── */
+  .card-grid,
+  .currency-grid,
+  .econ-cards,
+  .shop-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Conversion editor tighter columns ── */
+  .conv-ed-header,
+  .conv-ed-row {
+    grid-template-columns: 1.5fr 1fr 1fr auto;
+    gap: 5px;
+    font-size: 9px;
+  }
+
+  /* ── Cross-ref smaller text ── */
+  .xref-row  { font-size: 8px; }
+
+  /* ── Header slightly smaller ── */
+  .dv-header-title { font-size: 17px; }
+
+  /* ── Controls tighter spacing ── */
+  .ctrl-dropdowns  { gap: 2px; }
+  .mkt-sel         { max-width: 100px; font-size: 9px; }
+
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REFERENCE TABLE MOBILE OVERRIDES
+   (originally scoped inside economy module)
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .ref-table-supplements .ref-row {
+    grid-template-columns: 28px 1fr 95px 95px;
+    font-size: 9px;
+  }
+  .ref-table-food .ref-row {
+    grid-template-columns: 72px 1fr 88px;
+    font-size: 9px;
+  }
+  .ref-table-housing .ref-row {
+    grid-template-columns: 1fr 100px;
+    font-size: 9px;
+  }
+}
+
+/* Commission card overflow fix */
+.comm-root {
+  overflow-x: hidden;
+  width:      100%;
+  box-sizing: border-box;
+}
+
+.comm-card-top {
+  min-width: 0;
+}
+
+.comm-card-name {
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  white-space:   nowrap;
+  min-width:     0;
+  flex:          1;
+}
+
+.comm-card-reward {
+  flex-shrink: 0;
+  max-width:   45%;
+}

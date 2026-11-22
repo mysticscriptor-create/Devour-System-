@@ -1,0 +1,194 @@
+/* ================================================
+   🌈 Rainbow Folders - FINAL CLEAN BUILD
+   ✅ No overlap bugs
+   ✅ Clean L-tree lines
+   ✅ Smooth unfold animation
+   ✅ Custom arrow icons
+   ================================================ */
+
+:root {
+    /* 📁 Main Folder Palette */
+    --Fold1-rgb: 239, 83, 80;    
+    --Fold2-rgb: 244, 143, 177;  
+    --Fold3-rgb: 171, 71, 188;   
+    --Fold4-rgb: 255, 167, 38;   
+    --Fold5-rgb: 255, 202, 40;   
+    --Fold6-rgb: 230, 126, 34;   
+    --Fold7-rgb: 205, 133, 63;   
+    --Fold8-rgb: 156, 204, 101;  
+    --Fold9-rgb: 141, 110, 99;   
+    --Fold10-rgb: 211, 47, 47;   
+    --Fold11-rgb: 240, 98, 146;  
+    --Fold12-rgb: 126, 87, 194;  
+
+    /* 🌟 Sub Folder Palette */
+    --Sub1-rgb: 41, 182, 246;    
+    --Sub2-rgb: 38, 198, 218;    
+    --Sub3-rgb: 38, 166, 154;    
+    --Sub4-rgb: 79, 195, 247;    
+    --Sub5-rgb: 100, 181, 246;   
+    --Sub6-rgb: 77, 182, 172;    
+    --Sub7-rgb: 120, 144, 156;   
+    --Sub8-rgb: 149, 165, 166;   
+    --Sub9-rgb: 121, 134, 203;   
+    --Sub10-rgb: 144, 164, 174;  
+    --Sub11-rgb: 174, 213, 129;  
+    --Sub12-rgb: 186, 104, 200;  
+}
+
+/* ================================================
+   🎯 COLOR MAPPING
+   ================================================ */
+
+.nav-folder[data-foldernumber="1"] { --tree-rgb: var(--Fold1-rgb); }
+.nav-folder[data-foldernumber="2"] { --tree-rgb: var(--Fold2-rgb); }
+.nav-folder[data-foldernumber="3"] { --tree-rgb: var(--Fold3-rgb); }
+.nav-folder[data-foldernumber="4"] { --tree-rgb: var(--Fold4-rgb); }
+.nav-folder[data-foldernumber="5"] { --tree-rgb: var(--Fold5-rgb); }
+.nav-folder[data-foldernumber="6"] { --tree-rgb: var(--Fold6-rgb); }
+.nav-folder[data-foldernumber="7"] { --tree-rgb: var(--Fold7-rgb); }
+.nav-folder[data-foldernumber="8"] { --tree-rgb: var(--Fold8-rgb); }
+.nav-folder[data-foldernumber="9"] { --tree-rgb: var(--Fold9-rgb); }
+.nav-folder[data-foldernumber="10"] { --tree-rgb: var(--Fold10-rgb); }
+.nav-folder[data-foldernumber="11"] { --tree-rgb: var(--Fold11-rgb); }
+.nav-folder[data-foldernumber="12"] { --tree-rgb: var(--Fold12-rgb); }
+
+/* Sub-folder override */
+.nav-folder .nav-folder[data-foldernumber="1"] { --tree-rgb: var(--Sub1-rgb); }
+.nav-folder .nav-folder[data-foldernumber="2"] { --tree-rgb: var(--Sub2-rgb); }
+.nav-folder .nav-folder[data-foldernumber="3"] { --tree-rgb: var(--Sub3-rgb); }
+.nav-folder .nav-folder[data-foldernumber="4"] { --tree-rgb: var(--Sub4-rgb); }
+.nav-folder .nav-folder[data-foldernumber="5"] { --tree-rgb: var(--Sub5-rgb); }
+.nav-folder .nav-folder[data-foldernumber="6"] { --tree-rgb: var(--Sub6-rgb); }
+.nav-folder .nav-folder[data-foldernumber="7"] { --tree-rgb: var(--Sub7-rgb); }
+.nav-folder .nav-folder[data-foldernumber="8"] { --tree-rgb: var(--Sub8-rgb); }
+.nav-folder .nav-folder[data-foldernumber="9"] { --tree-rgb: var(--Sub9-rgb); }
+.nav-folder .nav-folder[data-foldernumber="10"] { --tree-rgb: var(--Sub10-rgb); }
+.nav-folder .nav-folder[data-foldernumber="11"] { --tree-rgb: var(--Sub11-rgb); }
+.nav-folder .nav-folder[data-foldernumber="12"] { --tree-rgb: var(--Sub12-rgb); }
+
+/* ================================================
+   🎨 TEXT & BACKGROUNDS
+   ================================================ */
+
+/* MAIN folders */
+.nav-folder[data-foldernumber] > .nav-folder-title {
+    background-color: rgb(var(--tree-rgb)) !important;
+    color: #1e1e1e !important;
+    font-weight: 600;
+}
+
+/* SUB folders */
+.nav-folder .nav-folder[data-foldernumber] > .nav-folder-title {
+    background-color: rgb(var(--tree-rgb)) !important;
+    color: color-mix(in srgb, rgb(var(--tree-rgb)), #000 55%) !important;
+    font-weight: 600;
+}
+
+/* FILES */
+.nav-folder[data-foldernumber] > .nav-folder-children .nav-file-title {
+    background-color: transparent !important;
+    color: color-mix(in srgb, rgb(var(--tree-rgb)), #000 60%) !important;
+}
+
+/* ================================================
+   🌿 TREE STRUCTURE (FIXED)
+   ================================================ */
+
+.nav-folder-children {
+    position: relative;
+    margin-left: 12px !important;
+    padding-left: 12px !important;
+    overflow: visible;
+
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* OPEN */
+.nav-folder:not(.is-collapsed) > .nav-folder-children {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================================
+   🌿 CLEAN L-LINE (NO OVERLAP)
+   ================================================ */
+
+.nav-folder[data-foldernumber] > .nav-folder-children::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 12px; /* aligned with padding */
+    height: 100%;
+
+    border-left: 1.5px solid rgba(var(--tree-rgb), 0.6);
+    border-bottom: 1.5px solid rgba(var(--tree-rgb), 0.6);
+    border-bottom-left-radius: 8px;
+
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* Grow line */
+.nav-folder:not(.is-collapsed) > .nav-folder-children::before {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* ================================================
+   ▶️ CUSTOM ARROWS
+   ================================================ */
+
+/* Hide default arrows */
+.nav-folder-title .collapse-icon {
+    display: none !important;
+}
+
+/* Remove old icons */
+.nav-folder-title .nav-folder-title-content::before {
+    content: none !important;
+}
+
+/* Custom arrow */
+.nav-folder-title::before {
+    content: "➤";
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 12px;
+    transition: transform 0.2s ease;
+    color: currentColor;
+}
+
+/* Rotate */
+.nav-folder:not(.is-collapsed) > .nav-folder-title::before {
+    transform: rotate(90deg);
+}
+
+/* ================================================
+   ✨ FILE & ITEM POLISH
+   ================================================ */
+
+.nav-file-title, .nav-folder-title {
+    padding: 6px 10px !important;
+    border-radius: 5px !important;
+    margin-bottom: 2px !important;
+}
+
+/* Hover */
+.nav-file-title:hover,
+.nav-folder-title:hover {
+    background-color: rgba(var(--tree-rgb), 0.12) !important;
+}
+
+/* Active */
+.nav-file-title.is-active,
+.nav-folder-title.is-active {
+    outline: 1px solid rgb(var(--tree-rgb)) !important;
+}

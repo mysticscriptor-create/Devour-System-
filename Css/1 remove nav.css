@@ -1,0 +1,43 @@
+/* ==========================================================
+   Obsidian Mobile: Clean Left Sidebar (Preserves Right Sidebar)
+   ========================================================== */
+
+/* 1. Hide the Vault Switcher and Top Header in the LEFT drawer only */
+.workspace-drawer.mod-left .workspace-drawer-header,
+.workspace-drawer.mod-left .workspace-drawer-header-icon,
+.workspace-drawer.mod-left .workspace-sidedock-vault-switcher,
+.workspace-drawer.mod-left .nav-header {
+    display: none !important;
+}
+
+/* 2. Hide the "FILES" tab header / pill bar in the LEFT drawer only */
+.workspace-drawer.mod-left .workspace-drawer-tab-header-container,
+.workspace-drawer.mod-left .workspace-drawer-tab-header {
+    display: none !important;
+}
+
+/* Optional: Hide standard sorting/new folder icons below the vault name if you want it super clean */
+.workspace-drawer.mod-left .nav-buttons-container {
+    display: none !important;
+}
+
+/* 3. Clean up the bottom Mobile Navbar in the LEFT drawer */
+/* Hide the Vault Title text at the very bottom */
+.workspace-drawer.mod-left .mobile-navbar-vault-title {
+    display: none !important;
+}
+
+/* Keep the bottom bar visible for Settings, but format the icons inline */
+.workspace-drawer.mod-left .mobile-navbar {
+    display: flex !important;
+    justify-content: flex-start !important; /* Aligns icons neatly to the left */
+    padding: 10px 15px !important;
+    background: transparent !important;
+    border-top: none !important;
+}
+
+/* Add neat spacing between the Settings icon and any other custom bottom icons */
+.workspace-drawer.mod-left .mobile-navbar-actions {
+    display: flex !important;
+    gap: 15px !important; 
+}

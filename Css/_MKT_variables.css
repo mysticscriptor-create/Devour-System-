@@ -1,0 +1,60 @@
+/* ╔══════════════════════════════════════════════════════════════════════╗
+   ║  DEVOUR SYSTEM — FRACTURED CODEX × VOID CARTOGRAPHY                 ║
+   ║  _MKT_variables.css  —  Design Tokens                               ║
+   ║  Load order: 1st (no dependencies)                                  ║
+   ╚══════════════════════════════════════════════════════════════════════╝ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&family=Rajdhani:wght@400;500;600&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ROOT VARIABLES
+   ═══════════════════════════════════════════════════════════════════════ */
+:root {
+  /* Core palette */
+  --dv-bg:          #07090d;
+  --dv-surface:     #0c0f15;
+  --dv-surface2:    #10141c;
+  --dv-surface3:    #141820;
+  --dv-border:      #1a2030;
+  --dv-border2:     #243040;
+  --dv-border3:     #304050;
+  --dv-text:        #ccd4e0;
+  --dv-text2:       #98a4b4;
+  --dv-muted:       #4a5870;
+  --dv-muted2:      #283040;
+
+  /* Accent family */
+  --dv-amber:       #d4a843;
+  --dv-amber-dim:   #7a5e1a;
+  --dv-amber-glow:  rgba(212,168,67,0.18);
+  --dv-amber-glow2: rgba(212,168,67,0.08);
+  --dv-teal:        #00c8aa;
+  --dv-teal-dim:    #006050;
+  --dv-teal-glow:   rgba(0,200,170,0.15);
+  --dv-accent:      #3d7fff;
+  --dv-accent-glow: rgba(61,127,255,0.20);
+  --dv-warn:        #cc7a00;
+  --dv-danger:      #cc2200;
+  --dv-danger-bg:   rgba(204,34,0,0.10);
+
+  /* Price colors */
+  --price-credit:   #d4a843;
+  --price-crystal:  #60c4ff;
+  --price-core:     #00ffee;
+
+  /* Typography */
+  --dv-font-head:   'Cinzel', serif;
+  --dv-font-body:   'IM Fell English', serif;
+  --dv-font-ui:     'Rajdhani', sans-serif;
+  --dv-font-mono:   'Share Tech Mono', monospace;
+
+  /* Geometry */
+  --dv-radius:      3px;
+  --dv-radius-lg:   5px;
+  --dv-clip:        polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+
+  /* Motion */
+  --dv-transition:  0.14s ease;
+  --dv-shadow:      0 2px 12px rgba(0,0,0,0.5);
+  --dv-shadow-lg:   0 4px 24px rgba(0,0,0,0.65);
+}

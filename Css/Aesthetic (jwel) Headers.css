@@ -1,0 +1,205 @@
+/* ================================================
+   💎 Jewel Tone UI - V3 (FINAL FIX)
+   ================================================ */
+
+:root {
+    --theme-h1: #1b5e20; 
+    --theme-h1-bg: rgba(27, 94, 32, 0.1);
+    
+    --theme-h2: #0d47a1; 
+    --theme-h2-bg: rgba(13, 71, 161, 0.1);
+    
+    --theme-h3: #4a148c; 
+    --theme-h3-bg: rgba(74, 20, 140, 0.08);
+    
+    --theme-h4: #bf360c; 
+    --theme-h4-bg: rgba(191, 54, 12, 0.08);
+
+    --theme-h5: #00695c; 
+    --theme-h5-bg: rgba(0, 105, 92, 0.08);
+
+    --header-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+    --outline-sep: rgba(0, 0, 0, 0.1);
+}
+
+/* ================================================
+   🧾 FLOATING HEADINGS (Fixed Colors H1-H5)
+   ================================================ */
+
+/* Reset common floating properties */
+.markdown-rendered h1, .cm-heading-1, .HyperMD-header-1,
+.markdown-rendered h2, .cm-heading-2, .HyperMD-header-2,
+.markdown-rendered h3, .cm-heading-3, .HyperMD-header-3,
+.markdown-rendered h4, .cm-heading-4, .HyperMD-header-4,
+.markdown-rendered h5, .cm-heading-5, .HyperMD-header-5 {
+    box-shadow: var(--header-shadow);
+    border-radius: 6px !important;
+    margin-top: 1.5rem !important;
+    padding: 10px 15px !important;
+    display: block !important;
+    width: 100%;
+}
+
+/* Individual Colors & Borders */
+.markdown-rendered h1, .cm-heading-1, .HyperMD-header-1 { 
+    color: var(--theme-h1) !important; 
+    border-left: 8px solid var(--theme-h1) !important; 
+    background-color: var(--theme-h1-bg) !important; 
+}
+
+.markdown-rendered h2, .cm-heading-2, .HyperMD-header-2 { 
+    color: var(--theme-h2) !important; 
+    border-left: 8px solid var(--theme-h2) !important; 
+    background-color: var(--theme-h2-bg) !important; 
+}
+
+.markdown-rendered h3, .cm-heading-3, .HyperMD-header-3 { 
+    color: var(--theme-h3) !important; 
+    border-left: 6px solid var(--theme-h3) !important; 
+    background-color: var(--theme-h3-bg) !important; 
+}
+
+.markdown-rendered h4, .cm-heading-4, .HyperMD-header-4 { 
+    color: var(--theme-h4) !important; 
+    border-left: 6px solid var(--theme-h4) !important; 
+    background-color: var(--theme-h4-bg) !important; 
+}
+
+.markdown-rendered h5, .cm-heading-5, .HyperMD-header-5 { 
+    color: var(--theme-h5) !important; 
+    border-left: 6px solid var(--theme-h5) !important; 
+    background-color: var(--theme-h5-bg) !important; 
+}
+
+/* ================================================
+   📑 FLOATING JEWEL OUTLINE (H1 - H5 FIXED) - Mobile Optimized
+   ================================================ */
+
+[data-type="outline"] .tree-item-self {
+    margin: 5px 10px !important;
+    border-radius: 8px !important;
+    padding: 1px 4px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15) !important;
+    font-weight: 550 !important;
+    /* Removed heavy box-shadow + transition + transform for better mobile performance */
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* H1 - Level 1 */
+[data-type="outline"] .tree-item > .tree-item-self {
+    background-color: var(--theme-h1-bg) !important;
+    color: var(--theme-h1) !important;
+}
+
+/* H2 - Level 2 */
+[data-type="outline"] .tree-item .tree-item > .tree-item-self {
+    background-color: var(--theme-h2-bg) !important;
+    color: var(--theme-h2) !important;
+}
+
+/* H3 - Level 3 */
+[data-type="outline"] .tree-item .tree-item .tree-item > .tree-item-self {
+    background-color: var(--theme-h3-bg) !important;
+    color: var(--theme-h3) !important;
+}
+
+/* H4 - Level 4 */
+[data-type="outline"] .tree-item .tree-item .tree-item .tree-item > .tree-item-self {
+    background-color: var(--theme-h4-bg) !important;
+    color: var(--theme-h4) !important;
+}
+
+/* H5 - Level 5 */
+[data-type="outline"] .tree-item .tree-item .tree-item .tree-item .tree-item > .tree-item-self {
+    background-color: var(--theme-h5-bg) !important;
+    color: var(--theme-h5) !important;
+}
+
+/* Bright glow for selected heading */
+[data-type="outline"] .tree-item-self.is-active {
+    background-color: white !important;
+    border: 1px solid currentColor !important;
+    box-shadow: 0 0 6px currentColor !important; /* lighter glow */
+    /* Removed transform: scale() — it can cause reflow issues on mobile virtual lists */
+    z-index: 10;
+}
+
+/* Dark mode tweak */
+.theme-dark [data-type="outline"] .tree-item-self.is-active {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 15px currentColor !important;
+}
+
+/* ================================================
+   🔘 THE BUTTON (Always Visible + Right Side)
+   ================================================ */
+
+/* 1. Force the container to be visible and move it right */
+.collapse-indicator, 
+.heading-collapse-indicator {
+    position: absolute !important;
+    right: 12px !important; /* Pin to right */
+    left: auto !important;   /* Kill the left-side default */
+    opacity: 1 !important;   /* ALWAYS VISIBLE */
+    display: flex !important;
+    visibility: visible !important;
+    
+    /* Style it like a round button */
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 20 !important;
+}
+
+/* 2. Fix for Live Preview (Editor Mode) specifically */
+.cm-gutter-fold .collapse-indicator {
+    margin-right: -100vw !important; /* A hack to pull it out of the left gutter */
+    right: calc(-100vw + 45px) !important;
+}
+
+/* 3. Icon Styling */
+.collapse-indicator svg, 
+.heading-collapse-indicator svg {
+    width: 16px !important;
+    height: 16px !important;
+    opacity: 1 !important;
+    color: inherit !important;
+}
+
+/* ================================================
+   📊 DATA TABLES (Infinite Horizontal / No Wrap)
+   ================================================ */
+
+.markdown-rendered table {
+    display: block !important;
+    overflow-x: auto !important; /* Enables horizontal swiping */
+    white-space: nowrap !important; /* Prevents text from jumping to next line */
+    border-collapse: collapse !important;
+    width: auto !important;
+    max-width: none !important;
+    border-radius: 10px;
+    box-shadow: var(--header-shadow);
+}
+
+.markdown-rendered td, 
+.markdown-rendered th {
+    white-space: nowrap !important; /* Absolute no-wrap rule */
+    text-overflow: clip !important; /* No "..." allowed */
+    overflow: visible !important;
+    padding: 2px 2px !important; /* Extra breathing room for long text */
+    min-width: 10px;
+}
+
+/* Ensure the scrollbar is visible but clean */
+.markdown-rendered table::-webkit-scrollbar {
+    height: 4px;
+}
+
+.markdown-rendered table::-webkit-scrollbar-thumb {
+    background: var(--theme-h2);
+    border-radius: 10px;
+}

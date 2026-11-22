@@ -1,0 +1,652 @@
+/* ================================================================
+   DIMENSIONAL OVERSEER — STRUCTURE
+   Theme-independent layout and component styles.
+   Works alongside any overseer-theme-*.css file.
+   Enable this snippet in Obsidian alongside your chosen theme.
+   ================================================================ */
+
+/* ── 1. ROOT SCROLLBAR & BOX MODEL ───────────────────────────── */
+.ov-root ::-webkit-scrollbar { display: none !important; }
+.ov-root {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    width: 100%;
+
+    /* ── VITAL COLOR DEFAULTS (overridden per theme) ────────────
+       Each theme file adds its own .ov-root { --vital-* } block.
+       These fallbacks are used when no theme is active.          */
+    --vital-power:      #ff3b3b;
+    --vital-speed:      #00d2ff;
+    --vital-vitality:   #00ff88;
+    --vital-perception: #d400ff;
+    --vital-energy:     #ffb700;
+}
+.ov-root * { box-sizing: border-box !important; }
+
+/* ── 2. LIST & ITEMS LAYOUT ───────────────────────────────────── */
+.ov-list { min-height: 75vh !important; display: flex; flex-direction: column; }
+.ov-items { flex-grow: 1; overflow-y: auto; overflow-x: hidden; padding-bottom: 20px; }
+
+/* ── 3. SUBJECT HEADER LAYOUT ─────────────────────────────────── */
+.ov-subject-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100%;
+    gap: 15px;
+}
+.ov-subject-info {
+    width: 100%;
+    margin-left: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ov-meta-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100%;
+    gap: 10px;
+    margin-top: 15px;
+}
+.ov-meta-cell { text-align: center; }
+
+/* ── 4. DETAIL PANE & KILL TABLE ──────────────────────────────── */
+.ov-detail { overflow-x: hidden; width: 100%; padding-bottom: 35px; }
+.ov-kill-table { width: 100%; table-layout: fixed; margin-bottom: 10px; border-collapse: collapse; }
+
+/* ── 5. INFO GRID & DESC TEXT ─────────────────────────────────── */
+.ov-info-grid, .ov-desc-text {
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.5;
+}
+
+/* ── 6. VITAL MODS (legacy — kept for backward compatibility) ─── */
+.ov-vital-mods {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.62em;
+    margin-top: 4px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+/* ── 7. CONTROLS ──────────────────────────────────────────────── */
+.ov-controls { display: flex !important; flex-direction: column !important; gap: 6px !important; margin-bottom: 12px; }
+.ov-ctrl-row { display: flex !important; flex-direction: row !important; gap: 6px !important; width: 100%; }
+.ov-ctrl-row select { flex: 1 !important; width: auto !important; min-width: 0 !important; font-size: 0.75em !important; padding: 5px 4px !important; margin-bottom: 0 !important; }
+#ov-search { width: 100% !important; margin-bottom: 0 !important; }
+
+/* ── 8. PHOTO NAV LINE & IMAGE DOTS ───────────────────────────── */
+.ov-photo-wrap { position: relative; display: inline-flex; flex-direction: column; align-items: center; gap: 0; }
+.ov-photo-nav-line { width: 90px; height: 4px; border-radius: 2px; margin-top: 5px; display: flex; overflow: hidden; cursor: pointer; position: relative; }
+.ov-nav-zone { flex: 1; height: 100%; }
+.ov-nav-zone:active { opacity: 0.5; }
+.ov-nav-mid { flex: 0 0 30%; position: relative; }
+.ov-nav-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.8); position: absolute; top: 0; left: 50%; transform: translateX(-50%); }
+.ov-img-dots { display: flex; gap: 4px; margin-top: 4px; justify-content: center; }
+.ov-img-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+.ov-img-dot.active { background: currentColor; transform: scale(1.3); }
+
+/* ── 9. LIGHTBOX ──────────────────────────────────────────────── */
+.ov-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+.ov-lightbox-inner { position: relative; max-width: 92vw; max-height: 88vh; display: flex; align-items: center; justify-content: center; }
+.ov-lightbox-prev, .ov-lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; color: rgba(255,255,255,0.6); font-size: 18px; background: rgba(0,0,0,0.3); border-radius: 4px; }
+.ov-lightbox-prev { left: -44px; }
+.ov-lightbox-next { right: -44px; }
+.ov-lightbox-prev:active, .ov-lightbox-next:active { color: #fff; background: rgba(0,0,0,0.6); }
+.ov-lightbox-backdrop { position: absolute; inset: 0; z-index: 1; }
+
+/* ── 10. LIST ITEM GRID ───────────────────────────────────────── */
+.ov-item { display: grid; grid-template-columns: 26px 1fr auto; align-items: center; gap: 8px; border-left-width: 4px !important; padding: 8px !important; }
+.ov-item-sigil { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 26px; overflow: visible; }
+.ov-item-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; overflow: hidden; }
+.ov-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; min-width: 52px; flex-shrink: 0; }
+
+/* ── 11. SIMULATION PANEL ─────────────────────────────────────── */
+.ov-sim-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+.ov-sim-input-group { display: flex; flex-direction: column; gap: 4px; }
+.ov-sim-input-group label { font-size: 0.75em; color: #9ca3af; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+.ov-sim-input-group input,
+.ov-sim-input-group select { background: rgba(0,0,0,0.4); border: 1px solid #4b5563; color: #e5e7eb; padding: 6px; border-radius: 4px; font-size: 0.9em; width: 100%; }
+.ov-sim-btn { background: #3b82f6; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; }
+.ov-sim-btn:active { background: #2563eb; }
+.ov-sim-analysis { padding: 10px; border-left: 3px solid #00d2ff; background: rgba(0,210,255,0.05); margin-top: 10px; font-size: 0.9em; line-height: 1.4; color: #e5e7eb; border-radius: 0 4px 4px 0; }
+.ov-sim-warning { color: #ff3b3b; font-weight: bold; }
+.ov-sim-table { width: 100%; border-collapse: collapse; font-size: 0.85em; text-align: right; margin-top: 10px; }
+.ov-sim-table th { background: rgba(0,0,0,0.5); padding: 8px; border-bottom: 1px solid #4b5563; text-align: right; position: sticky; top: 0; }
+.ov-sim-table th:first-child { text-align: left; }
+.ov-sim-table td { padding: 8px; border-bottom: 1px solid #374151; }
+.ov-sim-table td:first-child { text-align: left; font-weight: bold; color: #d1d5db; }
+
+/* ── 12. PROWESS PANEL ────────────────────────────────────────── */
+.ov-prowess-container { display: none; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 6px; margin-bottom: 20px; font-size: 0.9em; }
+.ov-prowess-item { margin-bottom: 12px; }
+.ov-prowess-item:last-child { margin-bottom: 0; }
+.ov-prowess-title { font-weight: bold; padding: 2px 6px; border-radius: 3px; font-size: 0.85em; display: inline-block; margin-bottom: 4px; background: rgba(255,255,255,0.05); border: 1px solid currentColor; }
+.ov-prowess-desc { color: #d1d5db; line-height: 1.4; padding-left: 8px; border-left: 2px solid rgba(255,255,255,0.1); }
+
+/* ── 13. DUAL TOGGLE BAR ──────────────────────────────────────── */
+.ov-toggle-bar { display: flex; gap: 8px; margin: 20px 0 24px 0; }
+.ov-toggle-btn {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: 0.5;
+    position: relative;
+}
+.ov-toggle-btn::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.55em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.7;
+    color: currentColor;
+}
+.ov-toggle-btn:active { opacity: 1; }
+.ov-toggle-btn.active { opacity: 1; }
+
+/* ── 14. CUSTOM DROPDOWN ─────────────────────────────────────── */
+.ov-dd { position: relative; flex: 1; min-width: 0; user-select: none; }
+.ov-dd-trigger {
+    width: 100%;
+    padding: 5px 22px 5px 7px;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-base, rgba(0,0,0,0.45));
+    border: 1px solid var(--border-arcane, rgba(255,255,255,0.08));
+    color: var(--text-main, var(--text-normal));
+    font-family: var(--font-ui, inherit);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+.ov-dd-trigger::after { content: '▾'; margin-left: 6px; flex-shrink: 0; opacity: 0.5; font-size: 0.9em; }
+.ov-dd-trigger.open { border-color: var(--accent-cyan, rgba(255,255,255,0.3)); box-shadow: 0 0 8px color-mix(in srgb, var(--accent-cyan, #00ff88) 25%, transparent); }
+.ov-dd-trigger.open::after { content: '▴'; }
+.ov-dd-backdrop { position: fixed; inset: 0; z-index: 8000; }
+.ov-dd-menu {
+    position: fixed;
+    z-index: 8001;
+    background: var(--bg-panel, #0e0e14);
+    border: 1px solid var(--border-glow, rgba(255,255,255,0.1));
+    border-radius: 0;
+    overflow-y: auto;
+    max-height: 55vh;
+    min-width: 180px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.9);
+    font-family: var(--font-ui, inherit);
+}
+.ov-dd-option {
+    padding: 11px 14px;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text-dim, #9a9ab0);
+    border-bottom: 1px solid var(--border-arcane, rgba(255,255,255,0.04));
+    cursor: pointer;
+}
+.ov-dd-option:last-child { border-bottom: none; }
+.ov-dd-option:active { background: color-mix(in srgb, var(--accent-cyan, #fff) 8%, transparent); }
+.ov-dd-option.selected { color: var(--accent-cyan, var(--text-normal)); background: color-mix(in srgb, var(--accent-cyan, #fff) 6%, transparent); }
+
+/* ── 15. MODE SWITCHER ───────────────────────────────────────── */
+.ov-mode-switch {
+    display: flex;
+    gap: 2px;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-base, #0f1420);
+    border: 1px solid var(--border-arcane, #1e2535);
+    border-radius: 3px;
+    padding: 2px;
+    z-index: 10;
+}
+.ov-mode-tab { font-family: var(--font-ui, 'Barlow Condensed', sans-serif); font-size: 0.7em; letter-spacing: 2px; padding: 6px 14px; cursor: pointer; border-radius: 2px; transition: all 0.2s; user-select: none; }
+.ov-mode-tab.active { background: color-mix(in srgb, var(--accent-cyan, #1a2d4a) 15%, var(--bg-base, #0f1420)); color: var(--text-main, #c8d8f0); }
+.ov-mode-tab:not(.active) { background: transparent; color: var(--text-dim, #5e7a96); }
+.ov-mode-tab:not(.active):hover { color: var(--text-main, #8ba8c8); }
+
+
+/* ════════════════════════════════════════════════════════════════
+   VITAL STATUS SECTION
+   All colors pull from --vital-* CSS variables so each theme
+   controls the palette without touching the JS.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Section root & header ── */
+.ov-vbar-root {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 14px 0;
+}
+.ov-vbar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2px 8px;
+    border-bottom: 1px solid var(--border-arcane, #1a2535);
+}
+.ov-vbar-title {
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.8em;
+    letter-spacing: 3px;
+    color: var(--text-dim, #6a8aaa);
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+}
+.ov-vbar-title::after {
+    content: ' ⌄';
+    font-size: 0.75em;
+    opacity: 0.35;
+    letter-spacing: 0;
+}
+.ov-vbar-online {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.6em;
+    letter-spacing: 2px;
+    color: var(--text-ghost, #2a4a3a);
+}
+.ov-vbar-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-cyan, #00ff88);
+    box-shadow: 0 0 5px var(--accent-cyan, #00ff88);
+}
+
+/* ── Shared block primitives (used by bar strips) ── */
+.ov-seg-blocks {
+    display: flex;
+    gap: 1px;
+}
+.ov-seg-block {
+    flex: 1;
+    height: 6px;
+    border-radius: 1px;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+/* ── Pills (SYN / BST) ──────────────────────────────────────────
+   Base shape only — colors set by theme via .ov-vbar-pill.syn/bst
+   overrides below. Fallback colors use the theme accent vars.    */
+.ov-vbar-pill {
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.58em;
+    letter-spacing: 1px;
+    padding: 1px 6px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+}
+/* Default pill colors — themes override these */
+.ov-vbar-pill.syn {
+    background: color-mix(in srgb, var(--accent-cyan, #00d2ff) 8%, transparent);
+    color: color-mix(in srgb, var(--accent-cyan, #00d2ff) 65%, transparent);
+    border-color: color-mix(in srgb, var(--accent-cyan, #00d2ff) 20%, transparent);
+}
+.ov-vbar-pill.bst {
+    background: color-mix(in srgb, var(--accent-gold, #ffb700) 8%, transparent);
+    color: color-mix(in srgb, var(--accent-gold, #ffb700) 65%, transparent);
+    border-color: color-mix(in srgb, var(--accent-gold, #ffb700) 20%, transparent);
+}
+
+/* ── Scale mode picker ── */
+.ov-prl-scale-picker {
+    display: none;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+.ov-prl-scale-btn {
+    flex: 1;
+    font-family: var(--font-ui, 'Barlow Condensed', 'Share Tech Mono', monospace);
+    font-size: 0.58em;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    padding: 5px 4px;
+    border: 1px solid var(--border-arcane, #1a2535);
+    border-radius: 3px;
+    background: var(--bg-base, #080c18);
+    color: var(--text-ghost, #2e4060);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.15s, border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    white-space: nowrap;
+}
+.ov-prl-scale-btn:hover {
+    border-color: var(--border-glow, #2e4468);
+    color: var(--text-dim, #6a90bc);
+}
+.ov-prl-scale-btn.active {
+    border-color: var(--accent-cyan, #3a6090);
+    color: var(--text-main, #b8d4f8);
+    background: color-mix(in srgb, var(--accent-cyan, #3a6090) 10%, var(--bg-base, #080c18));
+    box-shadow: 0 0 8px color-mix(in srgb, var(--accent-cyan, #3a6090) 30%, transparent);
+}
+
+/* ── Outer panel ── */
+.ov-prl-panel { padding: 4px 0 0; }
+
+/* ════════════════════════════
+   ROWS: icon | bar | rank+num
+   ════════════════════════════ */
+.ov-prl-rows-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.ov-prl-row {
+    display: grid;
+    grid-template-columns: 36px 1fr 64px;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 2px;
+    border-bottom: 1px solid var(--border-arcane, #0d1420);
+}
+.ov-prl-row:last-child { border-bottom: none; }
+
+/* LEFT — icon */
+.ov-prl-icon {
+    width: 34px;
+    height: 34px;
+    border: 1px solid;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    flex-shrink: 0;
+}
+.ov-prl-icon svg { width: 17px; height: 17px; }
+
+/* MIDDLE — tier header + bar */
+.ov-prl-bar-mid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+.ov-prl-tier-header {
+    display: flex;
+    gap: 2px;
+    width: 100%;
+}
+.ov-prl-tier-hcell {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-ui, 'Barlow Condensed', 'Share Tech Mono', monospace);
+    font-size: 0.52em;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    line-height: 1;
+}
+.ov-prl-bar-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.ov-prl-bar-row .ov-seg-block { height: 7px !important; }
+.ov-prl-bar-strip {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 2px;
+}
+.ov-prl-bar-strip .ov-seg-blocks,
+.ov-prl-bar-strip .prl-blocks {
+    display: flex;
+    gap: 1px;
+    flex: 1;
+}
+
+/* RIGHT — rank badge + value */
+.ov-prl-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+}
+.ov-prl-rankbadge {
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.62em;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 1px 5px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-align: center;
+}
+.ov-prl-val {
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.68em;
+    color: var(--text-dim, #7a90ac);
+    line-height: 1;
+}
+
+/* ════════════════════════════════════════
+   OVERVIEW STRIP (dots on tier scale)
+   ════════════════════════════════════════ */
+.ov-overview-strip {
+    margin-top: 6px;
+    padding: 10px 12px;
+    border: 1px solid var(--border-arcane, #1a2535);
+    border-radius: 6px;
+    background: var(--bg-base, #080d16);
+}
+.ov-ov-track { position: relative; height: 16px; margin-bottom: 4px; }
+.ov-ov-line {
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-glow, #2a3a50), transparent);
+    transform: translateY(-50%);
+}
+.ov-ov-dot {
+    position: absolute;
+    top: 50%;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(0,0,0,0.4);
+}
+.ov-ov-labels { position: relative; height: 14px; }
+.ov-ov-lbl {
+    position: absolute;
+    transform: translateX(-50%);
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.5em;
+    letter-spacing: 1px;
+    color: var(--text-ghost, #2a3a50);
+}
+.ov-ov-legend {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+.ov-ov-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.55em;
+    letter-spacing: 1px;
+    color: var(--text-dim, #3a4e64);
+}
+.ov-ov-leg-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── 16. UTILITY ──────────────────────────────────────────────── */
+.ov-hidden { display: none !important; }
+.ov-warning {
+    font-family: var(--font-ui, inherit);
+    font-size: 0.82em;
+    color: var(--accent-blood, #e88);
+}
+
+/* ── 17. INFO GRID LAYOUT ─────────────────────────────────────── */
+.ov-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   VITAL STATUS — SIMPLE STACK BARS
+   ════════════════════════════════════════════════════════════════ */
+.ov-vs-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 4px 0;
+}
+.ov-vs-row {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    align-items: center;
+    gap: 10px;
+}
+.ov-vs-icon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.ov-vs-icon svg { width: 15px; height: 15px; }
+.ov-vs-mid {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+.ov-vs-label-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.ov-vs-label {
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.62em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    min-width: 28px;
+}
+.ov-vs-rank {
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.58em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 0px 5px;
+}
+.ov-vs-num {
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.58em;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+}
+.ov-vs-pill {
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.52em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 1px 5px;
+    border-radius: 2px;
+    border: 1px solid currentColor;
+    opacity: 0.7;
+}
+.ov-vs-pill.syn { color: var(--accent-cyan, #00d2ff); border-color: currentColor; background: transparent; }
+.ov-vs-pill.bst { color: var(--accent-gold, #ffb700); border-color: currentColor; background: transparent; }
+.ov-vs-pill-tag { opacity: 0.6; margin-left: 2px; }
+.ov-vs-track {
+    position: relative;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--bg-lift, rgba(255,255,255,0.04));
+    overflow: visible;
+}
+.ov-vs-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    position: relative;
+}
+.ov-vs-nxt {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    font-family: var(--font-ui, 'Share Tech Mono', monospace);
+    font-size: 0.48em;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   DETAIL OVERLAY — Base styles for the full-screen overlay
+   These are theme-agnostic structural styles. Themes add their
+   own visual styles on top via .ov-detail-overlay.ov-root rules.
+   ════════════════════════════════════════════════════════════════ */
+
+.ov-detail-overlay {
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.ov-detail-overlay::-webkit-scrollbar { display: none !important; }
+
+/* Ensure detail content fills the overlay */
+.ov-detail-overlay .ov-detail {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* Back button styling inside overlay */
+.ov-detail-overlay .ov-back-btn {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-bottom: 16px;
+}
+
+/* Mobile overlay adjustments */
+@media (max-width: 600px) {
+    .ov-detail-overlay { padding: 10px; }
+    .ov-detail-overlay .ov-detail { max-width: 100%; }
+}

@@ -1,0 +1,740 @@
+/* ================================================================
+   DIMENSIONAL OVERSEER — THEME 4: FORGE CODEX
+   My choice: Worn iron and amber. A registry that has existed
+   since the first core bearers. Heavy. Ancient. Authoritative.
+   Dark warm tones. The texture of metal and old leather.
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Scada:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&display=swap');
+
+/* ── ROOT ─────────────────────────────────────────────────────── */
+.ov-root {
+    --bg-base:        #0d0a06;
+    --bg-panel:       #140f08;
+    --bg-lift:        #1c1510;
+    --border-arcane:  #3a2c18;
+    --border-glow:    #5a4228;
+
+    --text-main:      #e8d4a8;
+    --text-dim:       #8a7050;
+    --text-ghost:     #3a2c18;
+
+    --accent-cyan:    #d4880a;
+    --accent-gold:    #f0a820;
+    --accent-blood:   #cc3010;
+    --accent-void:    #804010;
+    --accent-ember:   #e06020;
+
+    --font-ui:    'Fira Code', monospace;
+    --font-body:  'Scada', sans-serif;
+    --font-rune:  'Uncial Antiqua', cursive;
+
+    background:
+        radial-gradient(ellipse 80% 50% at 50% 100%, rgba(100,50,0,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 0% 50%, rgba(60,20,0,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 60% at 100% 20%, rgba(80,40,0,0.07) 0%, transparent 55%),
+        linear-gradient(180deg, #0c0906 0%, #110c07 50%, #0c0906 100%);
+    border: 1px solid #3a2c18;
+    border-top: 2px solid #d4880a;
+    border-radius: 1px;
+    padding: 18px;
+    color: #e8d4a8;
+    font-family: 'Scada', sans-serif;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        inset 0 0 80px rgba(80,40,0,0.08),
+        inset 0 0 40px rgba(212,136,10,0.03),
+        0 0 60px rgba(0,0,0,0.95),
+        inset 0 1px 0 rgba(212,136,10,0.15);
+}
+
+/* Rune watermark */
+.ov-root::after {
+    content: '⬟';
+    position: absolute;
+    bottom: -60px;
+    right: -30px;
+    font-size: 280px;
+    color: rgba(90,66,40,0.04);
+    pointer-events: none;
+    z-index: 0;
+    line-height: 1;
+    user-select: none;
+}
+
+.ov-root > * { position: relative; z-index: 1; }
+.ov-header, .ov-body, .ov-items, .ov-item,
+.ov-subject-header, .ov-info-grid, .ov-prog-wrap,
+.ov-vitals, .ov-controls, .ov-btn, .ov-back-btn,
+.ov-kill-table, .ov-calc, .ov-rank-badge, .ov-photo-ph,
+.ov-list, .ov-detail, .ov-section { position: relative; z-index: 2; }
+
+/* ── CORNERS ──────────────────────────────────────────────────── */
+.ov-corner { position: absolute; width: 22px; height: 22px; pointer-events: none; z-index: 10; }
+.ov-corner-tl { top: 0; left: 0; }
+.ov-corner-tr { top: 0; right: 0; transform: scaleX(-1); }
+.ov-corner-bl { bottom: 0; left: 0; transform: scaleY(-1); }
+.ov-corner-br { bottom: 0; right: 0; transform: scale(-1,-1); }
+.ov-corner svg path { fill: #d4880a !important; opacity: 0.75 !important; }
+.ov-corner svg circle { fill: #f0a820 !important; }
+
+/* ── HEADER ───────────────────────────────────────────────────── */
+.ov-header {
+    border-bottom: 1px solid #3a2c18;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    text-align: center;
+    position: relative;
+}
+.ov-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 15%; right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4880a, #cc3010, #d4880a, transparent);
+    opacity: 0.45;
+}
+.ov-header-title {
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 1.3em;
+    font-weight: 400;
+    color: #d4880a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 12px rgba(212,136,10,0.5),
+        0 0 30px rgba(212,136,10,0.15);
+}
+.ov-header-subtitle {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6em;
+    color: #8a7050;
+    letter-spacing: 0.18em;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+.ov-header-right { margin-top: 7px; }
+.ov-header-cl {
+    font-family: 'Fira Code', monospace;
+    color: #cc3010;
+    font-size: 0.65em;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    margin-top: 6px;
+    text-shadow: 0 0 6px rgba(204,48,16,0.4);
+}
+.ov-header-meta {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7em;
+    color: #8a7050;
+    margin-top: 4px;
+    letter-spacing: 0.06em;
+}
+.ov-highlight { color: #f0a820; text-shadow: 0 0 6px rgba(240,168,32,0.5); }
+
+/* ── DIVIDERS ─────────────────────────────────────────────────── */
+.ov-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #5a4228, #d4880a, #5a4228, transparent);
+    opacity: 0.4;
+    margin: 16px 0;
+}
+
+/* ── CONTROLS ─────────────────────────────────────────────────── */
+.ov-controls input,
+.ov-controls select,
+.ov-calc-row select,
+.ov-calc-row input {
+    background: rgba(10,7,3,0.8);
+    border: 1px solid #3a2c18;
+    color: #e8d4a8;
+    padding: 7px 9px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.78em;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.ov-controls input::placeholder { color: #3a2c18; }
+.ov-controls input:focus,
+.ov-controls select:focus {
+    border-color: #d4880a;
+    outline: none;
+    box-shadow: 0 0 8px rgba(212,136,10,0.2);
+}
+
+/* ── BUTTONS ──────────────────────────────────────────────────── */
+.ov-btn, .ov-back-btn {
+    background: linear-gradient(180deg, rgba(90,66,40,0.2) 0%, rgba(50,36,16,0.2) 100%);
+    border: 1px solid #5a4228;
+    color: #d4880a;
+    padding: 11px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.76em;
+    width: 100%;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    border-radius: 0;
+    position: relative;
+}
+.ov-btn::before, .ov-back-btn::before { content: none; }
+.ov-btn:active, .ov-back-btn:active {
+    background: rgba(212,136,10,0.1);
+    border-color: #d4880a;
+    box-shadow: 0 0 12px rgba(212,136,10,0.2);
+}
+
+/* ── LIST COUNT ───────────────────────────────────────────────── */
+.ov-list-count {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.62em;
+    color: #5a4228;
+    letter-spacing: 0.1em;
+    padding: 5px 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+/* ── LIST ITEMS ───────────────────────────────────────────────── */
+.ov-items { display: grid; gap: 4px; }
+.ov-item {
+    background: linear-gradient(105deg, #140f08 0%, rgba(22,16,10,0.9) 100%);
+    padding: 9px 10px;
+    border: 1px solid #2a1e10;
+    border-left: 3px solid;
+    border-radius: 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.ov-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(212,136,10,0.03) 0%, transparent 40%);
+    pointer-events: none;
+}
+.ov-item:active { background: linear-gradient(105deg, #1c1510 0%, #160f0a 100%); }
+.ov-item-name {
+    font-family: 'Scada', sans-serif !important;
+    font-weight: 700;
+    font-size: 0.95em;
+    color: #e8d4a8 !important;
+    letter-spacing: 0.03em;
+}
+.ov-item-tags { gap: 4px; margin-top: 4px; font-size: 0.68em; }
+.ov-item-rank {
+    padding: 1px 6px;
+    border-radius: 0;
+    background: rgba(0,0,0,0.4);
+    font-weight: 600;
+    border: 1px solid currentColor;
+    font-family: 'Fira Code', monospace;
+}
+.ov-item-reach {
+    padding: 1px 6px;
+    background: rgba(212,136,10,0.06);
+    color: #8a7050 !important;
+    border: 1px solid rgba(212,136,10,0.2);
+    border-radius: 0;
+    font-family: 'Fira Code', monospace;
+}
+.ov-item-right { gap: 4px; }
+.ov-item-gender {
+    font-size: 0.68em;
+    color: #3a2c18;
+    font-family: 'Fira Code', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.ov-item-ica.reg {
+    font-size: 0.65em;
+    font-family: 'Fira Code', monospace;
+    color: #d4880a;
+    border: 1px solid rgba(212,136,10,0.35);
+    padding: 1px 5px;
+    border-radius: 0;
+    background: rgba(212,136,10,0.06);
+    text-shadow: none;
+}
+.ov-item-ica.unreg {
+    font-size: 0.65em;
+    font-family: 'Fira Code', monospace;
+    color: #cc3010;
+    border: 1px solid rgba(204,48,16,0.35);
+    padding: 1px 5px;
+    border-radius: 0;
+    background: rgba(204,48,16,0.06);
+    text-shadow: none;
+}
+.ov-item-status {
+    padding: 1px 6px;
+    border-radius: 0;
+    font-size: 0.68em;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+.s-active   { color: #88cc66 !important; border: 1px solid rgba(136,204,102,0.35) !important; background: rgba(136,204,102,0.06) !important; text-shadow: none !important; }
+.s-deceased { color: #cc3010 !important; border: 1px solid rgba(204,48,16,0.35) !important;   background: rgba(204,48,16,0.06) !important;   text-shadow: none !important; }
+.s-inactive { color: #8a7050 !important; border: 1px solid rgba(138,112,80,0.25) !important;  background: rgba(138,112,80,0.04) !important;  text-shadow: none !important; }
+
+/* ── PHOTO FRAME ──────────────────────────────────────────────── */
+.ov-photo {
+    border: 2px solid transparent !important;
+    border-radius: 2px !important;
+    box-shadow: 0 0 20px rgba(212,136,10,0.2), 0 0 40px rgba(204,48,16,0.08) !important;
+}
+.ov-photo-ph {
+    width: 90px; height: 120px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: rgba(10,7,3,0.8);
+    border: 1px dashed #3a2c18 !important;
+    border-radius: 2px !important;
+    font-family: 'Fira Code', monospace;
+}
+
+/* ── RANK BADGE ───────────────────────────────────────────────── */
+.ov-rank-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border: 1px solid currentColor;
+    border-radius: 0;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 0.85em;
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+    box-shadow: 0 0 12px rgba(212,136,10,0.15) !important;
+    text-shadow: 0 0 6px currentColor !important;
+    background: rgba(0,0,0,0.4) !important;
+}
+
+/* ── SUBJECT IDENTITY ─────────────────────────────────────────── */
+.ov-subject-id {
+    font-family: 'Fira Code', monospace;
+    color: #3a2c18;
+    font-size: 0.65em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.ov-subject-name {
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #e8d4a8;
+    margin: 6px 0;
+    text-shadow: 0 0 12px rgba(232,212,168,0.15) !important;
+    letter-spacing: 0.04em;
+}
+
+/* ── META GRID ────────────────────────────────────────────────── */
+.ov-meta-label {
+    color: #3a2c18 !important;
+    font-family: 'Fira Code', monospace !important;
+    display: block;
+    font-size: 0.64em !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.ov-meta-val {
+    font-family: 'Scada', sans-serif !important;
+    font-size: 0.95em !important;
+    color: #e8d4a8 !important;
+    font-weight: 700;
+}
+
+/* ── SECTION TITLES ───────────────────────────────────────────── */
+.ov-section-title {
+    font-family: 'Fira Code', monospace !important;
+    color: #d4880a !important;
+    font-size: 0.75em !important;
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 6px rgba(212,136,10,0.25) !important;
+    border-left: 2px solid #cc3010;
+    padding-left: 8px;
+}
+.ov-section { margin-bottom: 4px; }
+
+/* ── FIELD LABELS / VALUES ────────────────────────────────────── */
+.ov-field-label {
+    font-family: 'Fira Code', monospace !important;
+    color: #5a4228 !important;
+    font-weight: 600;
+    font-size: 0.66em !important;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.ov-field-val {
+    font-family: 'Scada', sans-serif !important;
+    font-size: 1.05em !important;
+    color: #e8d4a8 !important;
+    display: block;
+}
+.ov-desc-text {
+    font-family: 'Scada', sans-serif !important;
+    font-size: 1em !important;
+    color: #c8b888 !important;
+    line-height: 1.6 !important;
+}
+
+/* ── PROGRESS ─────────────────────────────────────────────────── */
+.ov-prog-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7em;
+    color: #8a7050;
+    margin-bottom: 5px;
+}
+.ov-prog-track {
+    height: 8px;
+    background: rgba(10,7,3,0.9);
+    border: 1px solid #3a2c18;
+    border-radius: 0;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.ov-prog-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #804010, #d4880a) !important;
+    box-shadow: none !important;
+}
+.ov-prog-pct {
+    position: absolute;
+    right: 6px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6em;
+    color: #8a7050;
+}
+
+/* ── CALC PANEL ───────────────────────────────────────────────── */
+.ov-calc {
+    display: none;
+    margin-top: 10px;
+    padding: 12px;
+    background: rgba(10,7,3,0.85);
+    border: 1px solid #3a2c18;
+    border-radius: 0;
+}
+.ov-calc-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7em;
+    color: #cc3010;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.ov-calc-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.ov-calc-row select, .ov-calc-row input { flex: 1; min-width: 0; padding: 6px; }
+
+/* ── VITALS ───────────────────────────────────────────────────── */
+.ov-vitals {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin: 12px 0;
+}
+.ov-vital {
+    background: #0e0a05 !important;
+    border: 1px solid #2a1e10 !important;
+    border-radius: 0 !important;
+    padding: 10px 5px !important;
+    text-align: center;
+    position: relative;
+}
+.ov-vital-top {
+    height: 2px !important;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    box-shadow: none !important;
+}
+.ov-vital-val {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.85em !important;
+    font-weight: 600;
+    text-shadow: none !important;
+    display: block;
+    margin-top: 8px;
+}
+.ov-vital-lbl {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.5em !important;
+    color: #3a2c18 !important;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 3px;
+    text-transform: uppercase;
+}
+.ov-syn-tag {
+    color: #5a4228 !important;
+    background: rgba(90,66,40,0.12) !important;
+    border: 1px solid rgba(90,66,40,0.22) !important;
+    border-radius: 0 !important;
+    text-shadow: none !important;
+}
+.ov-boost-tag {
+    color: #d4880a !important;
+    background: rgba(212,136,10,0.07) !important;
+    border: 1px solid rgba(212,136,10,0.28) !important;
+    border-radius: 0 !important;
+    text-shadow: none !important;
+}
+
+/* ── ABILITY ──────────────────────────────────────────────────── */
+.ov-ability-name {
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 1.1em;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+    text-shadow: none !important;
+}
+.ov-ability-type {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.68em;
+    color: #5a4228;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+.ov-warning {
+    border-left: 2px solid #cc3010 !important;
+    padding-left: 8px !important;
+    color: #cc8060 !important;
+    font-family: 'Scada', sans-serif !important;
+    font-size: 0.95em !important;
+    margin-top: 8px !important;
+}
+
+/* ── KILL TABLE ───────────────────────────────────────────────── */
+.ov-kill-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.78em;
+}
+.ov-kill-table th {
+    color: #5a4228;
+    font-size: 0.7em;
+    letter-spacing: 0.1em;
+    padding: 5px 6px;
+    border-bottom: 1px solid #3a2c18;
+    text-align: left;
+    text-transform: uppercase;
+}
+.ov-kill-table td { padding: 5px 6px; border-bottom: 1px solid rgba(58,44,24,0.4); }
+.kl-rank { font-weight: 600; text-shadow: none !important; }
+.kl-count { text-align: right; color: #e8d4a8; }
+
+.glow-text { text-shadow: none !important; color: #d4880a !important; }
+
+/* ── LIGHTBOX ─────────────────────────────────────────────────── */
+.ov-lightbox { background: rgba(10,7,3,0.96) !important; }
+.ov-lightbox img { border-radius: 2px !important; box-shadow: 0 0 30px rgba(212,136,10,0.25) !important; }
+.ov-lightbox-close { background: #0d0a06 !important; border-color: #3a2c18 !important; color: #d4880a !important; border-radius: 0 !important; }
+
+/* ── MOBILE ───────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .ov-vitals { grid-template-columns: repeat(3, 1fr); }
+    .ov-root { padding: 12px; }
+    .ov-info-grid, .ov-desc-text { font-size: 1em !important; }
+}
+
+
+/* ── UTILITY ──────────────────────────────────────────────── */
+.ov-hidden { display: none !important; }
+.ov-warning {
+    font-family: var(--font-ui);
+    font-size: 0.82em;
+    color: #e88;
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   THEME 4: FORGE CODEX — VITALS BARS
+   Molten iron and forged amber. Heavy ancient metal.
+   Each bar is a chain of iron ingots heated by inner fire.
+   ════════════════════════════════════════════════════════════════ */
+
+/* Forge vitals panel — iron frame with ember glow */
+.ov-detail-overlay .ov-vbar-root,
+.ov-root .ov-vbar-root {
+    border: 1px solid #3a2c18;
+    border-top: 3px solid #d4880a;
+    background: rgba(10,7,3,0.95);
+    padding: 14px;
+    margin: 14px 0;
+    border-radius: 1px;
+    box-shadow: inset 0 0 20px rgba(80,40,0,0.08), inset 0 1px 0 rgba(212,136,10,0.15);
+    position: relative;
+}
+.ov-detail-overlay .ov-vbar-root::before,
+.ov-root .ov-vbar-root::before {
+    content: '⬟';
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 16px;
+    color: rgba(212,136,10,0.15);
+    pointer-events: none;
+}
+
+/* Row layout — heavy iron spacing */
+.ov-detail-overlay .ov-prl-row,
+.ov-root .ov-prl-row {
+    grid-template-columns: 38px 1fr 66px;
+    gap: 10px;
+    padding: 5px 3px;
+    border-bottom: 1px solid rgba(58,44,24,0.5);
+}
+.ov-detail-overlay .ov-prl-row:last-child,
+.ov-root .ov-prl-row:last-child { border-bottom: none; }
+
+/* Forge icon — iron pentacle frame */
+.ov-detail-overlay .ov-prl-icon,
+.ov-root .ov-prl-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 2px;
+    border: 1px solid;
+    background: rgba(10,7,3,0.9);
+    box-shadow: inset 0 0 6px rgba(212,136,10,0.1), 0 0 4px rgba(80,40,0,0.2);
+    position: relative;
+}
+.ov-detail-overlay .ov-prl-icon::after,
+.ov-root .ov-prl-icon::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 1px solid rgba(212,136,10,0.15);
+    border-radius: 1px;
+    pointer-events: none;
+}
+.ov-detail-overlay .ov-prl-icon svg,
+.ov-root .ov-prl-icon svg { width: 15px; height: 15px; }
+
+/* Forged bar blocks — heavy iron with inner heat */
+.ov-detail-overlay .ov-seg-block,
+.ov-root .ov-seg-block {
+    height: 10px !important;
+    border-radius: 1px !important;
+    background: #0d0a06;
+    border: 1px solid #1c1510 !important;
+    position: relative;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+.ov-detail-overlay .ov-seg-blocks,
+.ov-root .ov-seg-blocks { gap: 2px !important; }
+
+/* Filled blocks — amber-hot iron */
+.ov-detail-overlay .ov-seg-block.filled,
+.ov-root .ov-seg-block.filled {
+    background: linear-gradient(180deg, #d4880a 0%, #804010 60%, #3a2c18 100%) !important;
+    border-color: #5a4228 !important;
+    box-shadow: inset 0 1px 1px rgba(240,168,32,0.4), 0 0 3px rgba(212,136,10,0.2) !important;
+}
+/* Edge block — white-hot iron, brightest ember */
+.ov-detail-overlay .ov-seg-block.filled.edge,
+.ov-root .ov-seg-block.filled.edge {
+    background: linear-gradient(180deg, #f0a820 0%, #e06020 40%, #cc3010 100%) !important;
+    border-color: #f0a820 !important;
+    box-shadow: 0 0 8px rgba(212,136,10,0.5), 0 0 16px rgba(204,48,16,0.25), inset 0 1px 2px rgba(255,255,255,0.3) !important;
+    animation: forgeGlow 2.5s ease-in-out infinite;
+}
+@keyframes forgeGlow {
+    0%, 100% { box-shadow: 0 0 8px rgba(212,136,10,0.5), 0 0 16px rgba(204,48,16,0.25), inset 0 1px 2px rgba(255,255,255,0.3); }
+    50% { box-shadow: 0 0 12px rgba(212,136,10,0.7), 0 0 24px rgba(204,48,16,0.4), inset 0 1px 3px rgba(255,255,255,0.4); }
+}
+
+/* Past-tier blocks — cooled iron */
+.ov-detail-overlay .ov-seg-block.filled:not(.edge),
+.ov-root .ov-seg-block.filled:not(.edge) {
+    background: linear-gradient(180deg, #5a4228 0%, #3a2c18 100%) !important;
+    border-color: #3a2c18 !important;
+    box-shadow: inset 0 1px 1px rgba(90,66,40,0.3) !important;
+    opacity: 0.5;
+}
+
+/* Rank badge — iron stamp */
+.ov-detail-overlay .ov-prl-rankbadge,
+.ov-root .ov-prl-rankbadge {
+    font-family: 'Fira Code', monospace !important;
+    border-radius: 0 !important;
+    background: rgba(10,7,3,0.9) !important;
+    border: 1px solid #3a2c18 !important;
+    box-shadow: 0 0 4px rgba(212,136,10,0.1) !important;
+    text-shadow: 0 0 4px currentColor !important;
+    font-size: 0.58em !important;
+    padding: 2px 5px !important;
+    letter-spacing: 1px !important;
+}
+
+/* Value */
+.ov-detail-overlay .ov-prl-val,
+.ov-root .ov-prl-val {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.62em !important;
+    text-shadow: 0 0 3px currentColor !important;
+}
+
+/* Pills — forge markings */
+.ov-detail-overlay .ov-vbar-pill,
+.ov-root .ov-vbar-pill {
+    font-family: 'Fira Code', monospace !important;
+    border-radius: 0 !important;
+    font-size: 0.52em !important;
+    letter-spacing: 1px !important;
+    padding: 2px 5px !important;
+}
+.ov-detail-overlay .ov-vbar-pill.syn,
+.ov-root .ov-vbar-pill.syn {
+    background: rgba(90,66,40,0.12) !important;
+    color: #8a7050 !important;
+    border: 1px solid rgba(90,66,40,0.25) !important;
+}
+.ov-detail-overlay .ov-vbar-pill.bst,
+.ov-root .ov-vbar-pill.bst {
+    background: rgba(212,136,10,0.08) !important;
+    color: #d4880a !important;
+    border: 1px solid rgba(212,136,10,0.3) !important;
+}
+
+/* Scale picker — forge command style */
+.ov-detail-overlay .ov-prl-scale-picker,
+.ov-root .ov-prl-scale-picker { gap: 4px; margin-bottom: 12px; }
+.ov-detail-overlay .ov-prl-scale-btn,
+.ov-root .ov-prl-scale-btn {
+    font-family: 'Fira Code', monospace !important;
+    border-radius: 0 !important;
+    border: 1px solid #3a2c18 !important;
+    background: rgba(10,7,3,0.9) !important;
+    color: #5a4228 !important;
+    font-size: 0.55em !important;
+    letter-spacing: 0.12em !important;
+    padding: 6px 10px !important;
+    font-weight: 600 !important;
+}
+.ov-detail-overlay .ov-prl-scale-btn.active,
+.ov-root .ov-prl-scale-btn.active {
+    border-color: #d4880a !important;
+    color: #f0a820 !important;
+    background: rgba(212,136,10,0.1) !important;
+    box-shadow: 0 0 8px rgba(212,136,10,0.2) !important;
+}
+
+/* Vital title */
+.ov-detail-overlay .ov-vbar-title::after,
+.ov-root .ov-vbar-title::after { content: ' ▾'; font-size: 0.65em; }

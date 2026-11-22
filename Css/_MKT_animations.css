@@ -1,0 +1,65 @@
+/* ╔══════════════════════════════════════════════════════════════════════╗
+   ║  DEVOUR SYSTEM — Animations                                         ║
+   ║  _MKT_animations.css  —  All @keyframes + animation assignments     ║
+   ║  Load order: 9th (any order works, but last is conventional)        ║
+   ╚══════════════════════════════════════════════════════════════════════╝ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   KEYFRAMES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Card entrance */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Header rune glow pulse */
+@keyframes runeGlow {
+  0%, 100% { text-shadow: 0 0 12px rgba(212,168,67,0.7), 0 0 28px rgba(212,168,67,0.35); }
+  50%       { text-shadow: 0 0 18px rgba(212,168,67,0.9), 0 0 40px rgba(212,168,67,0.45), 0 0 70px rgba(212,168,67,0.15); }
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* World boot cursor blink */
+@keyframes dvBlink {
+  0%,100% { opacity: 0.7; }
+  50%     { opacity: 0.2; }
+}
+
+/* Custom dropdown entrance */
+@keyframes dvDropIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ANIMATION ASSIGNMENTS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Cards entrance */
+.dv-root .item-card,
+.dv-root .shop-card,
+.dv-root .econ-card,
+.dv-root .currency-card {
+  animation: fadeIn 0.18s ease-out;
+}
+
+/* Header title breathing glow */
+.dv-header-title {
+  animation: runeGlow 4s ease-in-out infinite;
+}
+
+/* Loading spinner on ::before pseudo-element */
+.dv-loading::before {
+  animation: spin 1.5s linear infinite;
+}
+
+/* World boot cursor */
+.dv-world-boot {
+  animation: dvBlink 1.8s step-end infinite;
+}

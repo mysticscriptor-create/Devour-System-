@@ -1,0 +1,164 @@
+/* ╔══════════════════════════════════════════════════════════════════════╗
+   ║  DEVOUR SYSTEM — Base Layer                                         ║
+   ║  _MKT_base.css  —  Obsidian integration, root container, header     ║
+   ║  Load order: 2nd (depends on _MKT_variables.css)                    ║
+   ╚══════════════════════════════════════════════════════════════════════╝ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   OBSIDIAN INTEGRATION
+   ═══════════════════════════════════════════════════════════════════════ */
+.full-page-db .markdown-preview-view {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+.full-page-db .markdown-preview-section > div {
+  max-width: 100% !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   GLOBAL BOX-SIZING
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-root * { box-sizing: border-box; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DV ROOT
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-root {
+  background:    var(--dv-bg);
+  color:         var(--dv-text);
+  font-family:   var(--dv-font-body);
+  font-size:     14px;
+  line-height:   1.5;
+  min-height:    100vh;
+  padding:       0 0 40px;
+  border:        1px solid var(--dv-border2);
+  border-radius: var(--dv-radius-lg);
+  overflow:      hidden;
+  position:      relative;
+}
+
+/* Subtle stone-grain background texture */
+.dv-root::before {
+  content:    '';
+  position:   fixed;
+  inset:      0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index:    0;
+  opacity:    0.6;
+}
+.dv-root > * { position: relative; z-index: 1; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HEADER — Centered, glowing, runic inscription feel
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-header {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  padding:         18px 16px 14px;
+  border-bottom:   1px solid var(--dv-border2);
+  background:      linear-gradient(180deg, #0a0d14 0%, var(--dv-bg) 100%);
+  position:        relative;
+  text-align:      center;
+  gap:             8px;
+}
+
+/* Radiating coordinate lines behind header */
+.dv-header::before {
+  content:    '';
+  position:   absolute;
+  inset:      0;
+  background:
+    linear-gradient(90deg, transparent 49.5%, rgba(212,168,67,0.04) 50%, transparent 50.5%),
+    linear-gradient(180deg, transparent 49.5%, rgba(212,168,67,0.03) 50%, transparent 50.5%);
+  pointer-events: none;
+}
+
+/* Corner-tick decorations */
+.dv-header::after {
+  content:    '';
+  position:   absolute;
+  inset:      6px;
+  border-top:   1px solid rgba(212,168,67,0.12);
+  border-bottom:1px solid rgba(212,168,67,0.12);
+  pointer-events: none;
+}
+
+.dv-header-title {
+  font-family:    var(--dv-font-head);
+  font-size:      20px;
+  font-weight:    700;
+  letter-spacing: 0.22em;
+  color:          var(--dv-amber);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 12px rgba(212,168,67,0.7),
+    0 0 28px rgba(212,168,67,0.35),
+    0 0 60px rgba(212,168,67,0.15);
+  position: relative;
+}
+
+.dv-header-subtitle {
+  color:          var(--dv-teal);
+  font-size:      11px;
+  font-family:    var(--dv-font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow:    0 0 10px rgba(0,200,170,0.5);
+  opacity:        0.9;
+  margin-left:    0;
+}
+
+.dv-header-meta {
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+  gap:         6px;
+  flex-wrap:   wrap;
+  margin-top:  2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PANEL WRAP
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-panel-wrap { padding: 0; min-height: 400px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LOADING / ERROR
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-loading {
+  padding:        50px 40px;
+  text-align:     center;
+  color:          var(--dv-muted);
+  font-family:    var(--dv-font-mono);
+  font-size:      11px;
+  letter-spacing: 0.15em;
+}
+.dv-loading::before {
+  content:  '⬡ ';
+  color:    var(--dv-amber);
+  animation: spin 1.5s linear infinite;
+  display:  inline-block;
+}
+
+.dv-error {
+  padding:       18px 20px;
+  color:         var(--dv-danger);
+  border:        1px solid rgba(204,34,0,0.4);
+  border-left:   3px solid var(--dv-danger);
+  border-radius: var(--dv-radius);
+  margin:        16px;
+  font-size:     12px;
+  background:    var(--dv-danger-bg);
+  font-family:   var(--dv-font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SCROLLBARS
+   ═══════════════════════════════════════════════════════════════════════ */
+.dv-root ::-webkit-scrollbar        { width: 3px; height: 3px; }
+.dv-root ::-webkit-scrollbar-track  { background: transparent; }
+.dv-root ::-webkit-scrollbar-thumb  { background: var(--dv-border3); border-radius: 2px; }
