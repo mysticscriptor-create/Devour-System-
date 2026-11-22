@@ -1,0 +1,142 @@
+{
+  "_note": "Point systems registry. Each entry represents one organization's internal merit/currency system. Loaded as DEVOUR.cfg.points. Add new entries to 'systems' — they will auto-appear as cards in the Points tab.",
+
+  "systems": [
+    {
+      "id": "lmca_ap",
+      "name": "Academy Points System",
+      "organization": "Lord Markham Corebearer Academy",
+      "location": "Oakhaven, Kest — Aethelgard Reach",
+      "icon": "⚔",
+      "currency_name": "Academy Points",
+      "currency_symbol": "AP",
+      "credit_rate": 6,
+      "description": "LMCA's internal merit currency. Required for dungeon access, equipment, training, and medical care. Designed to look like a merit system — functions as a stratification machine. AP cannot be freely exchanged into credits externally.",
+      "ideology": "Steel is made in fire. So are we.",
+      "system_notes": "The AP system's design ensures Apex Track students accumulate points faster by default — they have access to higher-yield dungeons from day one. Dormant students earn almost no AP from standard paths. The gap widens every month. A graduating Dormant who scraped together 500 AP has spent six years earning what an Apex student earns in one. The academy is aware of this. It considers it correct.",
+
+      "earn_methods": [
+        {
+          "category": "Kill Quotas (Dungeon Runs)",
+          "items": [
+            { "activity": "F-rank monster kill",  "reward": "1 AP",             "notes": "Commodity. Volume required. Remains must be physically submitted to the Salvage Counter." },
+            { "activity": "E-rank monster kill",  "reward": "3 AP",             "notes": "Standard working yield for most runs." },
+            { "activity": "D-rank monster kill",  "reward": "8 AP",             "notes": "Significant. Most Vanguard students target these." },
+            { "activity": "C-rank monster kill",  "reward": "20 AP",            "notes": "Requires coordinated team or B-rank individual. Rare enough to matter." },
+            { "activity": "B-rank+ monster kill", "reward": "Special assessment","notes": "Priced individually per event. Not routine." }
+          ]
+        },
+        {
+          "category": "Academy Jobs (Dormant-accessible)",
+          "items": [
+            { "activity": "Ichor Scrubber",  "reward": "50 AP/week",  "notes": "Cleaning acidic monster blood. Heavy rubber suits required. Smell penetrates. ~300 ₵ equivalent." },
+            { "activity": "Guts-Hauler",     "reward": "60 AP/week",  "notes": "Hauling non-edible organs to the incinerator. The smell clings for days. ~360 ₵ equivalent." },
+            { "activity": "Suture-Tech",     "reward": "70 AP/week",  "notes": "Sewing mangled carcasses into sellable Intact Specimens. ~420 ₵ equivalent." },
+            { "activity": "Bone-Grinder",    "reward": "120 AP/week", "notes": "HIGH RISK. Bone dust causes lung-clog. Extremely loud. ~720 ₵ equivalent. Premium for health damage." }
+          ]
+        },
+        {
+          "category": "Assigned Missions",
+          "items": [
+            { "activity": "Dungeon mapping",                    "reward": "20–60 AP",  "notes": "Full cartographic submission required." },
+            { "activity": "Artifact retrieval",                 "reward": "40–120 AP", "notes": "Condition of artifact affects reward." },
+            { "activity": "Monster nest elimination",           "reward": "30–80 AP",  "notes": "Full clearance required, not partial." },
+            { "activity": "Escort operations",                  "reward": "25–50 AP",  "notes": "Target's survival required for full reward." },
+            { "activity": "Anomaly reporting (R&D)",            "reward": "10–30 AP",  "notes": "Primary AP path for non-combat students. Safer. Slower." },
+            { "activity": "Monster dissection data submission",  "reward": "5–15 AP",   "notes": "Detailed biological report required." },
+            { "activity": "Environmental recording",            "reward": "5–10 AP",   "notes": "Lowest AP path available. Used by Dormants with no other option." }
+          ]
+        },
+        {
+          "category": "Competitions & Rankings",
+          "items": [
+            { "activity": "Quarterly ranking — top 10 (Dominion Class)",    "reward": "AP multiplier bonus", "notes": "Multiplier applied to all subsequent dungeon AP for the quarter. Advantage compounds." },
+            { "activity": "Team Dungeon Race — 1st place",                  "reward": "Variable, 200–500 AP","notes": "Watched by sponsors. Public result." },
+            { "activity": "Kill-Efficiency Trial — top placement",          "reward": "Variable",            "notes": "Efficiency formula favors ability types common in Apex Track." },
+            { "activity": "Annual Ascension Tournament — team finalist",    "reward": "Significant, varies", "notes": "Contracts may be offered on the floor. AP is secondary to the visibility." }
+          ]
+        },
+        {
+          "category": "Sponsored & Gray Area",
+          "items": [
+            { "activity": "Benefactor AP grant (corporate sponsor)",  "reward": "Variable — unlimited ceiling", "notes": "Technically a gray area. Practically standard for Apex Track. No cap enforced." },
+            { "activity": "Instructor-assigned bonus tasks",          "reward": "10–50 AP",                    "notes": "Instructor discretion. Not equally distributed across tracks." },
+            { "activity": "Selling above-quota salvage to academy",   "reward": "AP at below-market rate",     "notes": "Academy buys your surplus at a discount. They set the price." },
+            { "activity": "Research participation (R&D department)",  "reward": "20–80 AP per project",        "notes": "Slower than combat paths. More accessible to non-awakened students." }
+          ]
+        }
+      ],
+
+      "spend_costs": [
+        {
+          "category": "Dungeon Access",
+          "items": [
+            { "item": "F-rank dungeon entry", "cost": "5 AP",   "notes": "30 ₵ equivalent. Accessible but still a cost barrier for Dormants." },
+            { "item": "E-rank dungeon entry", "cost": "15 AP",  "notes": "90 ₵ equivalent." },
+            { "item": "D-rank dungeon entry", "cost": "40 AP",  "notes": "240 ₵ equivalent. Significant for Dormants." },
+            { "item": "C-rank dungeon entry", "cost": "90 AP",  "notes": "540 ₵ equivalent. Academy subsidized vs. external 2 Low ◈ rate." },
+            { "item": "B-rank dungeon entry", "cost": "180 AP", "notes": "1,080 ₵ equivalent." },
+            { "item": "A-rank observation run","cost": "200 AP", "notes": "1,200 ₵ equivalent. Observation only — no direct combat." }
+          ]
+        },
+        {
+          "category": "Equipment (Armory Rental)",
+          "items": [
+            { "item": "Standard combat blade",        "cost": "15 AP",  "notes": "90 ₵ equivalent." },
+            { "item": "Energy shield device",         "cost": "40 AP",  "notes": "240 ₵ equivalent." },
+            { "item": "Null-Stone suppression gear",  "cost": "60 AP",  "notes": "360 ₵ equivalent." },
+            { "item": "Ability amplifier gauntlet",   "cost": "120 AP", "notes": "720 ₵ equivalent." }
+          ]
+        },
+        {
+          "category": "Training & Instruction",
+          "items": [
+            { "item": "Ability coaching (group session)",    "cost": "25 AP",     "notes": "150 ₵ equivalent." },
+            { "item": "Advanced combat simulation slot",     "cost": "35 AP",     "notes": "210 ₵ equivalent." },
+            { "item": "Private instructor session",          "cost": "50–150 AP", "notes": "300–900 ₵ equivalent. Apex Track students receive this as a baseline privilege." }
+          ]
+        },
+        {
+          "category": "Medical",
+          "items": [
+            { "item": "Minor treatment",         "cost": "Free",         "notes": "Basic first aid only. Cuts, bruises, shallow lacerations." },
+            { "item": "Moderate injury recovery","cost": "20–50 AP",     "notes": "120–300 ₵ equivalent. Fractures, core strain, internal bruising." },
+            { "item": "Core stabilization",      "cost": "80–200 AP",    "notes": "480–1,200 ₵ equivalent. Dangerous core instability events." },
+            { "item": "Full Core surgery",       "cost": "500+ AP",      "notes": "3,000+ ₵ equivalent. ICA subsidy may be available. Rarely applied in practice." }
+          ]
+        },
+        {
+          "category": "Meals & Consumables",
+          "items": [
+            { "item": "Standard canteen meal",        "cost": "Free",  "notes": "Included. Nutritionally adequate for civilians and Dormants." },
+            { "item": "Core Supplement meal",         "cost": "8 AP",  "notes": "48 ₵ equivalent. Accelerates Core growth. Required for serious combat development." },
+            { "item": "High-grade energy supplement", "cost": "25 AP", "notes": "150 ₵ equivalent." },
+            { "item": "De-Scent hygiene bottle",      "cost": "10 AP", "notes": "60 ₵ equivalent. Dungeon-flora extract. Neutralizes monster-smell from body. Lasts 2–3 days under heavy exposure. Eats >50% of an Ichor Scrubber's weekly earnings at daily use." }
+          ]
+        },
+        {
+          "category": "Facilities & Other",
+          "items": [
+            { "item": "Private study room access", "cost": "Variable", "notes": "Not available to Dormant Track." },
+            { "item": "Priority scheduling",        "cost": "Variable", "notes": "For competitions and assessments. Apex Track has structural priority by default." }
+          ]
+        }
+      ],
+
+      "penalties": [
+        { "violation": "Minor rule infraction",                       "deduction": "−10 to −30 AP" },
+        { "violation": "Failing to submit salvage after run",         "deduction": "−25 AP per instance" },
+        { "violation": "Destroying academy property",                 "deduction": "−50 to −150 AP" },
+        { "violation": "Unauthorized dungeon entry",                  "deduction": "−200 AP" },
+        { "violation": "Attacking another student (unsanctioned)",    "deduction": "−300 AP" }
+      ],
+
+      "milestones": [
+        { "milestone": "Track promotion eligibility",      "requirement": "Performance threshold + instructor sign-off", "notes": "AP alone does not guarantee promotion. Instructor discretion applies heavily." },
+        { "milestone": "Graduation — minimum AP",          "requirement": "500 AP accumulated",                         "notes": "Reachable by a Vanguard student in 3–4 years. Takes Dormants the full 6 years and leaves almost nothing else." },
+        { "milestone": "Graduation — minimum operations",  "requirement": "3 certified dungeon operations",             "notes": "Both conditions required. Missing either results in ICA civilian placement, not expulsion." },
+        { "milestone": "Failure outcome",                  "requirement": "Below threshold at end of Sixth Cohort",     "notes": "Transferred to ICA civilian support, logistics, or Auxiliary contractor roles. The academy calls this a placement outcome." }
+      ]
+    }
+  ]
+}

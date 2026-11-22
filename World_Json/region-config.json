@@ -1,0 +1,106 @@
+{
+  "notes": "Trade route costs: 0=local, 1=direct land, 2=close, 3=medium, 4=long, 5=extreme. Tunnel pairs get -1. Sea-only pairs flagged.",
+
+  "regions": [
+    "Aethelgard Reach",
+    "Esten Province",
+    "Argent-Palar",
+    "Orenthellion",
+    "Mordant Dominion",
+    "Fenner Basin",
+    "Mardu Frontier",
+    "Vexton Nexus",
+    "Solace Meridian",
+    "Anchor Port"
+  ],
+
+  "scarcity": {
+    "Mordant Dominion": 1.15,
+    "Solace Meridian":  1.12,
+    "Argent-Palar":     1.08,
+    "Anchor Port":      1.20
+  },
+
+  "trade_routes": {
+    "Aethelgard Reach": {
+      "Aethelgard Reach": 0, "Esten Province": 1,  "Argent-Palar": 2,
+      "Orenthellion": 2,     "Mordant Dominion": 3, "Fenner Basin": 3,
+      "Mardu Frontier": 3,   "Vexton Nexus": 4,     "Solace Meridian": 5,
+      "Anchor Port": 2
+    },
+    "Esten Province": {
+      "Aethelgard Reach": 1, "Esten Province": 0,  "Argent-Palar": 1,
+      "Orenthellion": 2,     "Mordant Dominion": 2, "Fenner Basin": 4,
+      "Mardu Frontier": 4,   "Vexton Nexus": 3,     "Solace Meridian": 5,
+      "Anchor Port": 3
+    },
+    "Argent-Palar": {
+      "Aethelgard Reach": 2, "Esten Province": 1,  "Argent-Palar": 0,
+      "Orenthellion": 3,     "Mordant Dominion": 2, "Fenner Basin": 3,
+      "Mardu Frontier": 5,   "Vexton Nexus": 4,     "Solace Meridian": 5,
+      "Anchor Port": 4
+    },
+    "Orenthellion": {
+      "Aethelgard Reach": 2, "Esten Province": 2,  "Argent-Palar": 3,
+      "Orenthellion": 0,     "Mordant Dominion": 3, "Fenner Basin": 3,
+      "Mardu Frontier": 3,   "Vexton Nexus": 1,     "Solace Meridian": 3,
+      "Anchor Port": 3
+    },
+    "Mordant Dominion": {
+      "Aethelgard Reach": 3, "Esten Province": 2,  "Argent-Palar": 2,
+      "Orenthellion": 3,     "Mordant Dominion": 0, "Fenner Basin": 5,
+      "Mardu Frontier": 5,   "Vexton Nexus": 3,     "Solace Meridian": 4,
+      "Anchor Port": 5
+    },
+    "Fenner Basin": {
+      "Aethelgard Reach": 3, "Esten Province": 4,  "Argent-Palar": 3,
+      "Orenthellion": 3,     "Mordant Dominion": 5, "Fenner Basin": 0,
+      "Mardu Frontier": 2,   "Vexton Nexus": 4,     "Solace Meridian": 5,
+      "Anchor Port": 4
+    },
+    "Mardu Frontier": {
+      "Aethelgard Reach": 3, "Esten Province": 4,  "Argent-Palar": 5,
+      "Orenthellion": 3,     "Mordant Dominion": 5, "Fenner Basin": 2,
+      "Mardu Frontier": 0,   "Vexton Nexus": 3,     "Solace Meridian": 4,
+      "Anchor Port": 4
+    },
+    "Vexton Nexus": {
+      "Aethelgard Reach": 4, "Esten Province": 3,  "Argent-Palar": 4,
+      "Orenthellion": 1,     "Mordant Dominion": 3, "Fenner Basin": 4,
+      "Mardu Frontier": 3,   "Vexton Nexus": 0,     "Solace Meridian": 2,
+      "Anchor Port": 2
+    },
+    "Solace Meridian": {
+      "Aethelgard Reach": 5, "Esten Province": 5,  "Argent-Palar": 5,
+      "Orenthellion": 3,     "Mordant Dominion": 4, "Fenner Basin": 5,
+      "Mardu Frontier": 4,   "Vexton Nexus": 2,     "Solace Meridian": 0,
+      "Anchor Port": 3
+    },
+    "Anchor Port": {
+      "Aethelgard Reach": 2, "Esten Province": 3,  "Argent-Palar": 4,
+      "Orenthellion": 3,     "Mordant Dominion": 5, "Fenner Basin": 4,
+      "Mardu Frontier": 4,   "Vexton Nexus": 2,     "Solace Meridian": 3,
+      "Anchor Port": 0
+    }
+  },
+
+  "tunnel_benefit_pairs": [
+    ["Aethelgard Reach", "Mordant Dominion"],
+    ["Aethelgard Reach", "Argent-Palar"],
+    ["Argent-Palar",     "Orenthellion"],
+    ["Argent-Palar",     "Vexton Nexus"],
+    ["Fenner Basin",     "Mordant Dominion"],
+    ["Mardu Frontier",   "Mordant Dominion"]
+  ],
+
+  "sea_only_pairs": [
+    ["Fenner Basin",    "Mardu Frontier"],
+    ["Fenner Basin",    "Aethelgard Reach"],
+    ["Mardu Frontier",  "Aethelgard Reach"],
+    ["Solace Meridian", "Vexton Nexus"]
+  ],
+
+  "prime_bridge_pairs": [
+    ["Orenthellion", "Vexton Nexus"]
+  ]
+}

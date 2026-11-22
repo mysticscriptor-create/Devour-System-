@@ -1,0 +1,906 @@
+{
+  "regions": [
+    {
+      "id": "argent-palar",
+      "name": "Argent-Palar",
+      "capital": "Silveredge",
+      "color_accent": "#7ec8e3",
+      "tagline": "Crystal spires pierce the clouds where coin is king.",
+      "climate": "Cold to sub-arctic in the north and interior. Mild coastal strip in the south.",
+      "countries": [
+        {
+          "name": "Valia",
+          "capital": "Silveredge",
+          "note": "Financial center of the region. Crystal-glass architecture, elite banking institutions, the largest ICA-licensed luxury materials market in the northern hemisphere. Produces very few Corebearers per capita but funds more operations than any other country in the region."
+        },
+        {
+          "name": "Oura",
+          "capital": "Lumina",
+          "note": "Coastal nation. Specializes in underwater dungeon harvesting — an entire industry built around Tier-2 and Tier-3 dungeons that form along the underwater shelf. Water-adapted Corebearer training starts young as a cultural practice."
+        }
+      ],
+      "cities": [
+        {
+          "name": "Silveredge",
+          "role": "Capital",
+          "population": "~1.8 million",
+          "note": "The financial crown of the human world. Glass and crystal-glass architecture, elite banking institutions, and the largest ICA-licensed luxury materials market in the northern hemisphere. Streets are heated in winter through a dungeon-energy geothermal system installed 200 years ago."
+        },
+        {
+          "name": "Lumina",
+          "role": "Coastal Capital",
+          "population": "~900,000",
+          "note": "Capital of Oura. A city built across connected islands and a mainland shore, with significant portions extending over the water. The port handles more dungeon-material shipping tonnage than any other single port in the northern regions."
+        },
+        {
+          "name": "Belmonte",
+          "role": "Military Hub",
+          "population": "~500,000",
+          "note": "Inland mountain city. Most Hunter Corps northern operations are coordinated from here."
+        },
+        {
+          "name": "Cresthaven",
+          "role": "Diplomatic City",
+          "population": "~400,000",
+          "note": "Eastern coastal city closest to the Abyssal Thronedom's border zone. Has a permanent ICA diplomatic office and a small Nagarae liaison presence — one of the few places where humans and Nagarae interact in a structured setting."
+        },
+        {
+          "name": "Valis",
+          "role": "Northern Trading Post",
+          "population": "~300,000",
+          "note": "Gateway to the interior mountain passes. Known for cold-climate dungeon materials with specific properties only found in low-temperature environments."
+        }
+      ],
+      "guardian": {
+        "name": "Lady Arabella Frost",
+        "rank": "S",
+        "title": "The Silver Saint"
+      },
+      "academies": [
+        {
+          "name": "Frost Academy",
+          "location": "Silveredge",
+          "note": "Prestige-focused, finance-adjacent. Produces fewer combat specialists but an outsized number of ICA administrators, corporate strategists, and diplomatic Corebearers. Most expensive tuition of any accredited academy."
+        },
+        {
+          "name": "Lumina Institute of Dungeon Sciences",
+          "location": "Lumina, Oura",
+          "note": "Specializes in underwater dungeon operations, marine Corebearer training, and deep-water dimensional phenomena. Considered the best in the world for its specific niche."
+        }
+      ],
+      "guilds": [
+        {
+          "name": "The Silver Company",
+          "size": "~2,500 members",
+          "note": "Most financially sophisticated guild in the region. Operates more like a corporation — Corebearers are technically contractors, not traditional members."
+        },
+        {
+          "name": "Deep Current",
+          "size": "~1,800 members",
+          "note": "Lumina-based. Specializes in underwater dungeon operations. The only guild that regularly operates below 200 meters in active dungeon environments."
+        }
+      ],
+      "corporations": [
+        {
+          "name": "Frostholm Banking Consortium",
+          "note": "The financial entity behind most of Valia's influence. Their lending determines which dungeon operations get funded across three regions. Same seven founding families for 400 years."
+        },
+        {
+          "name": "Naevora Cold-Material",
+          "note": "Processes dungeon materials specific to cold environments. Has a monopoly on several compounds only found in Argent-Palar's interior dungeons."
+        },
+        {
+          "name": "Aqualumen",
+          "note": "Oura-based. Underwater dungeon material processing, marine infrastructure, and the engineering firm that maintains Lumina's over-water construction."
+        }
+      ],
+      "bloodlines": [
+        {
+          "name": "The Frost Line",
+          "note": "Lady Arabella Frost's family, operating under a different surname adopted generations ago. Over 500 years of political influence in Valia. Several members are high-rank Corebearers who deliberately stay out of public view."
+        },
+        {
+          "name": "House Valon",
+          "note": "The oldest banking family in Silveredge. Produces Corebearers at a rate well above statistical average, none of whom appear in public ICA records."
+        }
+      ],
+      "lore_tags": ["finance", "elite", "crystal-tech", "commerce", "cold-coast"]
+    },
+    {
+      "id": "aethelgard-reach",
+      "name": "Aethelgard Reach",
+      "capital": "Oakhaven",
+      "color_accent": "#6db56d",
+      "tagline": "Ancient forests shelter the greatest academies — wisdom guarded by blade.",
+      "climate": "Temperate to subtropical. Humid in the forested interior. Cooler in the mountain ranges.",
+      "countries": [
+        {
+          "name": "Kest",
+          "capital": "Oakhaven",
+          "note": "Home to the Lord Markham Corebearer Academy. Famous for massive ancient oaks so large the first dungeon teams carved shelters inside them. The Kest government is old money — several founding families still hold significant political power."
+        },
+        {
+          "name": "Varen",
+          "capital": "Aethel-Core",
+          "note": "Built atop a Tier-3 Domesticated Dungeon — one of the few fully state-controlled in any human region. Lower districts are carved into the dungeon's outer boundary zone. Residents receive small monthly stipends and lower rent in exchange for accepting elevated dimensional energy."
+        }
+      ],
+      "cities": [
+        {
+          "name": "Oakhaven",
+          "role": "Capital",
+          "population": "~1.2 million",
+          "note": "Administrative capital of Kest. Home to the Lord Markham Corebearer Academy. Old stone architecture modernized through additions rather than replacement — very few buildings were torn down when the city grew."
+        },
+        {
+          "name": "Aethel-Core",
+          "role": "Dungeon City",
+          "population": "~800,000",
+          "note": "Built atop a Tier-3 Domesticated Dungeon. Glows faintly at night from the dungeon's energy bleed. Lower districts are carved into the outer boundary zone."
+        },
+        {
+          "name": "Kestrel",
+          "role": "Port City",
+          "population": "~600,000",
+          "note": "Major trade hub for sea routes between Aethelgard and Argent-Palar."
+        },
+        {
+          "name": "Northbridge",
+          "role": "Mountain Fortress",
+          "population": "~400,000",
+          "note": "Sits at the junction of three major mountain passes. Heavily fortified — most supply lines for the northern border with the Glacial Hive run through here."
+        },
+        {
+          "name": "Low-Hale",
+          "role": "Market City",
+          "population": "~350,000",
+          "note": "Southern city near the Esten Province border. Home to the largest licensed Corebearer market in the Reach."
+        },
+        {
+          "name": "Drenfort",
+          "role": "Training City",
+          "population": "~200,000",
+          "note": "Jungle-edge city in the south. High dungeon density — used as a training ground for D and C rank teams."
+        },
+        {
+          "name": "Valis",
+          "role": "Development Anomaly",
+          "population": "small",
+          "note": "Near the border of Fenner Basin. Known for producing a disproportionate number of B-rank Corebearers — something about the local dungeon cluster seems to accelerate development."
+        }
+      ],
+      "guardian": {
+        "name": "Lady Elena Thorne",
+        "rank": "S",
+        "title": "The Iron Matriarch"
+      },
+      "academies": [
+        {
+          "name": "Lord Markham Corebearer Academy",
+          "location": "Oakhaven, Kest",
+          "note": "One of the oldest and most prestigious academies in the human regions. Track stratification system that builds a specific kind of person — someone who accepts that the strong take and the weak serve. This belief is not taught directly. It is built into every rule."
+        },
+        {
+          "name": "Aethel Military Institute (AMI)",
+          "location": "Aethel-Core, Varen",
+          "note": "Less academically prestigious than Markham but produces more frontline fighters. Graduates are highly sought by Hunter Corps and mercenary firms operating near the Glacial Hive border."
+        },
+        {
+          "name": "Greenspire Academy",
+          "location": "Drenfort",
+          "note": "Specializes in dungeon ecology and monster-material harvesting. Not known for combat training. Graduates fill research, assessment, and resource extraction roles."
+        }
+      ],
+      "guilds": [
+        {
+          "name": "The Oakroot Guild",
+          "size": "~4,000 members",
+          "note": "The largest registered hunter guild in the Reach. Based in Oakhaven. Known for reliable mid-tier Tier-2 and Tier-3 operations — the guild that gets the job done without drama."
+        },
+        {
+          "name": "Thornspear Company",
+          "size": "~400 members (all B-rank+)",
+          "note": "Elite guild based in Northbridge. Takes border contracts near the Glacial Hive boundary. Pay significantly above guild average. Mortality rate significantly above guild average."
+        },
+        {
+          "name": "The Verdant Circle",
+          "size": "~600 members",
+          "note": "Niche guild focused on dungeon ecology, not combat. Provides assessment services for dungeon reclassification proceedings. The ICA relies on them for second-opinion classification reports. Several members are ex-ICAID."
+        }
+      ],
+      "corporations": [
+        {
+          "name": "Aether Resources Ltd.",
+          "note": "Largest dungeon-materials processing company in the Reach. Controls seven Tier-1 and two Tier-2 dungeons through ICA concession agreements. Headquarters in Kestrel."
+        },
+        {
+          "name": "Markwood Industries",
+          "note": "Wood, construction, and bio-material development. Uses dungeon-grown timber from Tier-1 forest dungeons. Products used across three regions. Has endowment agreements with Markham Academy."
+        },
+        {
+          "name": "Ironvale Corp",
+          "note": "Equipment manufacturing. One of the only producers licensed to use Aethel-Core's dimensional alloy — a material from the Tier-3 dungeon's energy output that cannot be replicated elsewhere."
+        }
+      ],
+      "bloodlines": [
+        {
+          "name": "House Thornwell",
+          "note": "Based in Oakhaven. Current matriarch Mirela Thornwell is approximately 300 years old, presenting in her late 60s. Peak SS-rank approaching SSS for 60 years. Performed the binding ritual on Marc. Has maintained contact with middle-realm entities for ~150 years."
+        },
+        {
+          "name": "The Valen Compact",
+          "note": "Not a single family but a network of six families descended from Dark Century survivors. Three original survivors still alive, the oldest approximately 600 years old. Substantial combined dungeon access through privately-held Tier-1 and Tier-2 facilities."
+        }
+      ],
+      "lore_tags": ["academy", "forest", "ancient", "lush", "scholars"]
+    },
+    {
+      "id": "esten-province",
+      "name": "Esten Province",
+      "capital": "East-Terminal",
+      "color_accent": "#a0a0a0",
+      "tagline": "Everyone pases — Nobody stays. The crossroads that holds the world together.",
+      "climate": "Mild. The tunnel network's energy output keeps the region warmer than its latitude would suggest.",
+      "countries": [],
+      "administration": "Administered directly by a joint ICA-regional council with representatives from Aethelgard, Argent-Palar, and Orenthellion. No independent national government.",
+      "cities": [
+        {
+          "name": "East-Terminal",
+          "role": "Administrative & Transit Capital",
+          "population": "~2.1 million (significant fraction temporary)",
+          "note": "Home to the Grand Junction — the largest Null-Stone tunnel terminus in the world. Seventeen tunnel lines connect through it. At peak hours, one of the noisiest and most chaotic places in the human world."
+        },
+        {
+          "name": "Juncture City",
+          "role": "Administrative Hub",
+          "population": "~700,000",
+          "note": "Handles most administrative processing for cross-border operations. Significant ICA presence."
+        },
+        {
+          "name": "The Waypoint",
+          "role": "Dungeon Transit City",
+          "population": "~400,000",
+          "note": "Grew specifically around a cluster of large dungeon complexes. Corebearers transit through from all three neighboring regions to access these dungeons."
+        }
+      ],
+      "guardian": null,
+      "notable_lore": "The Esten Null-Stone tunnel network follows routes originally planned by a pre-ICA organization. Several historians believe the routes avoid dimensional stress points that would not be discovered or formally mapped for another two centuries after the tunnels were built — suggesting the original planners had knowledge they should not have had.",
+      "lore_tags": ["transit", "crossroads", "ICA-administered", "tunnel-network", "buffer-zone"]
+    },
+    {
+      "id": "mordant-dominion",
+      "name": "Mordant Dominion",
+      "capital": "Gilded-Point",
+      "color_accent": "#c4956a",
+      "tagline": "Where obsidian forges never cool and the earth itself bleeds for progress.",
+      "climate": "Cold in the mountains. Volcanic warmth near eruption zones. Rain is common. Heavy cloud cover is normal.",
+      "countries": [
+        {
+          "name": "Basal",
+          "capital": "Gilded-Point",
+          "note": "The mining and heavy industry center. Sidewalks are reinforced with dungeon-alloy from constant heavy vehicle traffic. Every building of significance is built to withstand moderate seismic activity."
+        },
+        {
+          "name": "Garrick",
+          "capital": "Obsidian",
+          "note": "Energy crystal processing. The world's largest processing hub for dimensional energy crystals. Obsidian is built inside the caldera of a dormant volcano specifically for access to the geological heat the processing requires."
+        }
+      ],
+      "cities": [
+        {
+          "name": "Gilded-Point",
+          "role": "Capital",
+          "population": "~1.4 million",
+          "note": "Mining capital. Named for a period 300 years ago when mined ore had a golden sheen. The sidewalks are reinforced with dungeon-alloy from constant heavy vehicle traffic."
+        },
+        {
+          "name": "Obsidian",
+          "role": "Processing Hub",
+          "population": "~1.1 million",
+          "note": "World's largest dimensional energy crystal processing hub. Built inside the caldera of a dormant volcano — the city layers from the rim down to the processing facilities. The air at the lowest level requires filtration equipment."
+        },
+        {
+          "name": "Iron-Hollow",
+          "role": "Border Fortress",
+          "population": "~800,000",
+          "note": "The most fortified human city after Sovereign-Grand. Directly attacked three times in 150 years by Sultanate raiding forces and repelled all three. The repair and reinforcement history is visible in its walls and streets."
+        },
+        {
+          "name": "Slate",
+          "role": "Mining Transit City",
+          "population": "~500,000",
+          "note": "Everything mined in Basal passes through Slate on its way to processing or export."
+        },
+        {
+          "name": "Deep-Well",
+          "role": "Dungeon Operation City",
+          "population": "~300,000",
+          "note": "Named for the mine at its center — now a Tier-4 dungeon that formed inside the excavated cavern system. The city provides all support infrastructure for operation teams."
+        },
+        {
+          "name": "Ashreach",
+          "role": "Volcanic Edge City",
+          "population": "~250,000",
+          "note": "Located at the base of the most active volcanic range. Highest average Corebearer density of any city its size — intense dimensional energy accelerates Core development for those who can tolerate the environment."
+        }
+      ],
+      "guardian": {
+        "name": "Magnus Kruger",
+        "rank": "S",
+        "title": "The World-Eater"
+      },
+      "academies": [
+        {
+          "name": "Mordant Combat Academy (MCA)",
+          "location": "Gilded-Point",
+          "note": "The most combat-pure academy in the human regions. Minimal theory, maximum applied combat training. Three weeks of classroom per term, the rest in dungeon rotation and sparring. Graduates are among the most practically experienced fighters of their rank anywhere."
+        },
+        {
+          "name": "Dominion Engineering School",
+          "location": "Obsidian",
+          "note": "Focused on extraction and processing technology. Small Corebearer program focused on deep-mine dungeon operations."
+        }
+      ],
+      "guilds": [
+        {
+          "name": "Deepdelvers Association",
+          "size": "~5,000 members",
+          "note": "The dominant guild. Primarily handles Tier-3 and Tier-4 dungeon operations. High mortality rates. Pay rates are the highest of any non-SSS-adjacent operation."
+        },
+        {
+          "name": "Border Watch",
+          "size": "~2,000 members",
+          "note": "Semi-military guild focused exclusively on Sultanate border monitoring and response. Works directly with Hunter Corps. Some members have more combat experience against non-human sovereign species than most ICA Hunter Corps units."
+        }
+      ],
+      "corporations": [
+        {
+          "name": "Mordant Mining Collective",
+          "note": "Controls most mining operations in Basal. Semi-governmental — Basal government holds 30% stake. The other 70% is split between private investors, mostly ancient families. Revenue is extraordinary. Oversight is limited."
+        },
+        {
+          "name": "CrystalCore Processing",
+          "note": "Owns the primary processing facilities in Obsidian. The crystals they process are the single most important energy material in the human world. The ICA maintains a permanent liaison office inside CrystalCore's headquarters."
+        },
+        {
+          "name": "Forge-Deep Equipment",
+          "note": "Specialized equipment for extreme-environment dungeon operations — Tier-4 gear that nobody else produces. Small company, irreplaceable."
+        }
+      ],
+      "bloodlines": [
+        {
+          "name": "The Kruger Line",
+          "note": "Magnus Kruger's family. 400 years of military history in Mordant. Unlike most guardian families, the Kruger line is public knowledge. Respected, not feared — an unusual position for an ancient bloodline."
+        },
+        {
+          "name": "House Garren",
+          "note": "The most powerful private family in Mordant. Controls several large mining operations. Current head holds C-rank publicly and A-rank privately — her actual rank suppressed in the ICA registry through political mechanisms that are not illegal but require knowing the right people."
+        }
+      ],
+      "lore_tags": ["industry", "mining", "obsidian", "border-conflict", "volcanic"]
+    },
+    {
+      "id": "orenthellion",
+      "name": "Orenthellion",
+      "capital": "Sovereign-Grand",
+      "color_accent": "#d4a843",
+      "tagline": "The bureaucratic heart that pumps decrees through every vein of civilization.",
+      "climate": "Warm temperate. Consistent seasons. Very little extreme weather — the ICA's dimensional energy management systems actively suppress major weather events in the core cities.",
+      "countries": [
+        {
+          "name": "Palla",
+          "capital": "Sovereign-Grand",
+          "note": "ICA global headquarters. The most guarded city on the planet. The innermost ring of Sovereign-Grand has physical security, dimensional suppression fields, Core-signature monitoring, and the personal attention of the SSS guardian at all times."
+        },
+        {
+          "name": "Esten",
+          "capital": "East-Terminal",
+          "note": "Not to be confused with Esten Province — this is a country within Orenthellion sharing historical naming. Manages the bulk of the ICA's logistical operations."
+        }
+      ],
+      "cities": [
+        {
+          "name": "Sovereign-Grand",
+          "role": "Capital",
+          "population": "~3.4 million",
+          "note": "ICA global headquarters. The highest concentration of high-rank Corebearers in any single location on Earth. Layered access — outer districts open, middle districts require ICA clearance, inner districts restricted to C-rank and above, central quarter a fortress city."
+        },
+        {
+          "name": "Centralis",
+          "role": "Administrative Hub",
+          "population": "~1.6 million",
+          "note": "Second largest city. Home to most ICA mid-level department offices and the national government of Palla."
+        },
+        {
+          "name": "Lex",
+          "role": "Legal City",
+          "population": "~800,000",
+          "note": "Where all ICA arbitration courts are located. Cross-regional disputes are resolved here. Adjacent to the Secure Containment Facility for Corebearers of B-rank and above convicted of major violations."
+        },
+        {
+          "name": "Prime-Bridge",
+          "role": "Logistics Hub",
+          "population": "~600,000",
+          "note": "Named for the bridge complex connecting Orenthellion to sea routes reaching Vexton Nexus. Major shipping and logistics hub."
+        }
+      ],
+      "guardian": {
+        "name": "High Chancellor Reiss",
+        "rank": "S",
+        "title": "The Chancellor"
+      },
+      "academies": [
+        {
+          "name": "Orenthellion Administrative Academy (OAA)",
+          "location": "Sovereign-Grand",
+          "note": "Produces ICA administrators, diplomats, legal specialists, and policy analysts. Not a combat academy. Graduates go directly into ICA department positions."
+        },
+        {
+          "name": "Centralis Corebearer College",
+          "location": "Centralis",
+          "note": "A standard combat and development academy, ICA-funded. Produces solid mid-tier Corebearers for regional Hunter Corps. Reliable institution with no major scandals and no particular glory."
+        },
+        {
+          "name": "Grand Accord Academy",
+          "location": "Sovereign-Grand",
+          "note": "The ICA's preferred institution. Produces more ICA senior staff than any other academy. Curriculum explicitly designed to align with ICA institutional values. Graduates are excellent Corebearers and, almost universally, excellent ICA loyalists."
+        }
+      ],
+      "guilds": [
+        {
+          "name": "The Arbitration Guild",
+          "note": "Not a hunting guild. A professional organization for ICA-licensed arbitrators and dispute resolution specialists. Has more political power than most hunting guilds."
+        },
+        {
+          "name": "Sentinel Corps",
+          "note": "Security guild contracted for Sovereign-Grand's outer districts. Works in coordination with ICA Security Division. Steady work, decent pay, very little excitement — the deterrence effect is significant."
+        }
+      ],
+      "corporations": [
+        {
+          "name": "Orenthellion Infrastructure Authority",
+          "note": "Semi-governmental corporation managing the Null-Stone tunnel network within the region. Technically a private entity, practically an arm of the ICA."
+        },
+        {
+          "name": "Reiss Holdings",
+          "note": "High Chancellor Reiss's family corporation. Has investment positions in seventeen major corporations across six regions. Most people do not know Reiss Holdings exists."
+        }
+      ],
+      "bloodlines": [
+        {
+          "name": "The Reiss Line",
+          "note": "The Chancellor's actual family. Reiss has held his position for approximately 180 years under different formal identities using a legal framework he designed. The model for how other ancient families maintain long-term power."
+        },
+        {
+          "name": "The Palla Founders",
+          "note": "Seven families who were present at the First Consolidation and received land grants as part of the political settlement. Have maintained influence for 600 years. In three cases, family members from the original generation are still alive."
+        }
+      ],
+      "lore_tags": ["administration", "capital", "bureaucracy", "authority", "ICA-headquarters"]
+    },
+    {
+      "id": "solace-meridian",
+      "name": "Solace Meridian",
+      "capital": "Azure-Port",
+      "color_accent": "#5ab8b8",
+      "tagline": "Where the sea meets the sky and the tides answer to a single call.",
+      "climate": "Warm temperate to subtropical. Coastal humidity. Significant rainfall.",
+      "countries": [
+        {
+          "name": "Lannis",
+          "capital": "Azure-Port",
+          "note": "A massive floating city-state. Azure-Port is not built on land — it is a constructed artificial island expanded over centuries into a district of connected platforms, piers, and built structures above the water."
+        },
+        {
+          "name": "Marrow",
+          "capital": "White-Cliff",
+          "note": "High-tech research labs for Null-Stone technology and stealth systems. The cliffs give the city its name and its primary defensive advantage — accessible from land only through three fortified passes."
+        }
+      ],
+      "cities": [
+        {
+          "name": "Azure-Port",
+          "role": "Capital",
+          "population": "~1.3 million",
+          "note": "A massive floating city-state — not built on land, but a constructed artificial island expanded over centuries into a district of connected platforms, piers, and built structures above the water. Higher percentage of Corebearers per capita than almost any other major city."
+        },
+        {
+          "name": "White-Cliff",
+          "role": "Research & Naval Command",
+          "population": "~800,000",
+          "note": "High-tech research labs for Null-Stone technology and stealth systems. Accessible from land only through three heavily fortified passes. The most advanced dimensional technology research outside Vexton Nexus."
+        },
+        {
+          "name": "Fen",
+          "role": "Trade Port",
+          "population": "~500,000",
+          "note": "Primary entry point for southern sea trade routes. Has significant trading relationships with the Nagarae through the controlled Anchor Port."
+        },
+        {
+          "name": "Still-Water",
+          "role": "Sheltered Bay City",
+          "population": "~400,000",
+          "note": "The calmest waters in the Meridian. Preferred transit point for civilian shipping."
+        },
+        {
+          "name": "Drift-End",
+          "role": "Southern Outpost",
+          "population": "~200,000",
+          "note": "The furthest south of any permanent human city. Cold and exposed. Has an ICA monitoring station that watches the deep ocean for dimensional events. Staff are paid significantly above standard."
+        }
+      ],
+      "guardian": {
+        "name": "Soren Kai",
+        "rank": "S",
+        "title": "The Tide-Caller"
+      },
+      "academies": [
+        {
+          "name": "Azure Maritime Academy",
+          "location": "Azure-Port",
+          "note": "Specializes in maritime Corebearer training, underwater combat, and operations near the Abyssal Thronedom's border. Exceptional in water-adjacent operations, less focused on conventional dungeon work."
+        },
+        {
+          "name": "White-Cliff Research Institute",
+          "location": "White-Cliff",
+          "note": "Not a traditional combat academy. Focused on Null-Stone research, dimensional technology, and making Corebearers harder to detect. Most classified research programs are jointly funded with the ICA Intelligence Division."
+        }
+      ],
+      "guilds": [
+        {
+          "name": "The Tide Guild",
+          "size": "~2,800 members",
+          "note": "Maritime operations, underwater dungeon access, sea-monster response, Abyssal Thronedom border monitoring. The most comprehensive maritime guild in the world."
+        },
+        {
+          "name": "Anchor Port Brokers",
+          "note": "Specialized trading guild managing the regulated exchange between humans and the Nagarae. Has unique knowledge of Nagarae preferences, valuables, and communication styles that makes it genuinely irreplaceable."
+        }
+      ],
+      "corporations": [
+        {
+          "name": "Solace Naval Systems",
+          "note": "Ships, maritime equipment, coastal defense infrastructure. Has government contracts with five regions."
+        },
+        {
+          "name": "Null-Forge Technologies",
+          "note": "Primary developer of Null-Stone application technology. Products are used across the human world for safe dimensional travel and Core-signature suppression. Has a classified R&D division whose output is licensed exclusively to the ICA."
+        }
+      ],
+      "bloodlines": [
+        {
+          "name": "The Kai Line",
+          "note": "Soren Kai's family. The water-adapted Core development Soren embodies appears in lesser degrees across the family. The family does not publicize this."
+        },
+        {
+          "name": "House Meridian",
+          "note": "The oldest family in Lannis. Holds the original land rights to the seafloor that Azure-Port's foundation platforms are anchored to — technically the landlord of the entire city. The lease is renegotiated every 50 years. The original member who holds the rights is still alive."
+        }
+      ],
+      "lore_tags": ["maritime", "ocean", "tides", "harbor", "research"]
+    },
+    {
+      "id": "vexton-nexus",
+      "name": "Vexton Nexus",
+      "capital": "Neon-Vexton",
+      "color_accent": "#9b6dd1",
+      "tagline": "Neon veins pulse beneath steel skin — the machine that never stops building.",
+      "climate": "Variable. Significant industrial energy output affects local weather. Some districts have permanent light smog; others have been engineered to near-pristine air quality.",
+      "countries": [
+        {
+          "name": "Koda",
+          "capital": "Neon-Vexton",
+          "note": "The production and manufacturing center. Powered by the largest concentration of Tier-2 Domesticated Dungeons in the world, all feeding energy into the industrial grid. Neon-Vexton glows at night from orbital altitude."
+        },
+        {
+          "name": "Rel",
+          "capital": "Star-Forge",
+          "note": "Primary producer of Corebearer equipment. Engineering companies here are responsible for approximately 65% of all ICA-standard equipment in use across the human regions."
+        }
+      ],
+      "cities": [
+        {
+          "name": "Neon-Vexton",
+          "role": "Capital",
+          "population": "~2.8 million",
+          "note": "The production and manufacturing heart. Powered by the largest concentration of Tier-2 Domesticated Dungeons in the world. Never fully dark, never fully quiet — visible from orbit at night."
+        },
+        {
+          "name": "Star-Forge",
+          "role": "Manufacturing Hub",
+          "population": "~1.4 million",
+          "note": "Primary producer of Corebearer equipment. Responsible for approximately 65% of all ICA-standard equipment in use across the human regions."
+        },
+        {
+          "name": "Gear-Town",
+          "role": "R&D Hub",
+          "population": "~900,000",
+          "note": "Where the theoretical work gets done before it goes to Star-Forge for production. Highest concentration of research institutions per capita of any city in the human regions."
+        },
+        {
+          "name": "Link",
+          "role": "Transit City",
+          "population": "~700,000",
+          "note": "The junction between Vexton Nexus and Orenthellion's tunnel network. A significant amount of the region's manufactured output passes through here on its way to the rest of the world."
+        },
+        {
+          "name": "High-Rise",
+          "role": "Border City",
+          "population": "~600,000",
+          "note": "Coastal city facing the Iron-Sands Sultanate's eastern border. Heavily fortified with a permanent military garrison and visible Corebearer combat presence at all times."
+        },
+        {
+          "name": "Drift-Lab",
+          "role": "Research City",
+          "population": "~200,000",
+          "note": "A planned city built entirely for research. No heavy industry. Exists because some research requires distance from industrial interference."
+        }
+      ],
+      "guardian": {
+        "name": "Cassel",
+        "rank": "S",
+        "title": "The Spark"
+      },
+      "academies": [
+        {
+          "name": "Vexton Technical Academy (VTA)",
+          "location": "Neon-Vexton",
+          "note": "Unique dual curriculum — Corebearer development combined with formal engineering programs. Graduates sought by megacorporations for their dual capability."
+        },
+        {
+          "name": "Star-Forge Military Academy",
+          "location": "Star-Forge",
+          "note": "Directly military-focused, funded by Rel's government and manufacturing corporations. Produces Corebearers who go directly into military and corporate security roles."
+        }
+      ],
+      "guilds": [
+        {
+          "name": "Iron Circuit Guild",
+          "size": "~3,800 members",
+          "note": "The dominant hunter guild in Vexton. Known for adopting new equipment early and running the most technology-integrated dungeon operations in the world. Highest dungeon clearance rate in the region."
+        },
+        {
+          "name": "The Forge Collective",
+          "note": "Not a hunting guild. A guild of equipment crafters and Corebearer technicians. Handles custom commissions, equipment repair for major hunters, and prototype testing for manufacturing corporations."
+        }
+      ],
+      "corporations": [
+        {
+          "name": "Nexus Power Systems",
+          "note": "Controls the dungeon energy farm network in Koda. One of the five largest corporations in the human world by revenue. If NPS has a bad quarter, Koda's industrial grid feels it."
+        },
+        {
+          "name": "Ironblood Equipment",
+          "note": "The largest equipment manufacturer. ICA-standard armor and weapons across most human regions carry Ironblood components. Founded 200 years ago by a family whose records describe them as 'significant early contributors to Corebearer equipment development' — a polished way of describing arms merchants from the proxy wars."
+        },
+        {
+          "name": "Rel Defense Systems",
+          "note": "Military equipment and fortification engineering. Government contracts in five of the eight regions. Publicly traded on the Silveredge Exchange."
+        },
+        {
+          "name": "Prism Research",
+          "note": "The most well-funded private research company in the world. Based in Gear-Town. Several research programs are classified by ICA arrangement — Prism does research the ICA funds and owns, while maintaining the fiction of being a private company."
+        }
+      ],
+      "bloodlines": [
+        {
+          "name": "The Cassel Line",
+          "note": "The SSS guardian's actual family. Several Cassel relatives hold significant positions in Vexton's manufacturing corporations. The family doesn't advertise the connection but doesn't hide it either."
+        },
+        {
+          "name": "The Forge Founders",
+          "note": "Three families present at the establishment of Star-Forge 400 years ago. Still hold majority stakes in the two largest equipment manufacturers. Corebearer members are all in senior corporate positions rather than active hunting."
+        }
+      ],
+      "lore_tags": ["technology", "industry", "R&D", "manufacturing", "neon"]
+    },
+    {
+      "id": "mardu-frontier",
+      "name": "Mardu Frontier",
+      "capital": "Bastion-Side",
+      "color_accent": "#c95a5a",
+      "tagline": "The red wall stands eternal — every soldier a fortress, every stone a border.",
+      "climate": "Variable by elevation. Lowlands temperate. Uplands harsh — cold, wind, unpredictable weather.",
+      "countries": [
+        {
+          "name": "Vane",
+          "capital": "Bastion-Side",
+          "note": "Architecture designed for Tier-3 breaches — reinforced frames, emergency barricade systems built into street infrastructure, and evacuation routes that can handle full-city-block movement. This is not precaution. It has been used."
+        },
+        {
+          "name": "Mardu-Proper",
+          "capital": "Wild-Heart",
+          "note": "Known for dungeon-taming schools — institutions that produce Corebearers specializing in managing dungeon ecosystems rather than clearing them."
+        }
+      ],
+      "cities": [
+        {
+          "name": "Bastion-Side",
+          "role": "Capital",
+          "population": "~900,000",
+          "note": "Architecture designed for Tier-3 breaches — reinforced frames, emergency barricade systems built into street infrastructure, and evacuation routes capable of full-city-block movement. This is not precaution. It has been used."
+        },
+        {
+          "name": "Wild-Heart",
+          "role": "Taming Hub",
+          "population": "~700,000",
+          "note": "Home to the Wild-Heart Taming Institute — the only accredited institution offering a full curriculum in dungeon ecosystem management. The practical center of dungeon-taming practice."
+        },
+        {
+          "name": "Scar",
+          "role": "Named Settlement",
+          "population": "~500,000",
+          "note": "Named for a 200-year-old dimensional event that left a visible geological mark that has never fully healed. The city grew around the scar, now a managed DL-3 zone."
+        },
+        {
+          "name": "Guard-Point",
+          "role": "Northern Border City",
+          "population": "~400,000",
+          "note": "Faces Fenner Basin. A logistics city — most supply movement between Mardu and Fenner passes through here."
+        },
+        {
+          "name": "Last-Light",
+          "role": "Western Border City",
+          "population": "~300,000",
+          "note": "The last major settlement before the Jade Hegemony's Living Ring. Has a permanent ICA Intelligence Division monitoring station and is the primary entry point for authorized travel near the Hegemony border."
+        },
+        {
+          "name": "Wall-Keep",
+          "role": "Wall Garrison",
+          "population": "~200,000",
+          "note": "A city that exists specifically because of the Wall — built to house the permanent garrison and maintenance teams. More military installation than ordinary city."
+        }
+      ],
+      "guardian": {
+        "name": "Commander Zoya",
+        "rank": "S",
+        "title": "The Red Wall"
+      },
+      "academies": [
+        {
+          "name": "Mardu Frontier Academy",
+          "location": "Bastion-Side",
+          "note": "Combat-focused with significant additional curriculum on dungeon management and barrier combat. Graduates are disproportionately recruited by Hunter Corps border divisions."
+        },
+        {
+          "name": "Wild-Heart Taming Institute",
+          "location": "Wild-Heart",
+          "note": "The only accredited institution offering a full curriculum in dungeon ecosystem management. Graduates determine whether a dungeon can be managed long-term or needs to be cleared, and how. Considered niche but invaluable."
+        }
+      ],
+      "guilds": [
+        {
+          "name": "The Red Wall Guild",
+          "size": "~3,200 members",
+          "note": "Named after the guardian's title. Heavily focused on border defense contracts. Has a standing arrangement with the Hunter Corps — effectively a semi-official extension of military operations."
+        },
+        {
+          "name": "Wall Wardens",
+          "size": "~2,500 members",
+          "note": "Focused entirely on Wall defense and sea-monster response. High mortality rate. Considered prestigious in Mardu — Wall postings are where reputations are built or ended."
+        },
+        {
+          "name": "Tamer's League",
+          "size": "~1,400 members",
+          "note": "Focused on dungeon management rather than clearing. Works with the WHTI and regional governments to manage Tier-2 and Tier-3 dungeons long-term."
+        }
+      ],
+      "corporations": [
+        {
+          "name": "Frontier Supply Co.",
+          "note": "The dominant logistics company for the region. If it moves through Mardu, it passes through Frontier Supply. Very unglamorous. Essential."
+        },
+        {
+          "name": "Stoneward Construction",
+          "note": "Holds the Wall maintenance contract and has held it for 200 years. The company's engineers have more institutional knowledge of the Wall's weak points, repair history, and failure risks than anyone in the regional government or the ICA."
+        },
+        {
+          "name": "Bastion Engineering",
+          "note": "Designs and builds military and defensive infrastructure. Has contracts in five of the eight regions for fortification work."
+        }
+      ],
+      "bloodlines": [
+        {
+          "name": "The Zoya Line",
+          "note": "The guardian's family. Military, powerful, present — no elaborate concealment. Several relatives serve in Hunter Corps command positions."
+        },
+        {
+          "name": "The Deep Root Families",
+          "note": "Three families that have held land in Mardu-Proper for over 500 years. One original Progenitor still alive — approximately 620 years old, the oldest of any confirmed Progenitor. She personally manages a Tier-3 Wild dungeon on the family estate without ICA involvement, which is technically illegal and which neither party has formally addressed."
+        }
+      ],
+      "lore_tags": ["military", "fortress", "frontier", "the-wall", "taming"]
+    },
+    {
+      "id": "fenner-basin",
+      "name": "Fenner Basin",
+      "capital": "Sun-Field",
+      "color_accent": "#d4a76a",
+      "tagline": "Golden waves of grain feed the world — simple folk, honest harvest.",
+      "climate": "Temperate with significant regional variation. Coastal zones mild and wet. Interior warmer and drier. Volcanic interior creates pockets of geothermal warmth for cold-climate crop growth.",
+      "countries": [
+        {
+          "name": "Mallow",
+          "capital": "Sun-Field",
+          "note": "The main agricultural zone. Surrounded by 'Golden Dungeons' — Tier-1 Domesticated facilities that produce enhanced crops, medicinal plants, and food materials that grow at accelerated rates under dungeon energy influence."
+        },
+        {
+          "name": "Bennic",
+          "capital": "River-Gate",
+          "note": "Trade and logistics. The river systems of Bennic connect to the port infrastructure that moves Fenner's agricultural output to the rest of the world."
+        }
+      ],
+      "cities": [
+        {
+          "name": "Sun-Field",
+          "role": "Capital",
+          "population": "~1.1 million",
+          "note": "The agricultural capital of Mallow. Architecture older and less modified than other regions — Fenner has less reason to rebuild. Unusually high percentage of non-Corebearer citizens; agriculture doesn't require awakened individuals for most operations."
+        },
+        {
+          "name": "River-Gate",
+          "role": "Trade Hub",
+          "population": "~900,000",
+          "note": "Capital of Bennic. Built around a confluence of three rivers connecting to the coast. Most of Fenner's agricultural output leaves through this port."
+        },
+        {
+          "name": "Willow",
+          "role": "Inland Agricultural City",
+          "population": "~400,000",
+          "note": "Named for dungeon-grown willows from a Tier-1 forest dungeon — larger, longer-lived, and with minor dimensional properties that make the wood unusually resilient."
+        },
+        {
+          "name": "Hearth",
+          "role": "Wall Support City",
+          "population": "~350,000",
+          "note": "Southern city near the Wall with permanent Hunter Corps presence for Wall maintenance support."
+        },
+        {
+          "name": "Stone-Brook",
+          "role": "Research Settlement",
+          "population": "~250,000",
+          "note": "City near the volcanic interior. Geothermal energy used for heat and industrial applications. Home to a small but significant dungeon research community studying volcanic dungeon formation."
+        }
+      ],
+      "guardian": {
+        "name": "Bram the Golem",
+        "rank": "S",
+        "title": "The Golem"
+      },
+      "academies": [],
+      "guilds": [
+        {
+          "name": "The Harvest Guild",
+          "size": "~4,000 members",
+          "note": "Primarily operates agricultural dungeons — clearing, managing, harvesting. Not combat-focused. The most economically important guild in the world by the measure of what their operations feed."
+        },
+        {
+          "name": "The Sea Watch",
+          "size": "~1,800 members",
+          "note": "Monitors the island chain between Fenner and Mardu for dimensional events. Lower mortality than Wall operations. The guild that keeps things quiet so Fenner can keep farming."
+        }
+      ],
+      "corporations": [
+        {
+          "name": "Fenner Agricultural Consortium",
+          "note": "Controls approximately 40% of Fenner's dungeon-farm output. Has contracts with food distribution networks across five regions. Food supply leverage is significant."
+        },
+        {
+          "name": "River Basin Trading",
+          "note": "The dominant logistics and trade company for agricultural output. Controls most of the shipping infrastructure between Fenner and the other regions. Unglamorous, essential, quietly profitable."
+        }
+      ],
+      "bloodlines": [
+        {
+          "name": "The Bram Line",
+          "note": "Bram's family situation is complicated by his transformation — he has outlived every relative from his original family multiple times. He maintains connections with descendants of his original bloodline, none of whom share his specific capability. They manage a large farming estate adjacent to his residence."
+        },
+        {
+          "name": "The Old Families of Mallow",
+          "note": "Several farming families that have held land in Mallow since the Age of Reclamation. Three now own significant Dungeon Farm licenses. Wealthy, conservative, and almost entirely uninterested in anything beyond Fenner's borders."
+        }
+      ],
+      "lore_tags": ["agriculture", "harvest", "fields", "peaceful", "food-supply"]
+    }
+  ]
+}

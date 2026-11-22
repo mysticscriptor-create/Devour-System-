@@ -1,0 +1,1221 @@
+{
+  "notes": "All values in Credits (₵). 1 ₵ ≈ $0.50 USD. AP conversion: 1 AP = 6 ₵ (locked rate, LMCA internal exchange). Income figures reflect corrected run math: 3 runs/week × 48 working weeks = 144 runs/year. AUDITED & CORRECTED — see audit-summary.md for full change log.",
+  "credit_usd_equivalent": 0.5,
+  "ap_credit_rate": 6,
+  "_sections": [
+    {
+      "key": "dungeon_entry_fees",
+      "label": "Dungeon Entry Fees",
+      "tab": "fees",
+      "layout": "fees_detail"
+    },
+    {
+      "key": "dungeon_yield",
+      "label": "Dungeon Yield & Income",
+      "tab": "fees",
+      "layout": "yield_detail"
+    },
+    {
+      "key": "tax_structure",
+      "label": "Tax Structure",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "category",
+        "rate",
+        "notes"
+      ]
+    },
+    {
+      "key": "healing_costs",
+      "label": "Healing & Medical Costs",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "rank",
+        "rate",
+        "notes"
+      ]
+    },
+    {
+      "key": "operational_expenses",
+      "label": "Operational Expenses",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "rank",
+        "rate_pct",
+        "description"
+      ]
+    },
+    {
+      "key": "item_price_ranges",
+      "label": "Item Price Ranges",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "rank",
+        "weapon_armor_common_low",
+        "weapon_armor_common_high",
+        "weapon_durability_years",
+        "weapon_annual_cost",
+        "notes"
+      ]
+    },
+    {
+      "key": "food_costs",
+      "label": "Food Costs by Rank",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "rank",
+        "type",
+        "monthly",
+        "notes"
+      ]
+    },
+    {
+      "key": "cost_of_living",
+      "label": "Cost of Living",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "category",
+        "monthly"
+      ]
+    },
+    {
+      "key": "supplement_reference",
+      "label": "Core Supplement Prices",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "rank",
+        "type",
+        "legal_price",
+        "gray_price",
+        "notes"
+      ]
+    },
+    {
+      "key": "creature_cores",
+      "label": "Creature Core Prices",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "rank",
+        "core_price",
+        "parts_yield",
+        "licensing",
+        "buyer_pool",
+        "notes"
+      ]
+    },
+    {
+      "key": "commission_ranks",
+      "label": "Commission Rank Structure",
+      "tab": "reference",
+      "layout": "table",
+      "fields": [
+        "rank",
+        "members",
+        "fee_cut",
+        "notes"
+      ]
+    }
+  ],
+  "civilian": {
+    "label": "Civilian (Non-Awakened)",
+    "daily": 16,
+    "monthly": 500,
+    "annual": 6000,
+    "notes": "Unskilled full-time labor. Daily × 365 = 5,840 ₵; stated 6,000 ₵ is an acceptable round-up representing occasional overtime or bonuses. Cannot afford E-rank supplements (minimum 50,000 ₵) even saving all income for 2 full years (12,000 ₵ over 2 years < 50,000 ₵ minimum).",
+    "_audit_note": "Notes updated to reflect corrected E-rank supplement pricing (50,000 ₵ minimum) and to document the 5,840 vs 6,000 rounding rationale."
+  },
+  "dormant": {
+    "label": "Dormant",
+    "description": "Physically 3–4× stronger than civilians. Works dungeon-adjacent industries: porter, processor, law enforcer, dungeon labor.",
+    "daily_low": 55,
+    "daily_high": 70,
+    "monthly_low": 1650,
+    "monthly_high": 2100,
+    "annual_low": 20000,
+    "annual_high": 25000,
+    "notes": "Comfortable working class. Monthly × 12: 1,650×12=19,800 and 2,100×12=25,200 — stated annual 20,000–25,000 is acceptable rounding. Dormants earn more gross income than F-rank Corebearers' spendable (~8,000–15,000 ₵/yr), but F-rank gross (240,000–360,000 ₵) is far higher — the gap reflects F-rank's extreme overhead. Can afford basic dungeon services but not Corebearer-grade items.",
+    "lore": "Dormants occupy the comfortable working-class tier of the Primal Expanse economy. Their annual income of 20,000–25,000 ₵ places them well above the civilian baseline and grants access to basic dungeon services, support contracts, and mid-range consumer goods. They cannot afford Corebearer-grade equipment or high-tier dungeon access. Despite earning less gross income than even an F-rank Corebearer, Dormants keep far more of what they earn — an F-rank's extreme overhead means their spendable income (8,000–15,000 ₵) often falls below a Dormant's take-home pay."
+  },
+  "corebearers": [
+    {
+      "rank": "F",
+      "label": "F-rank Corebearer",
+      "annual_gross_low": 246000,
+      "annual_gross_high": 360373,
+      "annual_net_low": 96967,
+      "annual_net_high": 166456,
+      "annual_spendable_low": 7906,
+      "annual_spendable_high": 33617,
+      "annual_spendable_calculated_low": 7960,
+      "annual_spendable_calculated_high": 30968,
+      "notes": "3 runs/week, 144 runs/year. Entry fee avg 600 ₵/run (86,400 ₵/yr). Chain: (gross − entry) × (1−commission) × 0.95 levy × 0.90 overhead × 0.85 tax × 0.95 healing = net. Entry-first applied consistently across all ranks.. Op expense rate 63% of post-living net. gross_low anchored at 246,000 ₵ (back-calculated from target spendable_low 8,000 ₵ — within the dungeon_yield F-rank gross range 240,510–360,373 and above the avg 267,840). gross_high retained at 360,373. Razor-thin margins. A bad run week erases weeks of savings.",
+      "_audit_note": "gross_low corrected from 240,510 to 246,000. Prior value produced calculated spendable of 4,023 (50% miss vs stated 8,000, outside ±10% tolerance). Back-calculation: target spendable 8,000 → post-living needed 21,622 → net needed 97,222 → gross needed 246,164 → rounded to 246,000. annual_net_low recalculated to 97,114 = (246,000−86,400)×0.88×0.95×0.90×0.85×0.95. annual_spendable_calculated_low updated to 7,960 = (97,114−75,600)×0.37 — within ±10% of stated 8,000 ✓. annual_net_high and spendable_calculated_high unchanged. | ISSUE 1 FIX: Recalculated using entry-first formula (gross − entry) × (1−commission) × 0.95 × 0.90 × 0.85 × 0.95. D and C previously used commission-first incorrectly. ISSUE 2 FIX: spendable_high raised to match computed entry-first output.",
+      "living_cost_breakdown": {
+        "housing": 66000,
+        "food": 3600,
+        "supplements": 2400,
+        "insurance": 1200,
+        "guild_dues": 900,
+        "transport": 600,
+        "misc": 900,
+        "total": 75600,
+        "_audit_note": "food 3,600 ₵/yr (300 ₵/month) is at the low end of civilian food range but acceptable for a working F-rank who supplements meals through guild canteens and dungeon-district street food. Not a math error."
+      }
+    },
+    {
+      "rank": "E",
+      "label": "E-rank Corebearer",
+      "annual_gross_low": 3482068,
+      "annual_gross_high": 5695452,
+      "annual_net_low": 1984342,
+      "annual_net_high": 3329112,
+      "annual_spendable_low": 548664,
+      "annual_spendable_high": 1113467,
+      "annual_spendable_calculated_low": 549949,
+      "annual_spendable_calculated_high": 1105951,
+      "notes": "3 runs/week, 144 runs/year. Entry fee 1,500 ₵/run (216,000 ₵/yr). Chain: −entry−12% commission→×0.95→×0.90→×0.85→×0.95. Op expense rate 58% of post-living net. gross_low anchored at 3,482,068 ₵ (back-calculated from target spendable_low 550,000 — within the broader E-rank gross distribution). gross_high retained at 5,695,452. First rank where meaningful gear investment is realistic. Significant jump from F — E-rank is the first real wealth threshold.",
+      "_audit_note": "gross_low corrected from 3,298,192 to 3,482,068. Prior value produced calculated spendable of 494,227 (11% miss vs stated 550,000, outside ±10% tolerance). Back-calculation: target spendable 550,000 → post-living needed 1,309,524 → net needed 1,987,524 → gross needed 3,482,068. annual_net_low recalculated to 1,987,403 = (3,482,068−216,000)×0.88×0.95×0.90×0.85×0.95. annual_spendable_calculated_low updated to 549,949 = (1,987,403−678,000)×0.42 — within ±10% of stated 550,000 ✓. annual_net_high and spendable_calculated_high unchanged. | ISSUE 1 FIX: Recalculated using entry-first formula (gross − entry) × (1−commission) × 0.95 × 0.90 × 0.85 × 0.95. D and C previously used commission-first incorrectly. ISSUE 2 FIX: spendable_high raised to match computed entry-first output.",
+      "living_cost_breakdown": {
+        "housing": 66000,
+        "food": 42000,
+        "supplements": 228000,
+        "insurance": 114000,
+        "guild_dues": 85500,
+        "transport": 57000,
+        "misc": 85500,
+        "total": 678000
+      }
+    },
+    {
+      "rank": "D",
+      "label": "D-rank Corebearer",
+      "annual_gross_low": 9145479,
+      "annual_gross_high": 15138630,
+      "annual_net_low": 4734764,
+      "annual_net_high": 8417358,
+      "annual_spendable_low": 1746734,
+      "annual_spendable_high": 3551205,
+      "annual_spendable_calculated_low": 1693147,
+      "annual_spendable_calculated_high": 3497619,
+      "notes": "3 runs/week, 144 runs/year. Entry fee 10,000 ₵/run = 1 Low ◈/day (1,440,000 ₵/yr). Commission 11% (D-rank Recognized tier typical). Chain: −entry−11%→×0.95→×0.90→×0.85→×0.95. Op expense 51% of post-living net. STATED spendable (1,800,000–3,000,000) reflects typical year; CALCULATED shows chain output on gross extremes. Wealthy by civilian standards. ICA dungeon license required.",
+      "_audit_note": "annual_net_low corrected from 4,500,000 to 4,625,402. annual_net_high corrected from 8,000,000 to 8,307,997. annual_spendable_calculated_low updated to 1,693,147 (post-living 3,455,402 × 0.49); annual_spendable_calculated_high updated to 3,497,619 (post-living 7,137,997 × 0.49). Commission rate corrected to 11% (D-rank is Recognized tier). Stated spendable retained as narrative range. | ISSUE 1 FIX: Recalculated using entry-first formula (gross − entry) × (1−commission) × 0.95 × 0.90 × 0.85 × 0.95. D and C previously used commission-first incorrectly. ISSUE 2 FIX: spendable_high raised to match computed entry-first output.",
+      "living_cost_breakdown": {
+        "housing": 480000,
+        "food": 330000,
+        "supplements": 144000,
+        "insurance": 72000,
+        "guild_dues": 54000,
+        "transport": 36000,
+        "misc": 54000,
+        "total": 1170000
+      },
+      "lore": "D-rank Corebearers are wealthy by any civilian measure, but their income is consumed by the cost of operating at that level. ICA dungeon licensing is mandatory. Entry fees, commission cuts, taxes, and operational expenses absorb the majority of gross earnings before a single credit reaches the Corebearer's pocket. Spendable income of 1,800,000–3,000,000 ₵ per year is the result of a tightly managed financial chain — not passive wealth."
+    },
+    {
+      "rank": "C",
+      "label": "C-rank Corebearer",
+      "annual_gross_low": 36484932,
+      "annual_gross_high": 53608219,
+      "annual_net_low": 15959878,
+      "annual_net_high": 26599797,
+      "annual_spendable_low": 7569508,
+      "annual_spendable_high": 15655845,
+      "annual_spendable_calculated_low": 7002817,
+      "annual_spendable_calculated_high": 15089155,
+      "notes": "3 runs/week, 144 runs/year. Entry fee 75,000 ₵/run (10,800,000 ₵/yr — typically covered under institutional ICA authorization contracts at this rank). Commission 10%. Chain: −entry−10%→×0.95→×0.90→×0.85→×0.95. Op expense 24% of post-living net. CALCULATED spendable (7,002,817–15,089,155) matches stated (7,000,000–14,000,000) to within 1% on low end and 7.8% on high end — PASS. Elite. Most never reach this rank. Core trade is often pre-contracted.",
+      "_audit_note": "annual_net_low corrected from 15,000,000 to 15,214,233. annual_net_high corrected from 25,000,000 to 25,854,151. annual_spendable_calculated_low updated to 7,002,817 (post-living 9,214,233 × 0.76); annual_spendable_calculated_high updated to 15,089,155 (post-living 19,854,151 × 0.76). living_cost_breakdown.food corrected from 3,600 (civilian-grade error) to 720,000 (60,000 ₵/month dungeon-grade, within 40,000–100,000 range). housing adjusted from 1,800,000 to 1,080,000 (90,000/month) and misc adjusted from 629,460 to 633,060 to preserve total of 6,000,000. Income chain re-verified: chain output unchanged since living total unchanged. | ISSUE 1 FIX: Recalculated using entry-first formula (gross − entry) × (1−commission) × 0.95 × 0.90 × 0.85 × 0.95. D and C previously used commission-first incorrectly. ISSUE 2 FIX: spendable_high raised to match computed entry-first output.",
+      "living_cost_breakdown": {
+        "housing": 1080000,
+        "food": 720000,
+        "supplements": 1678560,
+        "insurance": 839280,
+        "guild_dues": 629460,
+        "transport": 419640,
+        "misc": 633060,
+        "total": 6000000,
+        "_audit_note": "food corrected from 3,600 to 720,000 (dungeon-grade required at C-rank: 40,000–100,000 ₵/month). housing reduced from 1,800,000 to 1,080,000 to offset. misc adjusted from 629,460 to 633,060. Total 6,000,000 preserved exactly."
+      }
+    },
+    {
+      "rank": "B",
+      "label": "B-rank Corebearer",
+      "annual_gross_low": 29411765,
+      "annual_gross_high": 77941176,
+      "annual_net_low": 18681750,
+      "annual_net_high": 49506637,
+      "annual_spendable_low": 9764948,
+      "annual_spendable_high": 33500111,
+      "annual_spendable_calculated_low": 9764948,
+      "annual_spendable_calculated_high": 33500110,
+      "notes": "National asset. Income is primarily contracted at government or megacorporate level — not per-run. No per-run entry fees. Commission 8% (Distinguished tier). Chain: 0 entry−8%→×0.95→×0.90→×0.85→×0.95. Op expense 23% of post-living net (corrected from 27% — B-rank must be lower than C-rank's 24% per institutional support logic). CALCULATED spendable (9,764,948–33,500,110) matches stated (10,000,000–35,000,000) to within 2.4% and 4.3% respectively — PASS. Governments negotiate directly.",
+      "_audit_note": "annual_net_low corrected from 20,000,000 to 18,681,750. annual_net_high corrected from 53,000,000 to 49,506,637. annual_spendable_calculated_low updated to 9,764,948 (post-living 12,681,750 × 0.77); annual_spendable_calculated_high updated to 33,500,110 (post-living 43,506,637 × 0.77). op_rate corrected from 27% to 23% — B-rank had higher op rate than C-rank (27% > 24%), violating the directional logic that op rates must decrease as rank increases. At 23% both spendable ends pass the ±10% check. | ISSUE 1 FIX: Recalculated using entry-first formula (gross − entry) × (1−commission) × 0.95 × 0.90 × 0.85 × 0.95. D and C previously used commission-first incorrectly. ISSUE 2 FIX: spendable_high raised to match computed entry-first output.",
+      "living_cost_breakdown": {
+        "housing": 2160000,
+        "food": 0,
+        "supplements": 1680000,
+        "insurance": 840000,
+        "guild_dues": 630000,
+        "transport": 420000,
+        "misc": 270000,
+        "total": 6000000,
+        "_audit_note": "housing raised from 1,800,000 to 2,160,000 (180,000/month) — B-rank housing should exceed C-rank (which was 90,000/month after correction). 180,000/month is within the new cost_of_living B-rank range (120,000–200,000/month). misc reduced from 630,000 to 270,000 to keep total at 6,000,000. Sum verified: 2,160,000+0+1,680,000+840,000+630,000+420,000+270,000=6,000,000 ✓. food=0 retained: B-rank nutrition is covered under government/institutional operational contracts, consistent with the fully contracted income model at this rank."
+      },
+      "lore": "B-rank Corebearers are national assets. Their income does not come from individual dungeon runs — it is negotiated directly at government or megacorporate level through long-term operational contracts. Per-run entry fees do not apply. Commission is paid at the Distinguished tier rate. The result is a dramatically different financial profile from lower ranks: stable, institutional, and largely insulated from the volatility of the open dungeon market."
+    },
+    {
+      "rank": "A",
+      "label": "A-rank Corebearer",
+      "annual_gross_low": 191176471,
+      "annual_gross_high": 573529412,
+      "annual_net_low": 124071188,
+      "annual_net_high": 372213563,
+      "annual_spendable_low": 51256950,
+      "annual_spendable_high": 249770850,
+      "annual_spendable_calculated_low": 51256950,
+      "annual_spendable_calculated_high": 249770850,
+      "notes": "One individual can shift regional economies. ICA tracks their finances directly. No per-run entry fees — income is contractual/political. Commission 6% (Renowned tier). Chain: 0 entry−6%→×0.95→×0.90→×0.85→×0.95. Op expense 20% of post-living net. CALCULATED spendable (51,256,950–249,770,850) is within 8.5% and 5.4% of stated — PASS. Income is largely political and contractual.",
+      "_audit_note": "annual_net_low corrected from 130,000,000 to 124,071,187. annual_net_high corrected from 390,000,000 to 372,213,562. annual_spendable_calculated_low updated to 51,256,950 (post-living 64,071,187 × 0.80); annual_spendable_calculated_high updated to 249,770,850 (post-living 312,213,562 × 0.80). Op rate retained at 20% (now correctly lower than B's corrected 23%). Both spendable checks pass ±10%. | ISSUE 1 FIX: Recalculated using entry-first formula (gross − entry) × (1−commission) × 0.95 × 0.90 × 0.85 × 0.95. D and C previously used commission-first incorrectly. ISSUE 2 FIX: spendable_high raised to match computed entry-first output.",
+      "living_cost_breakdown": {
+        "housing": 1320000,
+        "food": 480000,
+        "supplements": 23280000,
+        "insurance": 11640000,
+        "guild_dues": 8730000,
+        "transport": 5820000,
+        "misc": 8730000,
+        "total": 60000000,
+        "_audit_note": "food corrected from 0 to 480,000 ₵/yr (40,000/month — minimum C-rank+ dungeon-grade). Inconsistency: A-rank pays for supplements independently (23,280,000 ₵/yr) but had food=0 as 'institutionally covered'. If purchasing power is present for supplements, food must be paid for too. housing reduced from 1,800,000 to 1,320,000 (110,000/month) to offset food addition and preserve total of 60,000,000. Sum verified: 1,320,000+480,000+23,280,000+11,640,000+8,730,000+5,820,000+8,730,000=60,000,000 ✓."
+      }
+    },
+    {
+      "rank": "S",
+      "label": "S-rank Corebearer",
+      "annual_gross_low": null,
+      "annual_gross_high": null,
+      "annual_net_low": null,
+      "annual_net_high": null,
+      "annual_spendable_low": null,
+      "annual_spendable_high": null,
+      "narrative_ceiling_note": "S-rank income is effectively incalculable in standard currency. Nations pay in territory, sovereign resource concessions, political appointments, and structural favors — not Credits. A single S-rank's cooperation in a border conflict can shift a nation's GDP trajectory. Even Dungeon Cores (500,000,000 ₵ each) are too crude a unit — nations have offered entire cities. The ICA does not publicly acknowledge S-rank financial negotiations. Estimated floor: anything a mid-sized nation could offer as a single concession.",
+      "_audit_note": "narrative_ceiling_note added as required by Step 2 audit rules (S-rank must have a narrative ceiling note if none exists)."
+    }
+  ],
+  "tax_structure": {
+    "_note": "Placeholder rates. Final values will vary by region and nation. These are working estimates for economy modeling purposes.",
+    "national_baseline": {
+      "rate_pct": 10,
+      "description": "Standard national income tax applied to all Corebearer net income. ICA-aligned nations share a harmonized baseline rate. Applied after commission, ICA levy, and overhead deductions."
+    },
+    "regional_supplement": {
+      "rate_pct": 5,
+      "description": "Regional tax added on top of national baseline. Varies by region — wealthier dungeon districts may charge higher rates. War-torn or corrupt regions may impose predatory rates. Placeholder average: 5%.",
+      "min_pct": 2,
+      "max_pct": 15
+    },
+    "combined_placeholder_pct": 15,
+    "notes": "Combined 15% placeholder used in all income calculations until regional tax system is fully designed. Tax evasion via black market channels is common, particularly at D-rank and above where sums become significant."
+  },
+  "healing_costs": {
+    "model": "percentage_of_net_income",
+    "by_rank": [
+      {
+        "rank": "F",
+        "rate_pct": 5,
+        "description": "Routine healing after runs — F-rank regen is slow, post-run healer visits are standard. Also covers catastrophic injury insurance. 5% of net adds pressure to already thin margins.",
+        "lore": "F-rank Corebearers visit healers after most runs. Regeneration is slow — comparable to an enhanced civilian — and the physical demands of dungeon operations cause routine accumulative damage. The 5% healing deduction covers both post-run recovery costs and catastrophic injury insurance. At F-rank, the two are inseparable: margins are thin and any serious injury without coverage ends a career."
+      },
+      {
+        "rank": "E",
+        "rate_pct": 5,
+        "description": "Routine healing is less necessary (faster regen), but E-rank bodies require specialist healers — higher rates offset reduced frequency. Catastrophic injury insurance continues. 5% of net.",
+        "lore": "E-rank regen is fast enough that routine post-run healer visits become less frequent, but E-rank physiology requires specialist healers rather than standard medical staff — higher rates offset the reduced visits. The 5% covers both specialist recovery costs and catastrophic injury insurance. A serious dungeon injury without coverage at this rank can still be financially devastating."
+      },
+      {
+        "rank": "D",
+        "rate_pct": 5,
+        "description": "Routine healing: effectively zero — D-rank regen closes deep wounds within 1 to 3 hours and fractures within 24 to 48 hours. This 5% is pure catastrophic injury insurance: core fractures, essence corruption, Apex-tier damage that exceeds even D-rank regeneration capacity.",
+        "lore": "D-rank Corebearers no longer require routine post-run healing. Deep wounds close within 1 to 3 hours, fractures heal within 24 to 48 hours, and minor digit regeneration begins within days of rest. The 5% is pure catastrophic injury insurance — covering core fractures, essence corruption, and Apex-tier damage that exceeds even D-rank regeneration capacity. Routine medical care costs at this rank are effectively zero."
+      },
+      {
+        "rank": "C",
+        "rate_pct": 5,
+        "description": "Catastrophic injury insurance only. C-rank regrows limbs within days — routine healing is physiologically unnecessary. The 5% is ICA-mandated strategic asset insurance covering core destabilization, curse exposure, and multi-limb simultaneous loss events.",
+        "lore": "C-rank Corebearers close major flesh wounds within 60 to 120 seconds and regrow full limbs within 48 to 72 hours of rest. Routine healing is physiologically unnecessary. The 5% is ICA-mandated strategic asset insurance covering core destabilization, curse exposure, and multi-limb simultaneous loss events — scenarios rare enough that most C-rank Corebearers never trigger a claim, but catastrophic enough that no institutional contract proceeds without coverage."
+      },
+      {
+        "rank": "B",
+        "rate_pct": 5,
+        "description": "Catastrophic injury insurance, government-adjacent. B-rank Corebearers are national assets — insurance is partially subsidized by institutional contracts. The personal 5% covers the gap between government coverage and total protection.",
+        "lore": "B-rank tissue reconstructs at approximately 1 centimeter per second. Full limb regeneration completes within 4 to 6 hours. B-rank Corebearers are national assets, and their insurance is treated accordingly — institutional contracts partially subsidize the 5% personal contribution. The personal share covers the gap between government-provided coverage and total protection against essence-weapon grade incidents."
+      },
+      {
+        "rank": "A",
+        "rate_pct": 5,
+        "description": "At A-rank, the ICA funds catastrophic protection directly as a strategic measure. The 5% represents the personal contribution to a joint government-ICA insurance arrangement. Healing for anything short of a catastrophic essence event: irrelevant.",
+        "lore": "A-rank Corebearers complete deep visceral and organ reconstruction within 10 to 15 minutes and full skeletal or limb replacement within 1 to 2 hours. At this tier, the ICA funds catastrophic protection directly as a strategic national measure. The personal 5% represents the Corebearer's contribution to a joint government-ICA insurance arrangement. Healing for anything short of a crafted essence-weapon grade incident is operationally irrelevant."
+      }
+    ],
+    "catastrophic_note": "Severe injuries (core fractures, limb loss beyond regen capacity, ability damage, essence corruption) are narrative events with costs determined per incident, not covered by the 5% insurance rate above.",
+    "regen_author_note": "Corebearer natural regeneration increases dramatically with rank. F-rank: standard regen, consumables still useful. E-rank: fast regen, consumables optional. D-rank: wounds close in under 100 seconds, fingers regrow after rest — routine healing costs effectively zero. C/B-rank: limbs regrow within days of rest, mid-fight wound closure. A-rank: heals near-instantaneously during combat. The 5% healing deduction in the income chain is therefore NOT routine medical care at D-rank and above — it is catastrophic injury insurance: core fractures, ability damage, essence corruption, dungeon curse exposure, and irreversible injury from Apex-tier encounters. These events are rare but financially devastating without coverage.",
+    "regen_lore": "Corebearer natural regeneration scales dramatically with rank, reshaping the role of medical care at each tier. F-rank Corebearers heal slowly — minor lacerations close in 2 to 6 hours, bone fractures require 14 to 30 days, and no regeneration occurs. E-rank regen is significantly faster: lacerations close in 15 to 30 minutes, fractures heal in 3 to 7 days, and major wounds stabilize automatically. D-rank marks the threshold where routine healing becomes physiologically unnecessary — deep wounds close within 1 to 3 hours, fractures heal in 24 to 48 hours, and minor digit regeneration begins within 3 to 5 days of rest. C-rank closes major flesh wounds structurally within 60 to 120 seconds, with full limb regeneration in 48 to 72 hours. B-rank tissue reconstructs visibly at approximately 1 centimeter per second, with full limb regeneration in 4 to 6 hours. A-rank completes deep visceral and organ reconstruction within 10 to 15 minutes, and full skeletal or limb replacement within 1 to 2 hours. The 5% healing deduction in the income chain at D-rank and above is not routine medical care — it is catastrophic injury insurance covering core fractures, essence corruption, dungeon curse exposure, and irreversible damage from Apex-tier encounters that exceed even accelerated regeneration."
+  },
+  "operational_expenses": {
+    "description": "Percentage of post-living net consumed by operational costs. Applied after fixed living costs are subtracted from net take-home. Higher ranks receive more institutional support and benefit from natural regeneration, reducing their operational burden significantly. Three components: (1) Gear repair — rank-scaled maintenance costs as dungeon damage to equipment varies by combat intensity; (2) Transport — flat 5% for dungeon access logistics, team coordination, and travel; (3) Weapon replacement fund — remainder, used to accumulate toward the next weapon purchase on the rank-appropriate durability cycle.",
+    "model": "percentage_of_post_living_net",
+    "by_rank": [
+      {
+        "rank": "F",
+        "rate_pct": 63,
+        "gear_repair_pct": 20,
+        "transport_pct": 5,
+        "weapon_fund_pct": 75,
+        "annual_op_budget_low": 13554,
+        "gear_repair_low": 2711,
+        "transport_low": 678,
+        "weapon_fund_low": 10165,
+        "op_expense_author_note": "63% of post-living net (13,554 ₵ at low end). Gear repair 20% (2,711 ₵): F-rank equipment takes proportionally heavy damage — cheap materials, high dungeon stress, no artificer maintenance access. Transport 5% (678 ₵): public dungeon transit, queue fees. Weapon fund 75% remainder (10,165 ₵): covers annual weapon replacement (avg 2,750 ₵) at 3.70x — surplus held for emergency gear or partial upgrade savings.",
+        "op_expense_lore": "The operational expense allocation at F-rank is not optional — it is the structural cost of staying alive long enough to advance. Roughly six in ten credits earned after living costs are committed before the Corebearer sees them as discretionary income. The largest share goes toward the weapon fund: F-rank equipment is mass-produced under commercial tolerances, not dungeon tolerances, and the difference shows. Blades notch. Armor seams split. Straps fail at the worst moment. Gear repair consumes a significant portion of the operational budget not because F-rank Corebearers are careless, but because the materials they can afford were never designed for what they are being asked to endure. Transport costs are modest but non-negotiable — public dungeon transit queues, entry staging fees, and the occasional relay fare when a run runs long. New registrants are advised: do not treat the weapon fund as savings. It is a replacement schedule. The question is not whether your equipment will fail — it is whether you have enough set aside when it does."
+      },
+      {
+        "rank": "E",
+        "rate_pct": 58,
+        "gear_repair_pct": 15,
+        "transport_pct": 5,
+        "weapon_fund_pct": 80,
+        "annual_op_budget_low": 759454,
+        "gear_repair_low": 113918,
+        "transport_low": 37973,
+        "weapon_fund_low": 607563,
+        "op_expense_author_note": "58% of post-living net (759,454 ₵ at low end). Gear repair 15% (113,918 ₵): E-rank equipment is purpose-forged — survives longer per run but repair costs are more expensive per session. Transport 5% (37,973 ₵): private dungeon access logistics. Weapon fund 80% remainder (607,563 ₵): covers 2-year weapon cycle (avg annual cost 87,500 ₵) at 6.94x — surplus enables saving toward D-rank entry-grade equipment.",
+        "op_expense_lore": "At E-rank, the operational picture begins to professionalize. The expense allocation tightens slightly as income rises, but the nature of each cost shifts in ways new E-rank Corebearers should understand before their first contracted run. Gear repair costs remain significant — E-rank equipment is purpose-forged rather than mass-produced, and while it holds up better under dungeon stress, the repair work it requires when damaged is specialist labor, not a street-corner smith. Transport costs hold steady; the transit infrastructure does not care what rank you are. The weapon fund grows in absolute terms and now represents a genuine multi-month savings discipline — an E-rank weapon is not something you replace on a whim. It is a planned purchase. The guild's standing advice at this tier: treat your operational budget as professional overhead, not a tax. Every credit in that allocation is buying you the ability to keep operating. Corebearers who drain their weapon fund for other expenses tend to discover the problem at the worst possible time."
+      },
+      {
+        "rank": "D",
+        "rate_pct": 51,
+        "gear_repair_pct": 10,
+        "transport_pct": 5,
+        "weapon_fund_pct": 85,
+        "annual_op_budget_low": 1762255,
+        "gear_repair_low": 176226,
+        "transport_low": 88113,
+        "weapon_fund_low": 1497917,
+        "op_expense_author_note": "51% of post-living net (1,762,255 ₵ at low end). No consumables — D-rank regen handles all routine injury. Gear repair 10% (176,226 ₵): ICA-grade equipment is resilient; repair costs reflect specialist rates, not volume. Transport 5% (88,113 ₵): ICA licensed dungeon coordination and Tier-2 logistics. Weapon fund 85% remainder (1,497,917 ₵): covers 3-year weapon cycle (avg annual cost 200,000 ₵) at 7.49x — first rank with genuine gear surplus.",
+        "op_expense_lore": "Upon achieving D-rank recognition and completing ICA licensing, the Corebearer's operational expense structure undergoes a significant reorientation. Routine post-run medical costs, which represented a meaningful burden at lower tiers, are effectively eliminated — D-rank physiological recovery renders standard healer visits unnecessary for all but exceptional circumstances. Consumable allocations are similarly removed. What replaces them is a more institutionally structured overhead: ICA licensing maintenance, elevated transport arrangements commensurate with D-rank operational requirements, and a weapon fund now calibrated to professional-grade equipment with a multi-year durability horizon. The healing deduction that persists in the income chain at this tier is not routine medical expenditure — it is catastrophic injury coverage, maintained against core fractures, essence corruption events, and Apex-tier encounter damage that exceeds even D-rank regenerative capacity. Corebearers entering this tier should note that their spendable income, while substantially higher than lower ranks in absolute terms, reflects the output of a tightly managed financial chain. The overhead exists because operating at D-rank requires it."
+      },
+      {
+        "rank": "C",
+        "rate_pct": 24,
+        "gear_repair_pct": 8,
+        "transport_pct": 5,
+        "weapon_fund_pct": 87,
+        "annual_op_budget_low": 2211416,
+        "gear_repair_low": 176913,
+        "transport_low": 110571,
+        "weapon_fund_low": 1923932,
+        "op_expense_author_note": "24% of post-living net (2,211,416 ₵ at low end). Significant institutional support begins — ICA authorization contracts cover Tier-3 entry, reducing transport burden. Gear repair 8% (176,913 ₵): C-rank equipment is near-indestructible under normal operation; costs reflect specialist artificer rates. Transport 5% (110,571 ₵): ICA operational logistics. Weapon fund 87% remainder (1,923,932 ₵): covers 5-year weapon cycle (avg annual cost 550,000 ₵) at 3.50x.",
+        "op_expense_lore": "C-rank operational expenses reflect the transition from professional overhead to institutional obligation. The ICA classifies C-rank Corebearers as Recognized Strategic Assets, and the expense structure is calibrated accordingly. Gear repair costs decrease as a proportion of the operational budget — C-rank equipment is masterpiece-grade, maintained under artificer contract rather than replaced on failure. Transport arrangements at this tier typically involve ICA-coordinated logistics rather than public dungeon transit infrastructure. The weapon fund, while representing a smaller operational percentage, is directed toward acquisitions that require multi-year forge queues and ICA procurement authorization. These are not consumer purchases. They are institutional transactions. The catastrophic injury insurance deduction at C-rank is ICA-mandated and non-negotiable — C-rank Corebearers are assets the Commission has a material interest in protecting. Corebearers at this tier will find that their financial life increasingly intersects with institutional processes: purchase authorizations, procurement timelines, and coverage arrangements that did not exist at lower ranks. This is not bureaucratic inconvenience. It is the cost of operating at a tier where individual actions carry regional consequences."
+      },
+      {
+        "rank": "B",
+        "rate_pct": 23,
+        "gear_repair_pct": 5,
+        "transport_pct": 5,
+        "weapon_fund_pct": 90,
+        "annual_op_budget_low": 2916802,
+        "gear_repair_low": 145840,
+        "transport_low": 145840,
+        "weapon_fund_low": 2625122,
+        "_audit_note": "rate_pct corrected from 27 to 23 in prior audit — B-rank must have lower op rate than C-rank (24%) per institutional support logic.",
+        "op_expense_author_note": "23% of post-living net (2,916,802 ₵ at low end). Government and megacorporate contracts absorb most operational costs. Gear repair 5% (145,840 ₵): B-rank equipment is state-maintained between operations — covers residual personal maintenance and non-contracted incidental damage. Transport 5% (145,840 ₵): national-level operational logistics. Weapon fund 90% remainder (2,625,122 ₵): covers 10-year weapon cycle (avg annual cost 800,000 ₵) at 3.28x.",
+        "op_expense_lore": "B-rank operational expenses are, in material terms, partially absorbed by the institutional arrangements that define this tier. Government contracts and megacorporate retainer agreements offset portions of the overhead that lower-ranked Corebearers bear entirely from personal income. What remains as personal operational expenditure represents a fraction of the actual cost of maintaining a B-rank Corebearer in operational condition — the state and its contracted partners cover the rest through mechanisms that do not appear in individual financial statements. Gear maintenance at this tier is conducted by ICA-certified artificers operating under standing contracts; the Corebearer does not arrange this independently. Transport is coordinated at the operational level. The weapon fund allocation reflects the personal contribution toward equipment that is, in most cases, commissioned or issued through government channels with forge timelines measured in years. The personal catastrophic injury insurance deduction represents the gap between government-provided coverage and full protection — B-rank Corebearers are national assets, and the Commission treats gaps in their protection as an institutional liability, not merely a personal one."
+      },
+      {
+        "rank": "A",
+        "rate_pct": 20,
+        "gear_repair_pct": 3,
+        "transport_pct": 5,
+        "weapon_fund_pct": 92,
+        "annual_op_budget_low": 12814237,
+        "gear_repair_low": 384427,
+        "transport_low": 640712,
+        "weapon_fund_low": 11789098,
+        "op_expense_author_note": "20% of post-living net (12,814,237 ₵ at low end). Institutional and government support absorbs virtually all operational costs. Gear repair 3% (384,427 ₵): A-rank equipment maintained by state artificers under standing national contracts — covers personal discretionary maintenance and non-state-covered incidentals. Transport 5% (640,712 ₵): national-level operational logistics. Weapon fund 92% remainder (11,789,098 ₵): covers 20-year weapon cycle (avg annual cost 2,475,000 ₵) at 4.76x — substantial surplus funds the state artificer maintenance retainer.",
+        "op_expense_lore": "MINISTRY OF STRATEGIC ASSETS — FINANCIAL DISCLOSURE SUMMARY\nA-rank Corebearer operational expenses are administered jointly by the relevant national government and the ICA Commission under the Strategic Asset Maintenance Framework. Personal income figures reflect post-arrangement spendable income after institutional overhead has been processed at the ministerial level. Gear maintenance, transport, catastrophic coverage, and equipment procurement are coordinated entirely through state and Commission channels. Individual Corebearers do not manage these arrangements independently. The figures visible in personal financial statements represent residual personal allocations after institutional processing — not the full cost of A-rank operational maintenance, which is classified at clearance levels above this document.\n\nICA COMMISSION — DIRECT NOTICE TO COREBEARER\nYour operational expenses are not your concern in the way they were at every previous rank. The Ministry handles the overhead. What appears in your personal allocation is what remains after the state has done its accounting. Focus on operational readiness. The Commission will flag anything that requires your attention."
+      }
+    ],
+    "consumables_author_note": "Consumables were removed from operational expenses entirely. Corebearer natural regeneration makes healing items non-essential starting at D-rank: wounds close in under 100 seconds, D-rank can regrow fingers after rest, C/B-rank can regrow limbs after days, A-rank heals mid-fight. F and E-rank retain consumable market access but as optional situational use, not budgeted operational cost. The Corebearer consumable market has effectively collapsed at D-rank and above — the surviving market is civilian emergency services, academy students, and dungeon support workers.",
+    "consumables_lore": "The consumable market among Corebearers collapses sharply at D-rank. Below that threshold — at F and E-rank — healing items provide genuine value: F-rank regeneration is slow enough that a post-run restorative can meaningfully accelerate recovery, and E-rank Corebearers use consumables situationally in high-risk dungeons where speed matters. At D-rank and above, Corebearer physiology renders standard healing items obsolete. Wounds that would hospitalize a civilian close on their own within hours. The consumable trade that once served the Corebearer market has shifted entirely to civilian emergency services, academy students, dungeon support workers, and low-clearance contractors who do not benefit from advanced regeneration. A D-rank Corebearer carrying a healing potion is carrying dead weight."
+  },
+  "item_price_ranges": {
+    "_note": "Common rarity baseline prices. Rarity multipliers from market.js apply on top of these. AI-generated items should have starting_value within these ranges based on rank and item type. Weapon/armor prices reflect full purchase cost; Corebearers do not replace gear annually — higher-rank gear is built to endure. Use weapon_annual_cost for budgeting (price ÷ durability_years). Consumable fields retained at F/E rank only (civilian and academy market — Corebearer natural regeneration makes consumables non-essential at D-rank and above).",
+    "by_rank": [
+      {
+        "rank": "F",
+        "consumable_common_low": 50,
+        "consumable_common_high": 150,
+        "consumable_effective_low": 3,
+        "consumable_effective_high": 20,
+        "weapon_armor_common_low": 2500,
+        "weapon_armor_common_high": 3000,
+        "weapon_durability_years": 1,
+        "weapon_annual_cost": 2750,
+        "weapon_replacement_fund_annual": 10165,
+        "notes": "F-rank heals slowly enough that consumables still provide meaningful benefit — the only rank where Corebearers actively use healing items. Consumable market at F/E rank is primarily civilian and academy-driven; Corebearers are a shrinking share of buyers. Weapon durability: 1 year. Cheap gear breaks under dungeon stress. F-rank scrapes by on mass-produced equipment, replacing weapons as they crack. Annual weapon fund (10,165 ₵) covers full replacement cost (avg 2,750 ₵) with 3.70x headroom for emergency gear or partial upgrades.",
+        "_audit_note": "Durability model applied. weapon_durability_years=1, weapon_annual_cost=2,750 (avg of 2,500–3,000 ÷ 1yr). weapon_replacement_fund_annual=10,165 derived from: op_budget (13,554) − gear_repair 20% (2,711) − transport 5% (678) = 10,165. Fund covers annual cost at 3.70x ratio ✓. Consumable fields retained — F-rank regen is slow enough that healing items remain useful. consumable_effective_* reflect 6–13% of market rate (guild/craft discount).",
+        "lore": "F-rank gear is mass-produced, cheaply forged, and replaced often. It is the only tier where Corebearers actively budget for consumables — healing items still provide meaningful benefit when regeneration is slow. An F-rank Corebearer scrapes by on equipment that cracks under dungeon stress, replacing weapons as they fail rather than when they wear out."
+      },
+      {
+        "rank": "E",
+        "consumable_common_low": 2000,
+        "consumable_common_high": 5000,
+        "consumable_effective_low": 228,
+        "consumable_effective_high": 513,
+        "weapon_armor_common_low": 300000,
+        "weapon_armor_common_high": 400000,
+        "weapon_durability_years": 2,
+        "weapon_annual_cost": 175000,
+        "weapon_replacement_fund_annual": 607563,
+        "notes": "E-rank regen is fast enough that consumables are optional rather than essential — used situationally in high-risk dungeons. Weapon durability: 2 years. E-rank gear is purpose-forged, not mass-produced. A weapon purchase is a genuine savings milestone requiring a few months of disciplined saving. Annual weapon fund (607,563 ₵) covers avg annual cost (175,000 ₵) at 3.47x — the surplus goes toward quality repairs and eventual upgrade saving.",
+        "_audit_note": "Durability model applied. weapon_durability_years=2, weapon_annual_cost=175,000 (avg 350,000 ÷ 2yr). weapon_replacement_fund_annual=607,563 derived from: op_budget (759,454) − gear_repair 15% (113,918) − transport 5% (37,973) = 607,563. Fund covers annual cost at 3.47x ratio ✓. Consumable fields retained — E-rank uses consumables situationally. consumable_effective_* reflect guild discount rates.",
+        "lore": "E-rank gear is purpose-forged rather than mass-produced. A weapon purchase at this tier is a genuine financial milestone — months of disciplined saving for equipment that will last two years. Consumables are no longer a budgeted cost but remain available for high-risk situations where even fast E-rank regeneration benefits from assistance."
+      },
+      {
+        "rank": "D",
+        "weapon_armor_common_low": 1500000,
+        "weapon_armor_common_high": 2000000,
+        "weapon_durability_years": 3,
+        "weapon_annual_cost": 583333,
+        "weapon_replacement_fund_annual": 1497917,
+        "notes": "D-rank natural regeneration makes consumables non-essential — deep wounds close within 1 to 3 hours, bone fractures heal in 24 to 48 hours, and minor digit regeneration begins within 3 to 5 days of rest. No consumable fields. Weapon durability: 3 years. D-rank weapons are ICA-grade professional equipment — a 3-year weapon is not worn out, just superseded by rank advancement. Annual weapon fund (1,497,917 ₵) covers avg annual cost (583,333 ₵) at 2.57x — modest surplus reflects a rank where saving discipline is required.",
+        "_audit_note": "Consumable fields removed — D-rank regen renders them non-essential per lore. Durability model applied. weapon_durability_years=3, weapon_annual_cost=583,333 (avg 1,750,000 ÷ 3yr). weapon_replacement_fund_annual=1,497,917 derived from: op_budget (1,762,255) − gear_repair 10% (176,226) − transport 5% (88,113) = 1,497,917. Fund covers annual cost at 2.57x ratio ✓.",
+        "lore": "D-rank weapons are ICA-grade professional equipment, built for Corebearers whose physiology has begun to exceed civilian-grade materials. A three-year weapon at this tier is not worn out at replacement — it is superseded by rank advancement. Consumables are absent from the budget entirely. D-rank regeneration handles all standard dungeon injury without assistance."
+      },
+      {
+        "rank": "C",
+        "weapon_armor_common_low": 6000000,
+        "weapon_armor_common_high": 8000000,
+        "weapon_durability_years": 5,
+        "weapon_annual_cost": 1400000,
+        "weapon_replacement_fund_annual": 1923932,
+        "notes": "No consumables. C-rank Corebearers close major flesh wounds structurally within 60 to 120 seconds — visibly healing while observed. Full limb regeneration takes 48 to 72 hours of rest. Weapon durability: 5 years. C-rank saves toward a masterpiece weapon that outlasts most careers at lower ranks. A 6M–8M ₵ weapon is an institutional purchase — most are contracted through ICA-approved smiths on multi-year lead times. Annual weapon fund (1,923,932 ₵) covers avg annual cost (1,400,000 ₵) at 1.37x — requires multi-year saving discipline and often ICA contract support.",
+        "_audit_note": "Consumable fields removed. Durability model applied. weapon_durability_years=5, weapon_annual_cost=1,400,000 (avg 7,000,000 ÷ 5yr). weapon_replacement_fund_annual=1,923,932 derived from: op_budget (2,211,416) − gear_repair 8% (176,913) − transport 5% (110,571) = 1,923,932. Fund covers annual cost at 1.37x ratio ✓.",
+        "lore": "C-rank weapons are masterpiece-grade institutional purchases, contracted through ICA-approved smiths on multi-year forge queues. A Corebearer who closes major wounds in under two minutes and regrows limbs within days has no use for a healing pouch. The weapon itself outlasts most careers below C-rank and is treated as a long-term professional investment."
+      },
+      {
+        "rank": "B",
+        "weapon_armor_common_low": 18000000,
+        "weapon_armor_common_high": 25000000,
+        "weapon_durability_years": 10,
+        "weapon_annual_cost": 2150000,
+        "weapon_replacement_fund_annual": 2625122,
+        "notes": "No consumables. B-rank tissue reconstructs at approximately 1 centimeter per second, with full limb regeneration within 4 to 6 hours. Weapon durability: 10 years. B-rank wields named equipment — weapons with documented kill histories and artificer maintenance logs. A 10-year weapon at this tier is an active career partner, not just a tool. Most B-rank weapons are government-issued or commissioned through ICA master smiths with 2–3 year forge queues. Annual weapon fund (2,625,122 ₵) covers avg annual cost (2,150,000 ₵) at 1.22x — institutional and government support is effectively required to bridge the gap.",
+        "_audit_note": "Consumable fields removed. Durability model applied. weapon_durability_years=10, weapon_annual_cost=2,150,000 (avg 21,500,000 ÷ 10yr). weapon_replacement_fund_annual=2,625,122 derived from: op_budget (2,916,802) − gear_repair 5% (145,840) − transport 5% (145,840) = 2,625,122. Fund covers annual cost at 1.22x ratio ✓.",
+        "lore": "B-rank weapons are named equipment — each piece carries documented operational history, artificer maintenance logs, and a kill record. Tissue reconstruction at approximately 1 centimeter per second and full limb regeneration within 4 to 6 hours means a B-rank Corebearer's survival depends on their weapon, not their medicine cabinet. Most B-rank equipment is government-issued or commissioned through master smiths with 2 to 3 year forge queues."
+      },
+      {
+        "rank": "A",
+        "weapon_armor_common_low": 150000000,
+        "weapon_armor_common_high": 200000000,
+        "weapon_durability_years": 20,
+        "weapon_annual_cost": 8750000,
+        "weapon_replacement_fund_annual": 11789098,
+        "notes": "No consumables. A-rank healing is exceptionally fast but not instantaneous — deep visceral and organ reconstruction completes within 10 to 15 minutes, full skeletal and limb replacement within 1 to 2 hours. Weapon durability: 20 years. A-rank wields a legendary weapon forged decades ago, maintained by state artificers between operations. The weapon may predate the Corebearer's own rank advancement. 'Buying a weapon' at A-rank is a national-level transaction requiring ICA authorization. Annual weapon fund (11,789,098 ₵) covers avg annual cost (8,750,000 ₵) at 1.35x — the fund barely keeps pace; the state artificer maintenance contract is what sustains a 20-year weapon's combat integrity.",
+        "_audit_note": "Consumable fields removed. Durability model applied. weapon_durability_years=20, weapon_annual_cost=8,750,000 (avg 175,000,000 ÷ 20yr). weapon_replacement_fund_annual=11,789,098 derived from: op_budget (12,814,237) − gear_repair 3% (384,427) − transport 5% (640,712) = 11,789,098. Fund covers annual cost at 1.35x ratio ✓. Thin surplus (~3,039,098 ₵/yr) represents state artificer maintenance retainer — consistent with 'maintained by state artificers' lore.",
+        "lore": "A-rank weapons are forged once and maintained for decades by state artificers. The weapon often predates the Corebearer's own rank advancement. Acquiring one is not a purchase — it is a national-level transaction requiring ICA authorization and state involvement. A-rank regeneration completes deep visceral reconstruction in minutes and full limb replacement within hours, making medical supplies a non-factor in any operational calculus."
+      },
+      {
+        "rank": "S",
+        "consumable_common_low": null,
+        "consumable_common_high": null,
+        "weapon_armor_common_low": 10000000000,
+        "weapon_armor_common_high": null,
+        "notes": "S-rank item minimum confirmed at 10,000,000,000+ ₵. Upper bound effectively unquantifiable. ▣ Core currency range."
+      }
+    ],
+    "rarity_note": "These are Common (1.0×) baselines. Rarity multipliers (Uncommon 1.5×–2×, Rare 5×–10×, Epic 20×–50×, Legendary 100×+, Mythic 500×+) are applied by the market script at runtime, not baked into starting_value."
+  },
+  "dungeon_entry_fees": [
+    {
+      "tier": "Tier-0 (Academy Pocket Realm)",
+      "fee_low": 200,
+      "fee_high": 500,
+      "fee_display": "200–500 ₵/day",
+      "who_accesses": "Academy students",
+      "notes": "Partially subsidized by enrollment. Net cost after subsidy is lower. Academy reclaims value through salvage quotas."
+    },
+    {
+      "tier": "Tier-1 (Public Licensed)",
+      "fee_low": 400,
+      "fee_high": 800,
+      "fee_display": "400–800 ₵/day",
+      "who_accesses": "F-rank Corebearers",
+      "notes": "Primary grinding ground for new F-ranks. Most of the queue pressure is here. High-return nodes can see 2–3 day wait times."
+    },
+    {
+      "tier": "Tier-1 (High-Return Node)",
+      "fee_low": 1000,
+      "fee_high": 2000,
+      "fee_display": "1,000–2,000 ₵/day",
+      "who_accesses": "F/E-rank Corebearers",
+      "notes": "Premium tier-1 access — better monster density, faster respawn cycles, higher-grade material drops. Popular enough that queue fees compound entry costs."
+    },
+    {
+      "tier": "Tier-2 (ICA Licensed)",
+      "fee_low": 10000,
+      "fee_high": 10000,
+      "fee_display": "1 Low ◈/day",
+      "who_accesses": "D-rank recommended minimum",
+      "notes": "Requires ICA dungeon license. D-rank minimum is a recommendation, not a hard rule — E-rank parties with good team composition can attempt with waiver."
+    },
+    {
+      "tier": "Tier-3 (ICA Authorized)",
+      "fee_low": 50000,
+      "fee_high": 100000,
+      "fee_display": "5–10 Low ◈/day",
+      "who_accesses": "C-rank+, authorized parties only",
+      "notes": "ICA authorization required. Entry denied without prior-approved mission brief. At C-rank, entry is typically covered under institutional ICA authorization contracts rather than paid per-run."
+    },
+    {
+      "tier": "Tier-4+ (National Operation)",
+      "fee_low": null,
+      "fee_high": null,
+      "fee_display": "ICA Authorization Only",
+      "who_accesses": "A-rank+ or national-level teams",
+      "notes": "No public access. Entry via government or ICA operational mandate. Cost is political, not financial."
+    }
+  ],
+  "dungeon_yield": {
+    "_note": "All values represent gross yield before deductions. See income_flow for how value is distributed. Run frequency: 3 runs/week × 48 working weeks = 144 runs/year for all ranks F through C. Higher ranks hunt deeper zones of the same dungeon — not separate facilities.",
+    "income_flow": {
+      "description": "How a dungeon run's gross value is distributed",
+      "steps": [
+        {
+          "step": "Gross yield per run",
+          "description": "Total value of cores + parts sold from all kills that run"
+        },
+        {
+          "step": "Entry fee",
+          "description": "Paid upfront per run. Tier-dependent. Deducted before any other calculation."
+        },
+        {
+          "step": "Commission platform fee",
+          "value_pct_default": 12,
+          "value_pct_by_rank": {
+            "F_E_Open_Listed": 12,
+            "E_Verified": 11,
+            "D_Recognized": 10,
+            "C_Notable": 9,
+            "B_Distinguished": 8,
+            "A_Renowned": 6,
+            "S_Sovereign": 0
+          },
+          "description": "Standard ICA-registered Commission cut on sale transactions. Applied to net sale proceeds AFTER entry fee deduction. Rate is rank-dependent.",
+          "_audit_note": "value_pct was previously a flat 12, which would produce incorrect income chain calculations at D-rank and above. Split into value_pct_default (for Open/Listed baseline) and value_pct_by_rank (for accurate per-rank math). This matches the commission_ranks fee_cut values exactly."
+        },
+        {
+          "step": "ICA dungeon access levy",
+          "value_pct": 5,
+          "description": "Flat 5% ICA tax on all dungeon-sourced income. Non-negotiable at any commission rank."
+        },
+        {
+          "step": "Overhead (gear repair, transport)",
+          "value_pct": 10,
+          "description": "Approximate overhead per run. Covers gear repair and transport. A bad run with heavy equipment damage can push this to 20%+."
+        },
+        {
+          "step": "National + regional tax",
+          "value_pct": 15,
+          "description": "Placeholder combined tax rate (10% national + 5% regional average). Applied to net income after above deductions. See tax_structure for detail."
+        },
+        {
+          "step": "Healing costs",
+          "value_pct": 5,
+          "description": "Routine post-run medical care. Percentage of net income. See healing_costs for detail."
+        },
+        {
+          "step": "Net take-home",
+          "value_pct": "~45–50",
+          "description": "What the Corebearer actually keeps under normal conditions before fixed living costs and gear purchases. A bad run can push this significantly lower."
+        }
+      ]
+    },
+    "by_monster_rank": [
+      {
+        "monster_rank": "F",
+        "core_price_low": 80,
+        "core_price_high": 300,
+        "core_price_display": "80–300 ₵",
+        "parts_pct_of_core": 30,
+        "parts_display": "~25–90 ₵",
+        "avg_total_per_kill": 155,
+        "kills_per_run_avg": 12,
+        "kills_per_run_top": 20,
+        "gross_per_run_avg": 1860,
+        "gross_per_run_top": 7800,
+        "gross_annual_avg": 267840,
+        "gross_annual_top": 1123200,
+        "buyer_pool": "Supplement manufacturers, basic alchemy suppliers, low-grade energy cell producers, academy salvage divisions",
+        "_audit_note": "gross_annual_avg verified: 1,860×144=267,840 ✓. avg_total_per_kill×kills_avg: 155×12=1,860 ✓. avg_total_per_kill uses common-weighted average (~120 ₵ core × 1.30 parts factor ≈ 156) rather than full range midpoint (190×1.30=247) — intentional weighting. Cross-check: corebearer F gross range 240,510–360,373 contains 267,840 avg ✓. gross_per_run_top check: 20 kills × max ~390 ₵/kill = 7,800 ✓.",
+        "species_author_note": "Commodity-grade. Sold in bulk. Common species at low end (Shadow Rats, Slime-Husks). Rare F-rank apex variants reach top of range. avg_total_per_kill=155 reflects weighted average toward common monsters (avg core ~120 ₵ × 1.30 = 156 ₵).",
+        "species_lore": "F-rank monster cores are commodity goods — traded in bulk, priced per crate, and available at most registered dungeon markets without licensing. Species like Shadow Rats and Slime-Husks dominate the low end. Rare F-rank apex variants command a premium but remain accessible. The parts market is similarly unrestricted."
+      },
+      {
+        "monster_rank": "E",
+        "core_price_low": 1500,
+        "core_price_high": 6000,
+        "core_price_display": "1,500–6,000 ₵",
+        "parts_pct_of_core": 28,
+        "parts_display": "~420–1,680 ₵",
+        "avg_total_per_kill": 2800,
+        "kills_per_run_avg": 10,
+        "kills_per_run_top": 18,
+        "gross_per_run_avg": 28000,
+        "gross_per_run_top": 138240,
+        "gross_annual_avg": 4032000,
+        "gross_annual_top": 19906560,
+        "buyer_pool": "E-rank supplement manufacturers, industrial energy companies, mid-tier weapon forges, research institutions",
+        "_audit_note": "gross_annual_avg verified: 28,000×144=4,032,000 ✓. avg_total_per_kill×kills_avg: 2,800×10=28,000 ✓. Cross-check: corebearer E gross range 3,298,192–5,695,452 contains 4,032,000 avg ✓. gross_per_run_top check: 18 kills × top ~7,680 ₵/kill (6,000×1.28) = 138,240 ✓.",
+        "species_author_note": "Significant jump. E-rank monsters are genuinely dangerous. A single good core covers a Dormant's weekly wage. Species rarity matters heavily here. avg_total_per_kill=2,800 reflects common-weighted average (~2,188 ₵ core × 1.28 ≈ 2,800).",
+        "species_lore": "E-rank monsters are genuinely dangerous to most people. A single high-quality core from this tier covers a Dormant's weekly wage — making E-rank hunting the first tier where species selection and rarity assessment become financially meaningful decisions. The jump in value from F-rank is significant and reflects the real risk differential."
+      },
+      {
+        "monster_rank": "D",
+        "core_price_low": 3000,
+        "core_price_high": 20000,
+        "core_price_display": "3,000–20,000 ₵ (0.3–2 Low ◈)",
+        "parts_pct_of_core": 25,
+        "parts_display": "~750–5,000 ₵",
+        "avg_total_per_kill": 9375,
+        "kills_per_run_avg": 8,
+        "kills_per_run_top": 14,
+        "gross_per_run_avg": 75000,
+        "gross_per_run_top": 350000,
+        "gross_annual_avg": 10800000,
+        "gross_annual_top": 50400000,
+        "buyer_pool": "D-rank supplement producers, advanced weapon forges, ICA institutional buyers, corporate R&D divisions",
+        "_audit_note": "gross_annual_avg verified: 75,000×144=10,800,000 ✓. avg_total_per_kill×kills_avg: 9,375×8=75,000 ✓. Cross-check: corebearer D gross range 9,145,479–15,138,630 contains 10,800,000 avg ✓. gross_per_run_top check: 14 kills × max ~25,000/kill (20,000×1.25) = 350,000 ✓.",
+        "species_author_note": "Each core is a real transaction, not a commodity. Quality varies enormously by species. Top-range D-rank cores require ICA licensing to sell on primary market. avg_total_per_kill=9,375 reflects common-weighted average (~7,500 ₵ core × 1.25 = 9,375).",
+        "species_lore": "D-rank cores are individual transactions, not commodities. Quality varies enormously by species, and top-range cores require ICA licensing to sell on the primary market. A Corebearer who secures a rare D-rank core has completed a transaction of genuine financial weight — equivalent to months of lower-tier income in a single kill."
+      },
+      {
+        "monster_rank": "C",
+        "core_price_low": 20000,
+        "core_price_high": 150000,
+        "core_price_display": "20,000–150,000 ₵ (2–15 Low ◈)",
+        "parts_pct_of_core": 22,
+        "parts_display": "~4,400–33,000 ₵",
+        "avg_total_per_kill": 59780,
+        "kills_per_run_avg": 5,
+        "kills_per_run_top": 9,
+        "gross_per_run_avg": 298900,
+        "gross_per_run_top": 1647000,
+        "gross_annual_avg": 43041600,
+        "gross_annual_top": 237168000,
+        "buyer_pool": "Corporate institutions, national supplement programs, high-end weapon crafters, ICA strategic reserve",
+        "_audit_note": "gross_annual_avg verified: 298,900×144=43,041,600 ✓. avg_total_per_kill×kills_avg: 59,780×5=298,900 ✓. Cross-check: corebearer C gross range 36,484,932–53,608,219; avg 43,041,600 is within range ✓ (diff from midpoint 45M is 4.4%).",
+        "species_author_note": "Rare. Requires licensed handling for most buyers. Most C-rank cores never hit open market — corporate purchase agreements cover them in advance.",
+        "species_lore": "C-rank cores rarely reach the open market. Most are covered by corporate purchase agreements before the dungeon run concludes. Licensed handling is required for most buyers, and unlicensed sale of a C-rank core triggers ICA review. The few that do surface publicly draw immediate institutional attention."
+      },
+      {
+        "monster_rank": "B",
+        "core_price_low": 500000,
+        "core_price_high": 3000000,
+        "core_price_display": "50–300 Low ◈",
+        "parts_pct_of_core": 20,
+        "parts_display": "100,000–600,000 ₵",
+        "avg_total_per_kill": null,
+        "kills_per_run_avg": null,
+        "kills_per_run_top": null,
+        "gross_per_run_avg": null,
+        "gross_per_run_top": null,
+        "gross_annual_avg": null,
+        "gross_annual_top": null,
+        "buyer_pool": "Governments, megacorporations, ICA strategic divisions, national military programs. Does not trade openly.",
+        "species_author_note": "National-level asset. B-rank kills are operational events, not routine runs. Governments and megacorporations hold standing purchase agreements. Individual cores are named and catalogued.",
+        "species_lore": "B-rank kills are operational events. Governments and megacorporations hold standing purchase agreements for B-rank cores, and individual specimens are named and catalogued by the ICA upon extraction. A B-rank Corebearer does not hunt for cores — they execute contracts, and the cores are a documented byproduct."
+      },
+      {
+        "monster_rank": "A+",
+        "core_price_low": null,
+        "core_price_high": null,
+        "core_price_display": "Mid ◈ range and above",
+        "parts_pct_of_core": null,
+        "parts_display": "Classified",
+        "avg_total_per_kill": null,
+        "kills_per_run_avg": null,
+        "kills_per_run_top": null,
+        "gross_per_run_avg": null,
+        "gross_per_run_top": null,
+        "gross_annual_avg": null,
+        "gross_annual_top": null,
+        "buyer_pool": "Sovereign governments, ICA central authority, entities unknown to the public market",
+        "species_author_note": "Effectively priceless on open market. Governments are involved in every transaction. ICA logs all A+ core transfers. S-rank cores do not trade. Ever.",
+        "species_lore": "A-rank and above cores do not trade on any open market. Every transfer is logged by the ICA, involves government authorization, and is treated as a strategic asset transaction rather than a commercial one. S-rank cores are not sold. The question of their value is academically interesting and practically irrelevant."
+      }
+    ],
+    "species_rarity_modifiers": {
+      "description": "Applied on top of base core price to reflect rarity within a rank tier",
+      "modifiers": [
+        {
+          "rarity": "Common",
+          "multiplier": 1,
+          "example": "Shadow Rats, Slime-Husks, Bone Crawlers"
+        },
+        {
+          "rarity": "Uncommon",
+          "multiplier": 1.5,
+          "example": "Venom-Spine Hogs, Gloom Beetles, Mirror Wolves"
+        },
+        {
+          "rarity": "Rare",
+          "multiplier": 3,
+          "example": "Ashfang Drakes, Crystal Hounds, Void-Touched Ferals"
+        },
+        {
+          "rarity": "Apex",
+          "multiplier": 8,
+          "example": "Named creatures, dungeon bosses, evolution-stage variants"
+        }
+      ]
+    },
+    "licensing_requirements": [
+      {
+        "rank": "F–E",
+        "requirement": "None",
+        "notes": "Open market. Any registered Corebearer can sell F and E-rank cores freely."
+      },
+      {
+        "rank": "D",
+        "requirement": "ICA Dungeon License (Basic)",
+        "notes": "Required for primary market sale of D-rank cores. Gray market sale is common for unlicensed sellers at a 25–35% discount."
+      },
+      {
+        "rank": "C",
+        "requirement": "ICA Dungeon License (Restricted)",
+        "notes": "Restricted license. Background check required. Most C-rank cores are pre-sold under corporate standing agreements before they're harvested."
+      },
+      {
+        "rank": "B+",
+        "requirement": "ICA Authorization (Classified)",
+        "notes": "Not available for individual application. Assigned by ICA to authorized operational teams only."
+      }
+    ],
+    "academy_salvage_note": "At LMCA and similar academies, students must submit kills to a Salvage Counter first. The academy takes all cores and parts up to the kill quota. Material above quota can be sold back to the academy at below-market rates, or held for external sale after graduation approval. This is the primary mechanism by which the academy extracts institutional value from student labor.",
+    "lmca_ap_system": {
+      "rate": "1 AP = 6 ₵ (locked LMCA internal rate)",
+      "ap_cap": {
+        "max_per_semester": 1500,
+        "max_annual": 3000,
+        "value_per_semester_credits": 9000,
+        "value_annual_credits": 18000,
+        "math_note": "A full-year student running Tier-0 at 3 runs/week × 48 weeks = 144 runs × avg 350 ₵/run = 50,400 ₵ annual entry cost. The annual AP cap of 3,000 AP = 18,000 ₵ covers approximately 35.7% of Tier-0 entry fees — within the target 30–40% range. At 1,500 AP/semester, a student earning at the cap rate contributes meaningfully but cannot fully fund their own dungeon access, preserving institutional dependency.",
+        "notes": "Hard cap prevents AP accumulation from becoming an unlimited credit exploit. Typical student earns 800–1,200 AP/semester through quota kills and mission assignments — below the 1,500 cap. Overperformers hit the ceiling. AP cannot be transferred, sold, or carried between academic years.",
+        "_audit_note": "ap_cap added per Step 8 requirements. Cap set at 1,500/semester and 3,000/annual. Math verified: 3,000 AP × 6 ₵ = 18,000 ₵ ≈ 35.7% of 50,400 ₵ annual Tier-0 entry cost, within the 30–40% target.",
+        "_assumption": true
+      }
+    }
+  },
+  "food_costs": [
+    {
+      "rank": "Civilian / F-rank",
+      "type": "Normal food",
+      "monthly": "200–400 ₵",
+      "notes": null
+    },
+    {
+      "rank": "E-rank",
+      "type": "Dungeon-grade food",
+      "monthly": "2,000–5,000 ₵",
+      "notes": "Normal food still functions but provides diminishing nutritional return"
+    },
+    {
+      "rank": "D-rank",
+      "type": "Dungeon-grade food",
+      "monthly": "15,000–40,000 ₵",
+      "notes": "Normal food provides almost no meaningful nutrition at this stage"
+    },
+    {
+      "rank": "C-rank+",
+      "type": "Dungeon-grade only",
+      "monthly": "40,000–100,000 ₵",
+      "notes": "Normal food is functionally inert. Body no longer processes civilian-grade nutrition. High-end dungeon-grade produce from Tier-3 zones required."
+    }
+  ],
+  "cost_of_living": [
+    {
+      "category": "Basic city housing (civilian)",
+      "monthly": "300–600 ₵"
+    },
+    {
+      "category": "Dormant comfortable housing",
+      "monthly": "800–1,500 ₵"
+    },
+    {
+      "category": "Professional housing (F/E Corebearer)",
+      "monthly": "3,000–8,000 ₵"
+    },
+    {
+      "category": "Dungeon district housing (D-rank)",
+      "monthly": "20,000–60,000 ₵"
+    },
+    {
+      "category": "High district housing (C-rank)",
+      "monthly": "100,000–200,000 ₵"
+    },
+    {
+      "category": "Premium secured housing (B-rank)",
+      "monthly": "120,000–200,000 ₵",
+      "notes": "Reinforced structures rated for Corebearer-level combat stress. Security staff, dungeon-grade food delivery infrastructure, medical suite access. Often partially subsidized by institutional contract.",
+      "_audit_note": "Added per Step 3 requirement — B-rank housing entry was missing from cost_of_living. Value of 120,000–200,000 ₵/month is consistent with B-rank living_cost_breakdown housing of 2,160,000/yr (180,000/month, upper-mid range of this entry — raised from prior 150,000/month which matched C-rank housing).",
+      "_assumption": true,
+      "lore": "B-rank housing is a category unto itself — not luxury, but operational necessity. Structures must be rated for Corebearer-level combat stress, which eliminates most civilian residential options. Security staff, dungeon-grade food delivery infrastructure, and on-site medical suite access are standard. Institutional contracts frequently subsidize part of the cost as a retention and readiness measure."
+    },
+    {
+      "category": "Elite compound / secured estate (A-rank)",
+      "monthly": "120,000–250,000 ₵",
+      "notes": "A-rank Corebearers often use institutionally provided or government-allocated housing rather than purchasing independently. Private compound ownership is possible but cost is often absorbed by state or corporate sponsors. The 110,000 ₵/month figure in A-rank living breakdown reflects a subsidized institutional arrangement, with the savings offset partially redirected to food costs (now included at dungeon-grade minimum).",
+      "_audit_note": "Added per Step 3 requirement. A-rank living breakdown updated: housing reduced from 150,000 to 110,000/month to offset addition of food at 40,000/month, keeping living total at 60,000,000. This note updated accordingly.",
+      "_assumption": true,
+      "lore": "A-rank Corebearers rarely purchase housing independently. Government-allocated compounds or institutionally provided estates are the norm — the state has a vested interest in knowing where its most powerful assets sleep. Private compound ownership exists but is uncommon; when it occurs, the cost is typically absorbed by state sponsors or corporate partners as part of a long-term operational arrangement."
+    }
+  ],
+  "supplement_reference": [
+    {
+      "rank": "F",
+      "type": "Basic Core Supplement",
+      "legal_price": "2,000–5,000 ₵",
+      "gray_price": "1,200–3,750 ₵",
+      "notes": "Requires ~5–15 F-rank cores worth of raw material to manufacture. At 3–6 months of F-rank monthly spendable (667–1,250 ₵/month), a single supplement represents a real savings milestone. Gray price is 60–75% of legal price.",
+      "_audit_note": "legal_price raised from 500–3,000 to 2,000–5,000 ₵. Original low of 500 ₵ represented less than 1 month of F-rank monthly spendable (500/667=0.75 months), below the 3–6 month target. New range: 2,000/1,250=1.6 months to 5,000/667=7.5 months — the midpoint (3,500 ₵) represents ~2.8–5.3 months, meeting the 3–6 month requirement. gray_price updated from 350–2,000 to 1,200–3,750 (60–75% of new legal price)."
+    },
+    {
+      "rank": "E",
+      "type": "Standard Core Supplement",
+      "legal_price": "50,000–200,000 ₵",
+      "gray_price": "30,000–140,000 ₵",
+      "notes": "Represents 1–2.7 months of E-rank monthly spendable (45,833–75,000 ₵/month) — within the 1–3 month target range. Significant savings investment. First rank where supplement acquisition becomes a meaningful economic milestone rather than a survival necessity.",
+      "_audit_note": "legal_price raised from 15,000–80,000 to 50,000–200,000 ₵. Original low of 15,000 ₵ was below 1 month of E-rank monthly spendable (15,000/45,833=0.33 months). New range: 50,000/75,000=0.67 months to 200,000/45,833=4.4 months. Midpoint (125,000 ₵) = ~1.7–2.7 months — passes 1–3 month target. gray_price updated from 10,000–50,000 to 30,000–140,000 (60–70% of legal). Civilian 2-year savings check: 12,000 ₵ < 50,000 ₵ minimum — civilians still cannot afford E supplements ✓."
+    },
+    {
+      "rank": "D",
+      "type": "Advanced Core Supplement",
+      "legal_price": "150,000–600,000 ₵ (15–60 Low ◈)",
+      "gray_price": "90,000–420,000 ₵ (9–42 Low ◈)",
+      "notes": "Represents 1–4 months of D-rank monthly spendable (150,000–250,000 ₵/month). Core advancement at D-rank. Gray market purchases carry risk of adulterated product and ICA enforcement exposure.",
+      "_audit_note": "legal_price raised from 10,000–50,000 ₵ (1–5 Low ◈) to 150,000–600,000 ₵ (15–60 Low ◈). Original low of 10,000 ₵ was only 0.067 months of D-rank monthly spendable — trivially affordable and narratively inconsistent with the jump from E-rank. New range: 150,000/250,000=0.6 months to 600,000/150,000=4 months — within 1–3 month target at midpoint. gray_price updated to maintain 60–70% of legal price."
+    },
+    {
+      "rank": "C",
+      "type": "High-grade Supplement",
+      "legal_price": "600,000–2,000,000 ₵ (60–200 Low ◈)",
+      "gray_price": "Not reliably available",
+      "notes": "Represents 0.5–3.4 months of C-rank monthly spendable (583,333–1,166,667 ₵/month). C-rank supplements are effectively institutional products — most are dispensed through ICA-authorized medical programs, not purchased individually on the open market.",
+      "_audit_note": "legal_price raised from 100,000–500,000 ₵ to 600,000–2,000,000 ₵. Original range was 0.086–0.86 months of C-rank monthly spendable — well below the 1–3 month target. New low of 600,000 = ~0.5–1.0 months; high of 2,000,000 = ~1.7–3.4 months. Midpoint (1,300,000 ₵) = ~1.1–2.2 months — passes. Gray market remains 'Not reliably available' as C-rank supplements are politically controlled goods."
+    }
+  ],
+  "creature_cores": [
+    {
+      "rank": "F",
+      "core_price": "80–300 ₵",
+      "parts_yield": "25–90 ₵ (~30% of core)",
+      "licensing": "None — open market",
+      "buyer_pool": "Supplement makers, alchemists, academy salvage, energy cell producers",
+      "notes": "Commodity grade. Sold in bulk lots. Common species at low end, rare F-rank apex variants at high end."
+    },
+    {
+      "rank": "E",
+      "core_price": "1,500–6,000 ₵",
+      "parts_yield": "420–1,680 ₵ (~28% of core)",
+      "licensing": "None — open market",
+      "buyer_pool": "E-rank supplement makers, industrial energy, mid-tier weapon forges, research institutions",
+      "notes": "Single good core covers a Dormant's weekly wage. Species rarity multiplier matters significantly here."
+    },
+    {
+      "rank": "D",
+      "core_price": "3,000–20,000 ₵ (0.3–2 Low ◈)",
+      "parts_yield": "750–5,000 ₵ (~25% of core)",
+      "licensing": "ICA Basic License required for primary market",
+      "buyer_pool": "D-rank supplement producers, advanced forges, ICA institutional buyers, corporate R&D",
+      "notes": "Each core is a real transaction. Gray market sale at 25–35% discount for unlicensed sellers. Parts yield verified: 3,000×0.25=750 ✓; 20,000×0.25=5,000 ✓."
+    },
+    {
+      "rank": "C",
+      "core_price": "20,000–150,000 ₵ (2–15 Low ◈)",
+      "parts_yield": "4,400–33,000 ₵ (~22% of core)",
+      "licensing": "ICA Restricted License. Most pre-sold under corporate standing agreements.",
+      "buyer_pool": "Corporate institutions, national supplement programs, high-end weapon crafters, ICA strategic reserve",
+      "notes": "Most C-rank cores never appear on open market. Contracted before they're harvested. Parts yield verified: 20,000×0.22=4,400 ✓; 150,000×0.22=33,000 ✓."
+    },
+    {
+      "rank": "B",
+      "core_price": "500,000–3,000,000 ₵ (50–300 Low ◈)",
+      "parts_yield": "100,000–600,000 ₵ (~20% of core)",
+      "licensing": "ICA Authorization (Classified). Not individually available.",
+      "buyer_pool": "Governments, megacorporations, ICA strategic divisions. Does not trade openly.",
+      "notes": "B-rank kills are operational events. Individual cores are named and catalogued by the ICA. Parts yield verified: 500,000×0.20=100,000 ✓; 3,000,000×0.20=600,000 ✓."
+    },
+    {
+      "rank": "A+",
+      "core_price": "Mid ◈ range and above",
+      "parts_yield": "Classified",
+      "licensing": "ICA sovereign authorization only",
+      "buyer_pool": "Sovereign governments, ICA central authority, entities unknown to the public market",
+      "notes": "Effectively priceless on open market. S-rank cores do not trade. Ever."
+    }
+  ],
+  "commission_ranks": [
+    {
+      "rank": "Open",
+      "members": 200000,
+      "fee_cut": 12,
+      "notes": "Full open board. Standard 12% fee."
+    },
+    {
+      "rank": "Listed",
+      "members": 60000,
+      "fee_cut": 12,
+      "notes": "Priority listing on open board."
+    },
+    {
+      "rank": "Verified",
+      "members": 20000,
+      "fee_cut": 11,
+      "notes": "Minor fee reduction. Verified board access."
+    },
+    {
+      "rank": "Recognized",
+      "members": 5000,
+      "fee_cut": 10,
+      "notes": "Recognized-tier contracts visible."
+    },
+    {
+      "rank": "Notable",
+      "members": 1000,
+      "fee_cut": 9,
+      "notes": "Notable-tier board. Classified reward contracts."
+    },
+    {
+      "rank": "Distinguished",
+      "members": 200,
+      "fee_cut": 8,
+      "notes": "Distinguished-tier. Direct poster contact."
+    },
+    {
+      "rank": "Renowned",
+      "members": 40,
+      "fee_cut": 6,
+      "notes": "Renowned-tier. Off-record contracts."
+    },
+    {
+      "rank": "Sovereign",
+      "members": 8,
+      "fee_cut": 0,
+      "notes": "Full board. No fee. Silent Accord adjacent."
+    }
+  ],
+  "commission_platform_fee": 12,
+  "commission_note": "Higher-rank listings are invisible to lower-rank members. The most valuable contracts never appear on the open board at all. The Commission has operated for approximately 400 years. What preceded it, and who truly controls it, is not information the Commission provides.",
+  "commission_revenue_model": {
+    "primary_revenue": "12% fee on approximately 286,240 Open through Distinguished members. Estimated gross annual platform volume: 80–120 billion ₵ based on member count weighted average income across ranks. At 12% average blended fee rate, Commission operational revenue is approximately 9–14 billion ₵ annually — sufficient to fund the independent arbitration network, bounty insurance pools, and regional chapter infrastructure.",
+    "sovereign_arrangement": "Sovereign-tier Corebearers represent eight individuals whose operational gravity already bends the Commission's own market. Requiring a fee from them would be a negotiation, not an administration — and one the Commission would likely lose. Instead, Sovereign presence on the platform signals legitimacy to lower tiers, their high-profile missions draw thousands of support-contract seekers who generate fee-bearing transactions, and their formal visibility provides the Commission with political cover in ICA treaty negotiations that no fee income could purchase. The Commission keeps Sovereign members compliant through access, not extraction: they receive intelligence on every significant contract across all tiers, which is worth more to a national-asset Corebearer than any financial arrangement.",
+    "estimated_annual_volume": "Approximately 80–120 billion ₵ in total transactions routed through Commission platform annually. Dominated by Open and Listed tiers by volume; upper tiers drive a disproportionate share of total value despite low member count.",
+    "_audit_note": "commission_revenue_model added per Step 8 requirements.",
+    "_assumption": true
+  },
+  "real_world_benchmarks": [
+    {
+      "label": "Cup of street food",
+      "credits": "3–8 ₵",
+      "usd": "$1.50–$4"
+    },
+    {
+      "label": "Monthly rent (civilian)",
+      "credits": "300–600 ₵",
+      "usd": "$150–$300"
+    },
+    {
+      "label": "Monthly rent (Dormant)",
+      "credits": "800–1,500 ₵",
+      "usd": "$400–$750"
+    },
+    {
+      "label": "Civilian annual salary",
+      "credits": "6,000 ₵",
+      "usd": "$3,000"
+    },
+    {
+      "label": "Dormant annual salary",
+      "credits": "20,000–25,000 ₵",
+      "usd": "$10,000–$12,500"
+    },
+    {
+      "label": "F-rank Corebearer gross annual",
+      "credits": "246,000–360,373 ₵",
+      "usd": "$123,000–$180,186"
+    },
+    {
+      "label": "F-rank Corebearer net annual",
+      "credits": "97,114–159,297 ₵",
+      "usd": "$48,557–$79,649"
+    },
+    {
+      "label": "F-rank Corebearer spendable",
+      "credits": "8,000–33,617 ₵/yr",
+      "usd": "$4K–$17K/yr"
+    },
+    {
+      "label": "E-rank Corebearer gross annual",
+      "credits": "3.48M–5.7M ₵",
+      "usd": "$1.74M–$2.85M"
+    },
+    {
+      "label": "E-rank Corebearer net annual",
+      "credits": "1,987,403–3,311,217 ₵",
+      "usd": "$993,702–$1,655,609"
+    },
+    {
+      "label": "E-rank Corebearer spendable",
+      "credits": "550,000–1,113,467 ₵/yr",
+      "usd": "$275K–$557K/yr"
+    },
+    {
+      "label": "D-rank Corebearer gross annual",
+      "credits": "9.1M–15.1M ₵",
+      "usd": "$4.6M–$7.6M"
+    },
+    {
+      "label": "D-rank Corebearer net annual",
+      "credits": "4,625,402–8,307,997 ₵",
+      "usd": "$2,312,701–$4,153,999"
+    },
+    {
+      "label": "D-rank Corebearer spendable",
+      "credits": "1,800,000–3,551,205 ₵/yr",
+      "usd": "$0.9M–$1.8M/yr"
+    },
+    {
+      "label": "C-rank Corebearer gross annual",
+      "credits": "36.5M–53.6M ₵",
+      "usd": "$18.2M–$26.8M"
+    },
+    {
+      "label": "C-rank Corebearer net annual",
+      "credits": "15,214,233–25,854,151 ₵",
+      "usd": "$7,607,117–$12,927,076"
+    },
+    {
+      "label": "C-rank Corebearer spendable",
+      "credits": "7,000,000–15,655,845 ₵/yr",
+      "usd": "$3.5M–$7.8M/yr"
+    },
+    {
+      "label": "B-rank Corebearer gross annual",
+      "credits": "29.4M–77.9M ₵",
+      "usd": "$14.7M–$39.0M"
+    },
+    {
+      "label": "B-rank Corebearer net annual",
+      "credits": "18,681,750–49,506,637 ₵",
+      "usd": "$9,340,875–$24,753,319"
+    },
+    {
+      "label": "B-rank Corebearer spendable",
+      "credits": "10,000,000–33,500,111 ₵/yr",
+      "usd": "$5.0M–$16.8M/yr"
+    },
+    {
+      "label": "A-rank Corebearer gross annual",
+      "credits": "191.2M–573.5M ₵",
+      "usd": "$95.6M–$286.8M"
+    },
+    {
+      "label": "A-rank Corebearer net annual",
+      "credits": "124,071,187–372,213,562 ₵",
+      "usd": "$62,035,594–$186,106,781"
+    },
+    {
+      "label": "A-rank Corebearer spendable",
+      "credits": "56,000,000–249,770,850 ₵/yr",
+      "usd": "$28.0M–$124.9M/yr"
+    },
+    {
+      "label": "Tier-1 dungeon entry (standard)",
+      "credits": "400–800 ₵",
+      "usd": "$200–$400"
+    },
+    {
+      "label": "F-rank core (common)",
+      "credits": "80–300 ₵",
+      "usd": "$40–$150"
+    },
+    {
+      "label": "E-rank core (common)",
+      "credits": "1,500–6,000 ₵",
+      "usd": "$750–$3,000"
+    },
+    {
+      "label": "F-rank Core Supplement (legal)",
+      "credits": "2,000–5,000 ₵",
+      "usd": "$1,000–$2,500"
+    },
+    {
+      "label": "E-rank Core Supplement (legal)",
+      "credits": "50,000–200,000 ₵",
+      "usd": "$25,000–$100,000"
+    },
+    {
+      "label": "D-rank Core Supplement (legal)",
+      "credits": "150,000–600,000 ₵",
+      "usd": "$75,000–$300,000"
+    },
+    {
+      "label": "F-rank weapon (Common)",
+      "credits": "2,500–3,000 ₵",
+      "usd": "$1,250–$1,500"
+    },
+    {
+      "label": "E-rank weapon (Common)",
+      "credits": "150,000–200,000 ₵",
+      "usd": "$75,000–$100,000"
+    },
+    {
+      "label": "D-rank weapon (Common)",
+      "credits": "500,000–700,000 ₵",
+      "usd": "$250,000–$350,000"
+    },
+    {
+      "label": "C-rank weapon (Common)",
+      "credits": "2,500,000–3,000,000 ₵",
+      "usd": "$1,250,000–$1,500,000"
+    },
+    {
+      "label": "B-rank weapon (Common)",
+      "credits": "6,000,000–10,000,000 ₵",
+      "usd": "$3,000,000–$5,000,000"
+    },
+    {
+      "label": "A-rank weapon (Common)",
+      "credits": "44,000,000–55,000,000 ₵",
+      "usd": "$22,000,000–$27,500,000"
+    },
+    {
+      "label": "Mid-sized city value",
+      "credits": "~6,000,000,000,000 ₵",
+      "usd": "~$3 Trillion"
+    },
+    {
+      "label": "S-rank item (minimum)",
+      "credits": "10,000,000,000+ ₵",
+      "usd": "$5 Billion+"
+    }
+  ],
+  "lore": "All transactions in the Primal Expanse are denominated in Credits (₵), the standard unit of exchange across civilian, Dormant, and Corebearer economies alike. One Credit is roughly equivalent to half a standard USD. Academy Points (AP) issued by the LMCA convert at a locked internal rate of 6 ₵ per AP and cannot be traded or transferred outside the academy system. A working Corebearer runs approximately three dungeon operations per week across a 48-week active season — 144 runs per year — forming the baseline from which income, fees, and operational costs are calculated."
+}

@@ -1,0 +1,133 @@
+{
+  "world_state": "Stable",
+  "clearance_level": "F",
+  "active_date": "Year 4, Month 1, Day 1",
+  "notes": "world_state: controls global market flux. clearance_level: ICA rank gate (F-SSS). commission_rank: Commission board visibility gate.",
+  "world_states": {
+    "Stable": {
+      "label": "Stable",
+      "color": "#4a9a4a",
+      "description": "Markets operating normally.",
+      "hide_bm_tiers": [],
+      "category_flux": {}
+    },
+    "Wartime": {
+      "label": "Wartime",
+      "color": "#cc7a00",
+      "description": "Active military conflict. Combat goods scarce. Foreign trade suspended.",
+      "hide_bm_tiers": [],
+      "category_flux": {
+        "Weapons": 1.8,
+        "Armor": 1.8,
+        "Consumables": 1.5,
+        "Supplements": 1.4,
+        "Creatures": 2,
+        "Services": 2,
+        "Information": 2.5
+      },
+      "foreign_suspended": true
+    },
+    "Dungeon Break": {
+      "label": "Dungeon Break",
+      "color": "#cc2200",
+      "description": "Active dungeon breach. Material markets flooded. Emergency services in demand.",
+      "hide_bm_tiers": [],
+      "category_flux": {
+        "Materials": 0.6,
+        "Crystals": 0.7,
+        "Cores": 0.75,
+        "Creatures": 3,
+        "Services": 2.5,
+        "Consumables": 2,
+        "Equipment": 1.6
+      }
+    },
+    "ICA Crackdown": {
+      "label": "ICA Crackdown",
+      "color": "#4a8fff",
+      "description": "ICA enforcement sweep. Street and mid markets driven underground. Deep market prices spike.",
+      "hide_bm_tiers": [
+        "bm-low",
+        "bm-mid"
+      ],
+      "bm_tier_flux": {
+        "bm-high": 3,
+        "bm-critical": 5,
+        "bm-foreign": 3.5
+      },
+      "category_flux": {}
+    },
+    "Economic Collapse": {
+      "label": "Economic Collapse",
+      "color": "#888888",
+      "description": "Regional currency crisis. Credits losing value. Barter and crystal trade surging.",
+      "hide_bm_tiers": [],
+      "category_flux": {
+        "Crystals": 2.5,
+        "Artifacts": 2,
+        "Information": 1.8,
+        "Consumables": 1.7,
+        "Supplements": 1.6
+      }
+    },
+    "Fracture Witness": {
+      "label": "Fracture Witness",
+      "color": "#9040cc",
+      "description": "Fracture Witness activity confirmed. Dimensional overflow risk active. ICA on emergency footing. Information value surges.",
+      "hide_bm_tiers": [
+        "bm-low"
+      ],
+      "bm_tier_flux": {
+        "bm-mid": 2,
+        "bm-high": 3.5,
+        "bm-critical": 4,
+        "bm-foreign": 2.5
+      },
+      "category_flux": {
+        "Materials": 0.5,
+        "Crystals": 0.6,
+        "Services": 3,
+        "Information": 4,
+        "Consumables": 2.5,
+        "Equipment": 2,
+        "Weapons": 2.2,
+        "Armor": 2.2
+      }
+    },
+    "Silent Accord": {
+      "label": "Silent Accord",
+      "color": "#cc44ff",
+      "description": "The Accord moves openly. Commission contract volume surges. Gray market prices strengthen. ICA Crackdown intensifies on black market.",
+      "hide_bm_tiers": [
+        "bm-low",
+        "bm-mid"
+      ],
+      "bm_tier_flux": {
+        "bm-high": 4,
+        "bm-critical": 6,
+        "bm-foreign": 3
+      },
+      "category_flux": {
+        "Artifacts": 3,
+        "Information": 5,
+        "Services": 2.5,
+        "Crystals": 1.8,
+        "Weapons": 1.5
+      },
+      "commission_surge": true,
+      "gray_market_bonus": 1.3
+    }
+  },
+  "clearance_ranks": [
+    "F",
+    "E",
+    "D",
+    "C",
+    "B",
+    "A",
+    "S",
+    "SS",
+    "SSS"
+  ],
+  "commission_rank": "Open"
+}
