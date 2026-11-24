@@ -1,0 +1,238 @@
+{
+  "power": [
+    {
+      "v": 1.7,
+      "fields": {
+        "lift": {
+          "value": 440,
+          "unit": "kg",
+          "desc": "A grand piano lifted with strain, the legs splayed for balance"
+        },
+        "strike": {
+          "value": 240,
+          "unit": "kgf",
+          "desc": "A sledgehammer's force, crushing brick into dust at 120 km/h"
+        },
+        "impact": {
+          "value": 0.4,
+          "unit": "m",
+          "desc": "0.4 m radius of splintered wood and cracked stone, a heavy boot's imprint"
+        },
+        "precision": {
+          "value": 0.075,
+          "unit": "precision_factor",
+          "desc": "Delicate vases handled with care, a 0.1 mm margin of error"
+        }
+      }
+    },
+    {
+      "v": 2.7,
+      "fields": {
+        "lift": {
+          "value": 1412,
+          "unit": "kg",
+          "desc": "1,410 kg. A small sedan can be lifted clear off the ground, its frame groaning. The weight is a choice, not a limitation."
+        },
+        "strike": {
+          "value": 857,
+          "unit": "kgf",
+          "desc": "850 kgf. A single strike pulverizes cinder blocks, leaving a crater. Bone shatters like dry kindling."
+        },
+        "impact": {
+          "value": 0.77,
+          "unit": "m",
+          "desc": "0.75 m radius. The ground buckles, sending hairline fractures spiderwebbing through asphalt. A controlled landing can still shatter a glass tabletop."
+        },
+        "precision": {
+          "value": 0.202,
+          "unit": "precision_factor",
+          "desc": "0.20 — The body can now modulate its destructive power, but only with conscious effort. A gentle touch is possible, but a moment of distraction can still crush."
+        }
+      }
+    },
+    {
+      "v": 3.4,
+      "fields": {
+        "lift": {
+          "value": 1712,
+          "unit": "kg",
+          "desc": "1,712 kg — the mass of a large SUV, held effortlessly. The ground beneath groans, but the Corebearer does not, their strength a silent, crushing promise."
+        },
+        "strike": {
+          "value": 1032,
+          "unit": "kgf",
+          "desc": "1,032 kgf at 80 km/h. A single blow delivers the force of a head-on collision, shattering bone and warping structural steel into grotesque new forms."
+        },
+        "impact": {
+          "value": 0.88,
+          "unit": "m",
+          "desc": "0.88 m radius. A deliberate impact sends a sickening tremor, cracking concrete slabs and fracturing pipes in a radiating web of destruction."
+        },
+        "precision": {
+          "value": 0.25,
+          "unit": "precision_factor",
+          "desc": "0.25 precision. Fine enough to crush a specific bone without disturbing adjacent tissue, or to tear a limb away with surgical brutality, leaving the rest intact."
+        }
+      }
+    },
+    {
+      "v": 4.1,
+      "fields": {
+        "lift": {
+          "value": 2100,
+          "unit": "kg",
+          "desc": "A loaded SUV, 2,100 kg, crushed in an unyielding grip, its metal screaming in protest."
+        },
+        "strike": {
+          "value": 1350,
+          "unit": "kgf",
+          "desc": "1,350 kgf: a punch that buckles reinforced hatches, sending shrapnel flying like deadly projectiles."
+        },
+        "impact": {
+          "value": 1,
+          "unit": "m",
+          "desc": "1.0 m shockwave radius: a deliberate stomp shatters concrete, sending fissures through the ground like a miniature earthquake."
+        },
+        "precision": {
+          "value": 0.35,
+          "unit": "precision_factor",
+          "desc": "0.35 — a delicate balance of force, where a firm handshake doesn't crush, but a careless gesture can still demolish."
+        }
+      }
+    }
+  ],
+  "speed": [
+    {
+      "v": 1.7,
+      "fields": {
+        "burst": {
+          "value": 42,
+          "unit": "km/h",
+          "desc": "42 km/h — a blur of motion, sprinting across a parking lot in seconds, leaving most unaugmented humans in the dust."
+        },
+        "sustained": {
+          "value": 25.5,
+          "unit": "km/h",
+          "desc": "25.5 km/h for hours, a pace that tires the unaugmented, but feels like a warm-up for a Corebearer."
+        },
+        "reaction": {
+          "value": 150,
+          "unit": "ms",
+          "desc": "150 ms — anticipation becomes second nature, reacting to threats before they fully materialize."
+        },
+        "movement": {
+          "value": 1.25,
+          "unit": "agility_factor",
+          "desc": "1.25× — weaving through dense terrain with ease, obstacles that slow others become mere nuisances."
+        }
+      }
+    }
+  ],
+  "perception": [
+    {
+      "v": 28,
+      "fields": {
+        "sight": {
+          "value": 3480,
+          "unit": "m",
+          "desc": "3,480 m. The air shimmers with unseen currents, revealing faint energy signatures around living things. A new layer of reality is painted onto the world, a canvas of raw power."
+        },
+        "hearing": {
+          "value": 620,
+          "unit": "m",
+          "desc": "620 m. The thrum of distant machinery and the subtle creak of bone become distinct. Every beat of a heart, every whisper of breath, is a drum in the silent symphony of life."
+        },
+        "awareness": {
+          "value": 50,
+          "unit": "m",
+          "desc": "50 m spatial radius, 14 m Core detection. The mind maps its surroundings with chilling precision, detecting Corebearer signatures as distinct, throbbing nodes of power. The world is an open book of hidden threats."
+        },
+        "intuition": {
+          "value": 0.58,
+          "unit": "threat_factor",
+          "desc": "0.58. The air crackles with premonition, signaling not just overt attacks, but the subtle shifts in intent before they manifest. Danger whispers its name before it strikes."
+        },
+        "processing": {
+          "value": 7,
+          "unit": "threats",
+          "desc": "7 targets. Multiple threats are tracked with fluid ease, each movement and intent woven into a grim tapestry of combat. The mind is a predator, effortlessly juggling its prey."
+        }
+      }
+    }
+  ],
+  "vitality": [
+    {
+      "v": 19.6,
+      "rank": "D-rank",
+      "fields": {
+        "resistance": {
+          "value": 18031.68,
+          "unit": "Joules",
+          "desc": "18,000 J mitigation. The Ichor's dense flow absorbs high-energy impacts, distributing force through a heavier, non-biological medium. High-caliber rounds leave deep bruising; impacts equivalent to a small car crash at 25 km/h cause significant trauma but no critical injury."
+        },
+        "recovery": {
+          "value": 10072.32,
+          "unit": "seconds",
+          "desc": "Deep muscular wounds seal in under 2 hours 50 minutes. Fractures knit within 44 hours. The Ichor-enriched system rapidly delivers repair mass and energy, allowing minor limb regeneration (fingers, toes) to begin within 3 days of rest."
+        },
+        "resilience": {
+          "value": 0.7144,
+          "unit": "resistance_factor",
+          "desc": "71.4% resistance. The Ichor's alien composition renders most biological toxins inert; their mechanisms fail against the dense, energy-rich medium. Only potent, Essence-laced compounds or Core-type bypass agents pose a significant threat."
+        },
+        "lifespan": {
+          "value": 260.08,
+          "unit": "years",
+          "desc": "260 years. The Ichor's constant flow retards cellular decay, granting an effective biological ceiling of 260 years. The body's clock runs at a glacial pace, accumulating metabolic waste at a fraction of normal rates."
+        },
+        "stamina": {
+          "value": 12.624,
+          "unit": "hours",
+          "desc": "Sustained combat for 12.6 hours. The Engine demands only 2.75 hours of sleep, a low-power hum maintaining core functions. Dungeon-grade sustenance is critical; without it, the core's refinement rate drops, leading to rapid fatigue."
+        },
+        "environmental": {
+          "value": 0.1288,
+          "unit": "env_factor",
+          "desc": "0.129 env_factor. The Ichor's internal furnace maintains a basal temperature of 42°C. Extreme cold (-30°C) is merely uncomfortable; moderate heat (50°C) causes minor irritation. Vacuum exposure remains lethal."
+        }
+      }
+    }
+  ],
+  "energy": [
+    {
+      "v": 3.3,
+      "rank": "F-rank",
+      "fields": {
+        "duration": {
+          "value": 4.6,
+          "unit": "minutes",
+          "desc": "Peak output: 4.6 minutes before Core thermal buildup forces reduction. Moderate output: 28 minutes. Recovery: 5 hours rest. Chain limit: 1 technique before mandatory cooldown."
+        },
+        "aura": {
+          "value": 0.9,
+          "unit": "m",
+          "desc": "Core emission detectable at 0.8 m by arc-scale instruments only. The Seed hums but doesn't radiate — it keeps its energy internal. No visible effects."
+        },
+        "burst": {
+          "value": 2.1,
+          "unit": "m",
+          "desc": "Directed discharge range: 2.1 m. 400 J concentrated impact. The Seed provides the energy; the body provides minimal shaping capability."
+        }
+      }
+    }
+  ],
+  "speed_rank": [
+    {
+      "v": 1.7,
+      "rank": "F-rank",
+      "fields": {
+        "jump": {
+          "value": 2.1,
+          "unit": "m",
+          "desc": "2.1 m vertical clearance, 5.3 m horizontal leap. A focused Corebearer can nearly clear a 7-foot fence with a running start."
+        }
+      }
+    }
+  ],
+  "perception_rank": []
+}

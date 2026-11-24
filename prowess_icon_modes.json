@@ -1,0 +1,91 @@
+{
+  "burst": {
+    "mask": true,
+    "bgremove": true
+  },
+  "sustained": {
+    "mask": true,
+    "bgremove": true
+  },
+  "reaction": {
+    "mask": true,
+    "bgremove": true
+  },
+  "movement": {
+    "mask": true,
+    "bgremove": true
+  },
+  "flight": {
+    "mask": true,
+    "bgremove": true
+  },
+  "recovery": {
+    "mask": true,
+    "bgremove": true
+  },
+  "lifespan": {
+    "mask": false,
+    "bgremove": true
+  },
+  "stamina": {
+    "mask": true,
+    "bgremove": true
+  },
+  "env": {
+    "mask": true,
+    "bgremove": true
+  },
+  "sight": {
+    "mask": true,
+    "bgremove": true
+  },
+  "hearing": {
+    "mask": true,
+    "bgremove": true
+  },
+  "intuition": {
+    "mask": true,
+    "bgremove": true
+  },
+  "processing": {
+    "mask": true,
+    "bgremove": true
+  },
+  "duration": {
+    "mask": true,
+    "bgremove": true
+  },
+  "aura": {
+    "mask": true,
+    "bgremove": true
+  },
+  "threshold": {
+    "mask": true,
+    "bgremove": true
+  },
+  "kills": {
+    "mask": true,
+    "bgremove": true
+  },
+  "toxin": {
+    "mask": true,
+    "bgremove": true
+  },
+  "other": {
+    "mask": true,
+    "bgremove": true
+  },
+  "exhaustion": {
+    "mask": true,
+    "bgremove": true
+  },
+  "passive": {
+    "mask": true,
+    "bgremove": true
+  },
+  "burst_eruption": {
+    "mask": true,
+    "bgremove": true
+  },
+  "showUnits": true
+}
