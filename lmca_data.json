@@ -1,0 +1,825 @@
+{
+  "TRACK_DATA": [
+    {
+      "id": "apex",
+      "name": "Apex Track",
+      "formerly": "Elite Track",
+      "nickname": "Royals",
+      "trim": "#c0392b",
+      "symbol": "Twin Crossed Blades over a Core",
+      "housing": "The Crimson Court — North Tower Complex",
+      "dungeons": "A-rank and B-rank",
+      "desc": "Top 5% of awakening assessments. Rare or high-tier abilities. The academy's legacy and public face."
+    },
+    {
+      "id": "vanguard",
+      "name": "Vanguard Track",
+      "formerly": null,
+      "nickname": "Blades",
+      "trim": "#2e7db3",
+      "symbol": "Single Blade",
+      "housing": "The Barracks — East and West Wings",
+      "dungeons": "C-rank and D-rank",
+      "desc": "Average-to-good growth projections, useful combat abilities. The backbone of the actual workforce."
+    },
+    {
+      "id": "support",
+      "name": "Support Track",
+      "formerly": null,
+      "nickname": "Tools",
+      "trim": "#27754a",
+      "symbol": "Gear Wheel",
+      "housing": "The Workshop — South Building",
+      "dungeons": "E-rank and F-rank (Vanguard access via AP threshold)",
+      "desc": "Support-type, sensory-type, or low-offense abilities. Barrier users, medics, logistics, analysis."
+    },
+    {
+      "id": "auxiliary",
+      "name": "Auxiliary Track",
+      "formerly": null,
+      "nickname": "Greys",
+      "trim": "#555e6b",
+      "symbol": "Open Gear (no center)",
+      "housing": "Auxiliary Hall — Ground Level, South Building",
+      "dungeons": "F-rank (supervised only)",
+      "desc": "Weak, narrow, or practically-useless abilities. Training for infrastructure and support roles."
+    },
+    {
+      "id": "dormant",
+      "name": "Dormant Program",
+      "formerly": "Alternative Contribution Path",
+      "nickname": "Ghosts",
+      "trim": "#888e99",
+      "symbol": "Hollow Core",
+      "housing": "The Grey Blocks — The Annex",
+      "dungeons": "None (research contribution paths only)",
+      "desc": "Unawakened Coreborn. High mortality post-graduation. The academy's consumables."
+    }
+  ],
+  "DEPT_DATA": [
+    {
+      "id": "combat",
+      "num": 1,
+      "name": "Combat Training Corps",
+      "type": "primary",
+      "motto": "Power is forged through killing.",
+      "headTitle": "Chief Combat Director",
+      "head": "Director Harlan Voss",
+      "headRank": "B-rank",
+      "color": "#c0392b",
+      "positions": [
+        {
+          "title": "Chief Combat Director",
+          "current": "Harlan Voss",
+          "rank": "B-rank",
+          "level": 0
+        },
+        {
+          "title": "Deputy Director, Combat Operations",
+          "current": null,
+          "rank": "B-rank min",
+          "level": 1
+        },
+        {
+          "title": "Deputy Director, Ability Development",
+          "current": null,
+          "rank": "B-rank min",
+          "level": 1
+        },
+        {
+          "title": "Deputy Director, Assessment & Grading",
+          "current": null,
+          "rank": "B-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Close-Quarters Combat Division",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 2
+        },
+        {
+          "title": "Head — Range & Precision Division",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 2
+        },
+        {
+          "title": "Head — Ability Integration Cells",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 2
+        },
+        {
+          "title": "Head — Combat Theory & Kill Doctrine",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 2
+        },
+        {
+          "title": "Head — Team Doctrine Division",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "id": "dungeon-ops",
+      "num": 2,
+      "name": "Dungeon Operations Command",
+      "type": "primary",
+      "motto": "The dungeon is not an obstacle. It is the classroom.",
+      "headTitle": "Director of Dungeon Operations",
+      "head": "Director Callum Wren",
+      "headRank": "C-rank",
+      "color": "#2e7db3",
+      "positions": [
+        {
+          "title": "Director of Dungeon Operations",
+          "current": "Callum Wren",
+          "rank": "C-rank",
+          "level": 0
+        },
+        {
+          "title": "Head of Dungeon Stability",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Scheduling & Allocation",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Emergency Response",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Environmental Records",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "num": 3,
+      "name": "Knowledge & Theory Institute",
+      "type": "primary",
+      "motto": "Understanding what you fight makes you better at killing it.",
+      "headTitle": "Chief Theorist",
+      "head": "Daphne Aruul",
+      "headRank": "D-rank",
+      "color": "#8e6db3",
+      "positions": [
+        {
+          "title": "Chief Theorist",
+          "current": "Daphne Aruul",
+          "rank": "D-rank",
+          "level": 0
+        },
+        {
+          "title": "Head of Core Sciences",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Dungeon Studies",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Emergence History",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Monster Taxonomy",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Strategic Analysis",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "specialist",
+      "num": 4,
+      "name": "Specialist Development Division",
+      "type": "primary",
+      "motto": "A well-placed support ability ends more fights than a sword.",
+      "headTitle": "Director of Specialist Training",
+      "head": "Director Mira Sato",
+      "headRank": "B++-rank",
+      "color": "#27754a",
+      "positions": [
+        {
+          "title": "Director of Specialist Training",
+          "current": "Mira Sato",
+          "rank": "B++-rank",
+          "level": 0
+        },
+        {
+          "title": "Head of Barrier & Defense Training",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Field Enhancement Training",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Sensory & Perception Training",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Field Medicine",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Control & Disruption",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "num": 5,
+      "name": "Academy Operations Bureau",
+      "type": "primary",
+      "motto": "Every weapon needs someone to carry the ammunition.",
+      "headTitle": "Bureau Chief of Operations",
+      "head": "Bureau Chief Oskar Brennan",
+      "headRank": "D-rank",
+      "color": "#b37d2e",
+      "positions": [
+        {
+          "title": "Bureau Chief of Operations",
+          "current": "Oskar Brennan",
+          "rank": "D-rank",
+          "level": 0
+        },
+        {
+          "title": "Head of Equipment & Armory",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Medical Services",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Salvage Processing",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Facility Maintenance",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Supply Chains",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "num": 6,
+      "name": "Research & Emergence Studies Division",
+      "type": "primary",
+      "motto": "We don't understand the dungeon yet. We're pretending we do.",
+      "headTitle": "Chief Research Officer",
+      "head": "CRO Elias Vane",
+      "headRank": "Unknown",
+      "color": "#2ebdb3",
+      "positions": [
+        {
+          "title": "Chief Research Officer",
+          "current": "Elias Vane",
+          "rank": "Unknown",
+          "level": 0
+        },
+        {
+          "title": "Head of Core Theory Research",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Dungeon Behavior Research",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Ability Origins Research",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Monster Biology Research",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Field Studies",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Corporate Research Liaison",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "competition",
+      "num": 7,
+      "name": "Competition & Advancement Office",
+      "type": "primary",
+      "motto": "Rankings are the only truth Markham admits to.",
+      "headTitle": "Director of Competition",
+      "head": "Director Petra Holt",
+      "headRank": "C-rank",
+      "color": "#e3ab2b",
+      "positions": [
+        {
+          "title": "Director of Competition",
+          "current": "Petra Holt",
+          "rank": "C-rank",
+          "level": 0
+        },
+        {
+          "title": "Head of Internal Rankings",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Tournament Operations",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Public Relations & Media",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        },
+        {
+          "title": "Head of Advancement Assessments",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "conduct",
+      "num": 8,
+      "name": "Conduct & Security Bureau",
+      "type": "primary",
+      "motto": "Stability is not peace. It is managed tension.",
+      "headTitle": "Bureau Chief of Conduct",
+      "head": "Bureau Chief Aldric Moss",
+      "headRank": "C-rank",
+      "color": "#b35a2e",
+      "positions": [
+        {
+          "title": "Bureau Chief of Conduct",
+          "current": "Aldric Moss",
+          "rank": "C-rank",
+          "level": 0
+        },
+        {
+          "title": "Head of Student Conduct",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Campus Security",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Incident Management",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head of Internal Affairs",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Intelligence Liaison Officer",
+          "current": null,
+          "rank": "Classified",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "dormant-admin",
+      "num": 9,
+      "name": "Dormant Program Administration",
+      "type": "primary",
+      "motto": "Officially part of Operations Bureau. Functionally separate.",
+      "headTitle": "Dormant Program Coordinator",
+      "head": "Coordinator Nessa Falk",
+      "headRank": "Dormant",
+      "color": "#888e99",
+      "positions": [
+        {
+          "title": "Dormant Program Coordinator",
+          "current": "Nessa Falk",
+          "rank": "Dormant",
+          "level": 0
+        },
+        {
+          "title": "Head of Career Path Training",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        },
+        {
+          "title": "Head of Dormant Student Welfare",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        },
+        {
+          "title": "Head of Placement & Contracts",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "medical",
+      "num": 10,
+      "name": "Medical & Core Stabilization Department",
+      "type": "subsidiary",
+      "motto": "Not every injury is visible.",
+      "headTitle": "Chief Medical Officer",
+      "head": "CMO Petra Voss",
+      "headRank": "D-rank",
+      "color": "#2eb380",
+      "positions": [
+        {
+          "title": "Chief Medical Officer",
+          "current": "Petra Voss",
+          "rank": "D-rank",
+          "level": 0
+        },
+        {
+          "title": "Head — Core Resonance Scanning",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Energy Purge & Stabilization",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Mutation Observation Ward",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "recruitment",
+      "num": 11,
+      "name": "Recruitment & Appraisal Bureau",
+      "type": "subsidiary",
+      "motto": "Potential must be identified before it escapes.",
+      "headTitle": "Director of Appraisal",
+      "head": "Director Wynn Calder",
+      "headRank": "C-rank",
+      "color": "#7db32e",
+      "positions": [
+        {
+          "title": "Director of Appraisal",
+          "current": "Wynn Calder",
+          "rank": "C-rank",
+          "level": 0
+        },
+        {
+          "title": "Head — Core Resonance Assessment",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Ability Simulation Testing",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Potential Projection Modeling",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "field-mission",
+      "num": 12,
+      "name": "Field Mission Command",
+      "type": "subsidiary",
+      "motto": "The dungeon is not the only battlefield.",
+      "headTitle": "Field Operations Commander",
+      "head": "Commander Seren Dayle",
+      "headRank": "A+-rank",
+      "color": "#c0392b",
+      "positions": [
+        {
+          "title": "Field Operations Commander",
+          "current": "Seren Dayle",
+          "rank": "A+-rank",
+          "level": 0
+        },
+        {
+          "title": "Head — City Operations",
+          "current": null,
+          "rank": "B-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Extraction & Retrieval",
+          "current": null,
+          "rank": "B-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "sponsorship",
+      "num": 13,
+      "name": "Benefactor & Sponsorship Office",
+      "type": "subsidiary",
+      "motto": "Power attracts money. Money attracts power.",
+      "headTitle": "Director of Sponsorship Relations",
+      "head": "Director Irina Koss",
+      "headRank": "Dormant",
+      "color": "#b3862e",
+      "positions": [
+        {
+          "title": "Director of Sponsorship Relations",
+          "current": "Irina Koss",
+          "rank": "Dormant",
+          "level": 0
+        },
+        {
+          "title": "Head — Corporate Relations",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        },
+        {
+          "title": "Head — Family Endowments",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "artifact",
+      "num": 14,
+      "name": "Artifact & Relic Management Division",
+      "type": "subsidiary",
+      "motto": "Some things that come out of dungeons shouldn't exist.",
+      "headTitle": "Chief Artifact Officer",
+      "head": "CAO Marren Vell",
+      "headRank": "B-rank",
+      "color": "#9b59b6",
+      "positions": [
+        {
+          "title": "Chief Artifact Officer",
+          "current": "Marren Vell",
+          "rank": "B-rank",
+          "level": 0
+        },
+        {
+          "title": "Head — Artifact Cataloging",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Containment & Security",
+          "current": null,
+          "rank": "B-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Artifact Research Liaison",
+          "current": null,
+          "rank": "C-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "info-control",
+      "num": 15,
+      "name": "Information Control Office",
+      "type": "subsidiary",
+      "motto": "Unlisted in public organizational charts.",
+      "headTitle": "Director of Records",
+      "head": "Director Lain Mors",
+      "headRank": "Dormant",
+      "color": "#5d6b7a",
+      "positions": [
+        {
+          "title": "Director of Records",
+          "current": "Lain Mors",
+          "rank": "Dormant",
+          "level": 0
+        },
+        {
+          "title": "Head — Student Records",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        },
+        {
+          "title": "Head — Incident Archive Management",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        },
+        {
+          "title": "Head — Media & Narrative Control",
+          "current": null,
+          "rank": "Dormant eligible",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "ecology",
+      "num": 16,
+      "name": "Monster Ecology Unit",
+      "type": "subsidiary",
+      "motto": "Subsidiary to Research & Development and Dungeon Operations.",
+      "headTitle": "Senior Ecologist",
+      "head": "Senior Ecologist Cass Trine",
+      "headRank": "E-rank",
+      "color": "#2e8c5a",
+      "positions": [
+        {
+          "title": "Senior Ecologist",
+          "current": "Cass Trine",
+          "rank": "E-rank",
+          "level": 0
+        },
+        {
+          "title": "Head — Population Management",
+          "current": null,
+          "rank": "E-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Dungeon Flora & Fauna",
+          "current": null,
+          "rank": "E-rank min",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": "ranking-authority",
+      "num": 17,
+      "name": "Internal Ranking Authority",
+      "type": "subsidiary",
+      "motto": "Subsidiary to Competition & Advancement Office.",
+      "headTitle": "Head of Authority Assessment",
+      "head": "Head Assessor Rol Senne",
+      "headRank": "D-rank",
+      "color": "#e3ab2b",
+      "positions": [
+        {
+          "title": "Head of Authority Assessment",
+          "current": "Rol Senne",
+          "rank": "D-rank",
+          "level": 0
+        },
+        {
+          "title": "Head — Rank Maintenance",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        },
+        {
+          "title": "Head — Anomaly Watchlist",
+          "current": null,
+          "rank": "D-rank min",
+          "level": 1
+        }
+      ]
+    }
+  ],
+  "RANKING_TIERS": [
+    {
+      "title": "Crown Bearer",
+      "range": "1",
+      "min": 1,
+      "max": 1,
+      "color": "#ffd700"
+    },
+    {
+      "title": "Dominion Class",
+      "range": "2–10",
+      "min": 2,
+      "max": 10,
+      "color": "#e3ab2b"
+    },
+    {
+      "title": "Predator Class",
+      "range": "11–50",
+      "min": 11,
+      "max": 50,
+      "color": "#c0392b"
+    },
+    {
+      "title": "Hunter Class",
+      "range": "51–100",
+      "min": 51,
+      "max": 100,
+      "color": "#2e7db3"
+    },
+    {
+      "title": "Combat Class",
+      "range": "101–200",
+      "min": 101,
+      "max": 200,
+      "color": "#555e6b"
+    }
+  ],
+  "STRIPE_LABELS": [
+    "Unproven — First Year",
+    "Combat-Qualified",
+    "Intermediate Clearance",
+    "Team Leader Qualified",
+    "Elite Combat Authority",
+    "Ascension Finalist Level"
+  ],
+  "_meta": {
+    "version": "1.0",
+    "description": "Lord Markham Corebearer Academy — institutional config",
+    "generated": "2026-05-12",
+    "source": "LMCA.js split"
+  }
+}
